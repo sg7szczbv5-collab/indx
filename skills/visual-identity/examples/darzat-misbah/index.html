@@ -1,0 +1,658 @@
+<title>درزة مسباح</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&family=Marcellus&display=swap">
+<style>
+/* Layout: a single strand. Sections hang one under another like beads on a thread, each opened by a bead-count label. */
+:root {
+  /* brand constants (fixed in both themes) */
+  --kahraman: #C8892E;   /* كهرب */
+  --kahraman-lt: #E8B562;
+  --oud: #2A1914;        /* عود */
+  --fairouz: #2F8A84;    /* فيروز */
+  --adhm: #EEE8DD;       /* عظم */
+  --fidda: #9C9A93;      /* فضة الشرابة */
+  --yusr: #141515;       /* يسر */
+
+  /* page theme tokens: light */
+  --bg: #F4F0E9;
+  --surface: #FBF9F5;
+  --fg: #2A1914;
+  --muted: #6E5F57;
+  --line: #DDD3C6;
+  --accent: #A86C17;
+  --accent-2: #2A7C76;
+
+  --f-display: "Reem Kufi", "IBM Plex Sans Arabic", Tahoma, sans-serif;
+  --f-body: "IBM Plex Sans Arabic", Tahoma, "Segoe UI", sans-serif;
+  --f-latin: "Marcellus", Georgia, "Times New Roman", serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #17100D; --surface: #211713; --fg: #EEE8DD; --muted: #AD9F95;
+    --line: #3A2B24; --accent: #E0A64F; --accent-2: #4FB0A9; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #17100D; --surface: #211713; --fg: #EEE8DD; --muted: #AD9F95;
+  --line: #3A2B24; --accent: #E0A64F; --accent-2: #4FB0A9; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: var(--f-body); font-size: 16px; line-height: 1.8;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 1080px; margin: 0 auto; }
+h1, h2, h3 { font-family: var(--f-display); font-weight: 600; line-height: 1.3; text-wrap: balance; margin: 0; }
+h2 { font-size: clamp(1.7rem, 4vw, 2.4rem); }
+h3 { font-size: 1.15rem; }
+p { margin: 0; }
+.latin { font-family: var(--f-latin); letter-spacing: .18em; direction: ltr; unicode-bidi: isolate; }
+.muted { color: var(--muted); }
+.num { font-variant-numeric: tabular-nums; }
+
+/* hero */
+.hero { padding-block: 56px 40px; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 32px; align-items: center; }
+.hero .mark { width: clamp(150px, 26vw, 250px); }
+.hero h1 { font-size: clamp(3rem, 11vw, 6.5rem); font-weight: 700; line-height: 1.05; }
+.hero .latin { font-size: clamp(.85rem, 2vw, 1.1rem); color: var(--accent); margin-top: 10px; display: block; }
+.hero .tag { font-size: clamp(1.1rem, 2.6vw, 1.45rem); margin-top: 22px; font-family: var(--f-display); font-weight: 400; }
+.hero .meta { margin-top: 18px; font-size: .85rem; color: var(--muted); }
+@media (max-width: 640px) { .hero { grid-template-columns: 1fr; } .hero .mark { order: -1; } }
+
+/* strand divider */
+.strand { display: block; width: 100%; height: 22px; color: var(--accent); }
+
+/* sections */
+section { padding-block: 48px; display: grid; gap: 28px; }
+.sec-head { display: grid; gap: 8px; max-width: 62ch; }
+.count { font-size: .8rem; letter-spacing: .06em; color: var(--accent); font-weight: 600; }
+.grid { display: grid; gap: 16px; }
+.g2 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); }
+.g3 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); }
+.g4 { grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); }
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 22px; min-width: 0; }
+
+/* story */
+.values { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); }
+.value { border-top: 2px solid var(--accent); padding-top: 14px; display: grid; gap: 6px; }
+.value b { font-family: var(--f-display); font-size: 1.2rem; font-weight: 600; }
+
+/* logo tiles */
+.tile { border-radius: 6px; padding: 28px 20px 18px; display: grid; gap: 14px; justify-items: center; align-content: space-between; min-height: 290px; }
+.tile .mark { width: 120px; }
+.tile .cap { font-size: .8rem; justify-self: stretch; display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; }
+.t-adhm { background: var(--adhm); color: var(--oud); }
+.t-oud { background: var(--oud); color: var(--adhm); }
+.t-white { background: #FFFFFF; color: var(--yusr); border: 1px solid #DDD6CB; }
+.t-kahraman { background: var(--kahraman); color: var(--oud); }
+.wordmark { text-align: center; display: grid; gap: 2px; }
+.wordmark .ar { font-family: var(--f-display); font-weight: 700; font-size: 1.9rem; line-height: 1.2; }
+.wordmark .latin { font-size: .68rem; }
+.copy { font: inherit; font-size: .75rem; border: 1px solid currentColor; background: transparent; color: inherit; border-radius: 999px; padding: 3px 12px; cursor: pointer; opacity: .85; }
+.copy:hover { opacity: 1; }
+.copy:focus-visible, button:focus-visible { outline: 2px solid var(--accent-2); outline-offset: 2px; }
+
+.lockup { display: flex; align-items: center; gap: 18px; direction: rtl; }
+.lockup .mark { width: 64px; flex: none; }
+.lockup .ar { font-family: var(--f-display); font-weight: 700; font-size: 2rem; line-height: 1.1; }
+.lockup .latin { font-size: .62rem; display: block; margin-top: 4px; }
+.wide-tile { border-radius: 6px; padding: 32px 24px; display: grid; place-items: center; }
+
+.specs { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 16px; }
+.spec { display: grid; gap: 4px; font-size: .92rem; }
+.spec dt { font-weight: 600; }
+.spec dd { margin: 0; color: var(--muted); }
+
+.construct { display: grid; grid-template-columns: minmax(0, 260px) minmax(0, 1fr); gap: 28px; align-items: center; }
+@media (max-width: 640px) { .construct { grid-template-columns: 1fr; } }
+.construct svg { width: 100%; max-width: 260px; justify-self: center; }
+.legend { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.legend li { display: grid; grid-template-columns: 26px 1fr; gap: 10px; align-items: baseline; }
+.legend .k { font-family: var(--f-latin); color: var(--accent); font-weight: 600; text-align: center; border: 1px solid var(--line); border-radius: 50%; width: 26px; height: 26px; line-height: 24px; font-size: .8rem; }
+
+/* don'ts */
+.dont { border-radius: 6px; background: var(--surface); border: 1px solid var(--line); padding: 18px; display: grid; gap: 12px; justify-items: center; }
+.dont .stage { height: 120px; width: 100%; display: grid; place-items: center; border-radius: 4px; overflow: hidden; }
+.dont .stage .mark { width: 84px; }
+.dont p { font-size: .86rem; text-align: center; }
+.dont .x { color: #B3402F; font-weight: 600; }
+.busy { background: repeating-linear-gradient(45deg, #5A7B3A 0 10px, #D9C24A 10px 20px, #A3392D 20px 30px); }
+
+/* colors */
+.swatch { border-radius: 6px; overflow: hidden; border: 1px solid var(--line); display: grid; background: var(--surface); }
+.swatch .chip { height: 130px; padding: 14px; display: flex; align-items: flex-end; font-family: var(--f-display); font-size: 1.35rem; font-weight: 600; }
+.swatch .info { padding: 12px 14px; font-size: .82rem; display: grid; gap: 2px; }
+.swatch .info code { font-family: ui-monospace, Menlo, Consolas, monospace; direction: ltr; unicode-bidi: isolate; }
+.ratio { display: flex; height: 26px; border-radius: 4px; overflow: hidden; border: 1px solid var(--line); }
+.ratio span { display: block; height: 100%; }
+
+/* type */
+.specimen { display: grid; gap: 10px; }
+.specimen .big { font-size: clamp(2.6rem, 7vw, 4rem); line-height: 1.15; }
+.scale { display: grid; gap: 14px; }
+.scale .row { display: grid; grid-template-columns: 90px minmax(0, 1fr); gap: 16px; align-items: baseline; border-bottom: 1px solid var(--line); padding-bottom: 10px; }
+.scale .row .lbl { font-size: .75rem; color: var(--muted); }
+.scale .row > div:last-child { min-width: 0; overflow-wrap: anywhere; }
+
+/* pattern */
+.pattern-band { border-radius: 6px; height: 220px; background: var(--oud); position: relative; overflow: hidden; }
+.pattern-band svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+/* voice */
+.say { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.say li { padding-inline-start: 18px; position: relative; }
+.say li::before { content: ""; position: absolute; inset-inline-start: 0; top: .75em; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+.say.no li::before { background: transparent; border: 1.5px solid var(--muted); }
+.quote { font-family: var(--f-display); font-size: 1.15rem; line-height: 1.7; border-inline-start: 2px solid var(--accent-2); padding-inline-start: 14px; }
+
+/* applications */
+.apps { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); }
+.app { display: grid; gap: 10px; align-content: start; min-width: 0; }
+.app figcaption { font-size: .85rem; color: var(--muted); }
+.stage-app { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 28px 18px; display: grid; place-items: center; gap: 16px; min-height: 280px; }
+
+.card { width: 100%; max-width: 300px; aspect-ratio: 85 / 55; border-radius: 6px; box-shadow: 0 10px 24px -14px rgba(20, 10, 6, .55); position: relative; overflow: hidden; }
+.card.front { background: var(--oud); color: var(--adhm); display: grid; place-items: center; }
+.card.front .lockup .ar { font-size: 1.5rem; color: var(--adhm); }
+.card.front .lockup .latin { color: var(--kahraman-lt); }
+.card.front .lockup .mark { width: 46px; }
+.card.back { background: var(--adhm); color: var(--oud); padding: 16px 18px; display: grid; align-content: space-between; font-size: .76rem; line-height: 1.6; }
+.card.back .name { font-family: var(--f-display); font-size: 1.05rem; font-weight: 600; }
+.card.back .role { color: #7A5A3C; }
+.card.back .strand { position: absolute; bottom: 10px; left: 0; height: 12px; color: var(--kahraman); opacity: .9; }
+.card.back .ltr { direction: ltr; unicode-bidi: isolate; display: inline-block; }
+
+.htag { width: 150px; background: var(--adhm); color: var(--oud); border-radius: 6px 6px 40px 40px; padding: 20px 14px 22px; position: relative; display: grid; gap: 8px; justify-items: center; box-shadow: 0 10px 24px -14px rgba(20, 10, 6, .55); font-size: .72rem; line-height: 1.5; }
+.htag::before { content: ""; position: absolute; top: 9px; width: 9px; height: 9px; border-radius: 50%; background: var(--bg); border: 1.5px solid var(--fidda); }
+.htag .mark { width: 46px; margin-top: 12px; }
+.htag dl { margin: 0; display: grid; grid-template-columns: auto auto; gap: 1px 10px; width: 100%; }
+.htag dt { color: #7A5A3C; }
+.htag dd { margin: 0; text-align: left; font-weight: 600; }
+.htag .sku { font-family: var(--f-latin); letter-spacing: .12em; font-size: .66rem; color: #7A5A3C; direction: ltr; }
+
+.box { width: 210px; aspect-ratio: 1; background: var(--oud); border-radius: 4px; position: relative; box-shadow: 0 14px 28px -16px rgba(20, 10, 6, .7); display: grid; place-items: center; overflow: hidden; }
+.box .ribbon { position: absolute; top: 0; bottom: 0; width: 26px; inset-inline-start: 42px; background: var(--fairouz); }
+.box .center { position: relative; display: grid; justify-items: center; gap: 6px; color: var(--adhm); }
+.box .center .mark { width: 70px; }
+.box .center .ar { font-family: var(--f-display); font-size: 1.15rem; font-weight: 600; }
+
+.post { width: 100%; max-width: 280px; aspect-ratio: 1; background: var(--adhm); color: var(--oud); border-radius: 4px; padding: 20px; display: grid; grid-template-rows: auto 1fr auto; box-shadow: 0 10px 24px -14px rgba(20, 10, 6, .55); overflow: hidden; }
+.post .top { display: flex; justify-content: space-between; align-items: center; font-size: .7rem; }
+.post .top .mark { width: 26px; }
+.post .art { display: grid; place-items: center; }
+.post .art .mark { width: 116px; }
+.post h4 { font-family: var(--f-display); margin: 0; font-size: 1.25rem; font-weight: 600; line-height: 1.35; }
+.post .sub { font-size: .72rem; color: #7A5A3C; }
+
+.sign { width: 100%; background: #3B3634; border-radius: 4px; padding: 18px 14px 0; display: grid; gap: 0; box-shadow: 0 14px 28px -16px rgba(0, 0, 0, .6); }
+.sign .board { background: var(--oud); border-radius: 3px; padding: 18px 20px; display: flex; justify-content: center; }
+.sign .board .lockup .ar { color: var(--adhm); font-size: 1.8rem; }
+.sign .board .lockup .latin { color: var(--kahraman-lt); }
+.sign .board .lockup .mark { width: 56px; }
+.sign .glass { height: 70px; background: linear-gradient(180deg, #4B5A5A, #2F3A3B); margin-top: 10px; border-radius: 2px 2px 0 0; display: grid; place-items: center; }
+.sign .glass span { color: #D9D3C7; font-size: .72rem; font-family: var(--f-display); }
+
+footer { padding-block: 40px 64px; border-top: 1px solid var(--line); font-size: .85rem; color: var(--muted); display: grid; gap: 6px; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero .mark .bead { animation: settle .5s ease-out both; animation-delay: calc(var(--i) * 28ms); }
+  @keyframes settle { from { opacity: .25; } to { opacity: 1; } }
+}
+</style>
+
+<div class="wrap" dir="rtl" lang="ar">
+
+  <header class="hero">
+    <div>
+      <h1>درزة مسباح</h1>
+      <span class="latin">DARZAT MISBAH</span>
+      <p class="tag">حبّة على حبّة.. تكتمل الدرزة</p>
+      <p class="meta">دليل الهوية البصرية · الإصدار ١٫٠ · نوفمبر ٢٠٢٦</p>
+    </div>
+    <div class="mark" data-mark="hero"></div>
+  </header>
+
+  <svg class="strand" data-strand aria-hidden="true"></svg>
+
+  <!-- 1. story -->
+  <section>
+    <div class="sec-head">
+      <span class="count">الحبة ١ · الفكرة</span>
+      <h2>خيط واحد يجمع الحبّات</h2>
+      <p>الدَّرْز في اللغة هو الخياطة، والدرزة هي خط الخيط. في المسباح، الخيط هو الذي يجمع الحبّات المتفرقة في نظام واحد ويعطيها معناها. هذه هي فكرة المحل: نختار الخامة حبّة حبّة، ونشدّها على خيط متين، ونسلّمها مسباحًا يدوم.</p>
+    </div>
+    <div class="values">
+      <div class="value"><b>أصالة الخامة</b><p class="muted">كهرب طبيعي، يسر، كوك، فاتوران، عقيق. نسمّي كل خامة باسمها الحقيقي ولا نبالغ.</p></div>
+      <div class="value"><b>دقة الشغل</b><p class="muted">مقاس الحبّة بالملّيمتر، والوزن بالغرام، والعدد ٣٣ أو ٩٩ بلا نقص.</p></div>
+      <div class="value"><b>سكينة</b><p class="muted">المسباح رفيق الهدوء والذكر. الهوية هادئة: مساحات واسعة، لونان أساسيان، ولمعة كهرب.</p></div>
+    </div>
+  </section>
+
+  <svg class="strand" data-strand aria-hidden="true"></svg>
+
+  <!-- 2. logo -->
+  <section>
+    <div class="sec-head">
+      <span class="count">الحبة ٢ · الشعار</span>
+      <h2>مسباح من ٣٣ حبّة</h2>
+      <p>الرمز مسباح كامل مرسوم هندسيًا: ٣٣ حبّة على دائرة، وفاصلان بعد كل ١١ حبّة، والشاهد في الأسفل تتدلّى منه الشرابة. الفراغ بين الحبّات هو «الدرزة»، أي الخيط الظاهر.</p>
+    </div>
+
+    <div class="construct panel">
+      <svg data-construct viewBox="0 0 200 250" aria-label="بناء الرمز"></svg>
+      <ul class="legend">
+        <li><span class="k">A</span><span><b>٣٣ حبّة</b> بقطر موحّد، موزعة على دائرة نصف قطرها ٧٢ وحدة.</span></li>
+        <li><span class="k">B</span><span><b>فاصلان</b> بعد الحبّة ١١ والحبّة ٢٢، كما في المسباح الحقيقي.</span></li>
+        <li><span class="k">C</span><span><b>الشاهد</b> (المئذنة) يغلق الدائرة من الأسفل.</span></li>
+        <li><span class="k">D</span><span><b>الشرابة</b> بخيوط فضية، وهي العنصر الوحيد المائل في الرمز.</span></li>
+        <li><span class="k">E</span><span><b>المساحة الآمنة</b> تساوي قطر حبّتين من كل جهة.</span></li>
+      </ul>
+    </div>
+
+    <div class="grid g4">
+      <div class="tile t-adhm">
+        <div class="mark" data-mark="primary"></div>
+        <div class="wordmark"><span class="ar">درزة مسباح</span><span class="latin">DARZAT MISBAH</span></div>
+        <div class="cap"><span>الأساسي على عظم</span><button class="copy" type="button" data-copy="primary">نسخ SVG</button></div>
+      </div>
+      <div class="tile t-oud">
+        <div class="mark" data-mark="onDark"></div>
+        <div class="wordmark"><span class="ar">درزة مسباح</span><span class="latin" style="color: var(--kahraman-lt)">DARZAT MISBAH</span></div>
+        <div class="cap"><span>على عود</span><button class="copy" type="button" data-copy="onDark">نسخ SVG</button></div>
+      </div>
+      <div class="tile t-white">
+        <div class="mark" data-mark="mono"></div>
+        <div class="wordmark"><span class="ar">درزة مسباح</span><span class="latin">DARZAT MISBAH</span></div>
+        <div class="cap"><span>أحادي للختم والطباعة</span><button class="copy" type="button" data-copy="mono">نسخ SVG</button></div>
+      </div>
+      <div class="tile t-kahraman">
+        <div class="mark" data-mark="onAmber"></div>
+        <div class="wordmark"><span class="ar">درزة مسباح</span><span class="latin">DARZAT MISBAH</span></div>
+        <div class="cap"><span>على كهرب (للهدايا)</span><button class="copy" type="button" data-copy="onAmber">نسخ SVG</button></div>
+      </div>
+    </div>
+
+    <div class="grid g2">
+      <div class="wide-tile t-adhm">
+        <div class="lockup"><div class="mark" data-mark="primary"></div><div><span class="ar">درزة مسباح</span><span class="latin">DARZAT MISBAH</span></div></div>
+      </div>
+      <div class="wide-tile t-oud">
+        <div class="lockup"><div class="mark" data-mark="onDark"></div><div><span class="ar" style="color: var(--adhm)">درزة مسباح</span><span class="latin" style="color: var(--kahraman-lt)">DARZAT MISBAH</span></div></div>
+      </div>
+    </div>
+
+    <dl class="specs panel">
+      <div class="spec"><dt>أصغر مقاس للرمز</dt><dd class="num">٢٤ بكسل على الشاشة، ٨ مم في الطباعة. تحتهما تختفي الحبّات، فاستخدم الاسم فقط.</dd></div>
+      <div class="spec"><dt>الشعار الأفقي</dt><dd>للوحة المحل، وترويسة الموقع، وأعلى الفواتير.</dd></div>
+      <div class="spec"><dt>الشعار العمودي</dt><dd>للعلب، والأكياس، وصورة الحساب في السوشال.</dd></div>
+      <div class="spec"><dt>الختم والحفر</dt><dd>النسخة الأحادية فقط، للحفر على الخشب والجلد والختم الحراري.</dd></div>
+    </dl>
+
+    <div class="sec-head"><h3>ممنوعات الشعار</h3></div>
+    <div class="grid g4">
+      <div class="dont"><div class="stage t-adhm"><div class="mark" data-mark="primary" style="transform: scaleX(1.5)"></div></div><p><span class="x">لا تمطّ</span> الرمز أو تضغطه.</p></div>
+      <div class="dont"><div class="stage t-adhm"><div class="mark" data-mark="wrong"></div></div><p><span class="x">لا تغيّر</span> لون الحبّات خارج لوحة الألوان.</p></div>
+      <div class="dont"><div class="stage busy"><div class="mark" data-mark="primary"></div></div><p><span class="x">لا تضعه</span> على خلفية مزدحمة.</p></div>
+      <div class="dont"><div class="stage t-adhm"><div class="mark" data-mark="primary" style="transform: rotate(35deg)"></div></div><p><span class="x">لا تُدِره</span>. الشرابة تتدلّى للأسفل دائمًا.</p></div>
+    </div>
+  </section>
+
+  <svg class="strand" data-strand aria-hidden="true"></svg>
+
+  <!-- 3. colors -->
+  <section>
+    <div class="sec-head">
+      <span class="count">الحبة ٣ · الألوان</span>
+      <h2>ألوان من الخامة نفسها</h2>
+      <p>كل لون اسمه خامة من خامات المسابيح. العود والعظم هما الأرضية، والكهرب هو اللمعة، والفيروز يُستخدم بقلّة كإشارة.</p>
+    </div>
+    <div class="grid g3" data-swatches></div>
+    <div class="panel" style="display: grid; gap: 10px;">
+      <h3>نسبة الاستخدام</h3>
+      <div class="ratio" aria-label="نسب استخدام الألوان">
+        <span style="width: 40%; background: #EEE8DD"></span>
+        <span style="width: 30%; background: #2A1914"></span>
+        <span style="width: 15%; background: #C8892E"></span>
+        <span style="width: 7%; background: #9C9A93"></span>
+        <span style="width: 5%; background: #2F8A84"></span>
+        <span style="width: 3%; background: #141515"></span>
+      </div>
+      <p class="muted num" style="font-size: .85rem">عظم ٤٠٪ · عود ٣٠٪ · كهرب ١٥٪ · فضة ٧٪ · فيروز ٥٪ · يسر ٣٪</p>
+    </div>
+  </section>
+
+  <svg class="strand" data-strand aria-hidden="true"></svg>
+
+  <!-- 4. type -->
+  <section>
+    <div class="sec-head">
+      <span class="count">الحبة ٤ · الخطوط</span>
+      <h2>كوفي للعناوين، وخط واضح للنص</h2>
+      <p>الخطوط الثلاثة مجانية من Google Fonts وتعمل في الطباعة والشاشة.</p>
+    </div>
+    <div class="grid g3">
+      <div class="panel specimen">
+        <span class="count">العناوين</span>
+        <span class="big" style="font-family: var(--f-display); font-weight: 700;">ريم كوفي</span>
+        <p class="muted">Reem Kufi · وزن 600 و 700. هندسي بزوايا مدوّرة، يناسب شكل الحبّة. للعناوين والشعار فقط.</p>
+      </div>
+      <div class="panel specimen">
+        <span class="count">النصوص</span>
+        <span class="big" style="font-family: var(--f-body); font-weight: 400;">بلكس عربي</span>
+        <p class="muted">IBM Plex Sans Arabic · وزن 400 و 500. واضح في الأحجام الصغيرة، للأوصاف والأسعار والبطاقات.</p>
+      </div>
+      <div class="panel specimen">
+        <span class="count">اللاتيني</span>
+        <span class="big latin" style="letter-spacing: .06em;">Marcellus</span>
+        <p class="muted">للاسم اللاتيني بأحرف كبيرة متباعدة، ولأرقام القطع (SKU).</p>
+      </div>
+    </div>
+    <div class="panel scale">
+      <div class="row"><span class="lbl num">عنوان ١ · 48</span><div style="font-family: var(--f-display); font-size: 3rem; font-weight: 700; line-height: 1.2;">كهرب بلطيقي</div></div>
+      <div class="row"><span class="lbl num">عنوان ٢ · 30</span><div style="font-family: var(--f-display); font-size: 1.9rem; font-weight: 600;">مجموعة الشتاء</div></div>
+      <div class="row"><span class="lbl num">عنوان ٣ · 20</span><div style="font-family: var(--f-display); font-size: 1.25rem; font-weight: 600;">يسر طبيعي ٩٩ حبّة</div></div>
+      <div class="row"><span class="lbl num">نص · 16</span><div>حبّات مخروطة يدويًا بمقاس ١٠ مم، على خيط حرير مزدوج، مع شرابة فضة.</div></div>
+      <div class="row"><span class="lbl num">ملاحظة · 13</span><div style="font-size: .82rem;" class="muted">الوزن التقريبي ٢٤ غ. يختلف اللون قليلًا من قطعة إلى أخرى لأن الخامة طبيعية.</div></div>
+    </div>
+  </section>
+
+  <svg class="strand" data-strand aria-hidden="true"></svg>
+
+  <!-- 5. pattern -->
+  <section>
+    <div class="sec-head">
+      <span class="count">الحبة ٥ · النقش</span>
+      <h2>نقش الدرزة</h2>
+      <p>خيوط من الحبّات تتكرر بالعرض، كل ١١ حبّة يقطعها فاصل. يُستخدم لورق التغليف، وبطانة العلب، وخلفيات الستوري.</p>
+    </div>
+    <div class="pattern-band"><svg data-pattern aria-hidden="true"></svg></div>
+  </section>
+
+  <svg class="strand" data-strand aria-hidden="true"></svg>
+
+  <!-- 6. voice -->
+  <section>
+    <div class="sec-head">
+      <span class="count">الحبة ٦ · نبرة الصوت</span>
+      <h2>نتكلم مثل صاحب المحل الخبير</h2>
+      <p>لهجة خليجية بيضاء، هادئة وواثقة. نشرح الخامة كما هي، ولا نستعجل الزبون.</p>
+    </div>
+    <div class="grid g2">
+      <div class="panel" style="display: grid; gap: 12px;">
+        <h3>نقول</h3>
+        <ul class="say">
+          <li>«كهرب بلطيقي طبيعي، ٣٣ حبّة، ١٠ مم.»</li>
+          <li>«كل حبّة مختارة باليد.»</li>
+          <li>«تبي نغيّر الشرابة؟ نسويها لك على ذوقك.»</li>
+        </ul>
+      </div>
+      <div class="panel" style="display: grid; gap: 12px;">
+        <h3>لا نقول</h3>
+        <ul class="say no">
+          <li>«أفخم مسباح في العالم!!!»</li>
+          <li>«عرض لا يتكرر، الحق قبل لا يخلص.»</li>
+          <li>أوصاف عامة بدون اسم الخامة أو المقاس.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="grid g3">
+      <p class="quote">وصلت درزة جديدة من اليسر.. ٩٩ حبّة بلمعة هادية.</p>
+      <p class="quote">المسباح يكبر معك، والكهرب يغمق مع الأيام.</p>
+      <p class="quote">نشدّ مسباحك من جديد بخيط حرير، وتستلمه في نفس اليوم.</p>
+    </div>
+  </section>
+
+  <svg class="strand" data-strand aria-hidden="true"></svg>
+
+  <!-- 7. applications -->
+  <section>
+    <div class="sec-head">
+      <span class="count">الحبة ٧ · التطبيقات</span>
+      <h2>الهوية على أرض المحل</h2>
+      <p>أمثلة جاهزة للطباعة والتنفيذ. أرقام التواصل والأسماء فيها أمثلة، استبدلها ببيانات المحل.</p>
+    </div>
+    <div class="apps">
+      <figure class="app" style="margin: 0">
+        <div class="stage-app">
+          <div class="card front"><div class="lockup"><div class="mark" data-mark="onDark"></div><div><span class="ar">درزة مسباح</span><span class="latin">DARZAT MISBAH</span></div></div></div>
+          <div class="card back">
+            <div><div class="name">بو فهد</div><div class="role">خبير الخامات</div></div>
+            <div><span class="ltr num">+000 0000 0000</span><br><span class="ltr">@darzatmisbah</span></div>
+            <svg class="strand" data-strand aria-hidden="true"></svg>
+          </div>
+        </div>
+        <figcaption>بطاقة العمل · ٨٥ × ٥٥ مم · وجه عود مع ختم ذهبي، وظهر عظم</figcaption>
+      </figure>
+
+      <figure class="app" style="margin: 0">
+        <div class="stage-app">
+          <div class="htag">
+            <div class="mark" data-mark="primary"></div>
+            <dl class="num">
+              <dt>الخامة</dt><dd>كهرب بلطيقي</dd>
+              <dt>العدد</dt><dd>٣٣ حبّة</dd>
+              <dt>المقاس</dt><dd>١٠ مم</dd>
+              <dt>الوزن</dt><dd>٢٤ غ</dd>
+              <dt>الشرابة</dt><dd>فضة</dd>
+            </dl>
+            <span class="sku">DZ · 0147</span>
+          </div>
+        </div>
+        <figcaption>بطاقة المنتج المعلّقة · ٥٠ × ٩٠ مم · تُربط بخيط فضي في الشاهد</figcaption>
+      </figure>
+
+      <figure class="app" style="margin: 0">
+        <div class="stage-app">
+          <div class="box">
+            <svg data-pattern data-dense style="position: absolute; inset: 0; width: 100%; height: 100%; opacity: .35" aria-hidden="true"></svg>
+            <div class="ribbon"></div>
+            <div class="center"><div class="mark" data-mark="onDark"></div><span class="ar">درزة مسباح</span></div>
+          </div>
+        </div>
+        <figcaption>علبة الهدية · ١٠ × ١٠ سم · غطاء عود بنقش الدرزة وشريط فيروزي</figcaption>
+      </figure>
+
+      <figure class="app" style="margin: 0">
+        <div class="stage-app">
+          <div class="post">
+            <div class="top"><span class="latin" style="font-size: .6rem">DARZAT MISBAH</span><div class="mark" data-mark="primary"></div></div>
+            <div class="art"><div class="mark" data-mark="post"></div></div>
+            <div><h4>وصلت درزة اليسر</h4><span class="sub num">٩٩ حبّة · ٨ مم · شرابة فضة</span></div>
+          </div>
+        </div>
+        <figcaption>منشور إنستغرام · ١٠٨٠ × ١٠٨٠ · الأرضية عظم دائمًا، والمنتج في المنتصف</figcaption>
+      </figure>
+
+      <figure class="app" style="margin: 0; grid-column: 1 / -1">
+        <div class="stage-app" style="min-height: 0">
+          <div class="sign">
+            <div class="board"><div class="lockup"><div class="mark" data-mark="onDark"></div><div><span class="ar">درزة مسباح</span><span class="latin">DARZAT MISBAH</span></div></div></div>
+            <div class="glass"><span>مسابيح · كهرب · يسر · شدّ وتصليح</span></div>
+          </div>
+        </div>
+        <figcaption>لوحة المحل · خلفية عود، حروف بارزة بلون عظم، والرمز بإضاءة خلفية كهرماني</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <footer>
+    <span>درزة مسباح · دليل الهوية البصرية ١٫٠</span>
+    <span>الخطوط: Reem Kufi، IBM Plex Sans Arabic، Marcellus · الرمز مرسوم بالكود ويُنسخ SVG من قسم الشعار.</span>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var C = { kahraman: "#C8892E", kahramanLt: "#E8B562", oud: "#2A1914", fairouz: "#2F8A84", adhm: "#EEE8DD", fidda: "#9C9A93", yusr: "#141515" };
+
+  var VARIANTS = {
+    primary: { bead: C.kahraman, sep: C.oud, imam: C.oud, thread: C.oud, tassel: C.fidda, shine: true },
+    onDark:  { bead: C.kahraman, sep: C.adhm, imam: C.adhm, thread: C.kahramanLt, tassel: C.fidda, shine: true },
+    mono:    { bead: C.yusr, sep: C.yusr, imam: C.yusr, thread: C.yusr, tassel: C.yusr, shine: false },
+    onAmber: { bead: C.oud, sep: C.adhm, imam: C.oud, thread: C.oud, tassel: C.oud, shine: false },
+    wrong:   { bead: "#7B4FD6", sep: "#E0457B", imam: "#E0457B", thread: "#7B4FD6", tassel: "#3BB273", shine: false },
+    post:    { bead: C.yusr, sep: C.fidda, imam: C.yusr, thread: C.oud, tassel: C.fidda, shine: true },
+    hero:    { bead: C.kahraman, sep: "currentColor", imam: "currentColor", thread: "currentColor", tassel: C.fidda, shine: true }
+  };
+
+  // Geometry of the mark (viewBox 200 x 250)
+  var CX = 100, CY = 100, R = 72, GAP = 14, N = 35, SEPS = [11, 23], BR = 5.6;
+
+  function items() {
+    var out = [], step = (360 - 2 * GAP) / (N - 1);
+    for (var i = 0; i < N; i++) {
+      var a = 90 + GAP + i * step, r = a * Math.PI / 180;
+      out.push({ i: i, a: a, x: CX + R * Math.cos(r), y: CY + R * Math.sin(r), sep: SEPS.indexOf(i) > -1 });
+    }
+    return out;
+  }
+  function f(n) { return Math.round(n * 100) / 100; }
+
+  function mark(v, opts) {
+    opts = opts || {};
+    var it = items(), s = [];
+    var first = it[0], last = it[N - 1];
+    s.push('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 250" role="img" aria-label="رمز درزة مسباح">');
+    // thread
+    s.push('<g fill="none" stroke="' + v.thread + '" stroke-width="1.2">');
+    s.push('<circle cx="' + CX + '" cy="' + CY + '" r="' + R + '"/>');
+    s.push('<path d="M' + f(first.x) + ' ' + f(first.y) + ' L100 177 M' + f(last.x) + ' ' + f(last.y) + ' L100 177"/>');
+    s.push('</g>');
+    // beads + separators
+    var bi = 0;
+    it.forEach(function (p) {
+      if (p.sep) {
+        s.push('<ellipse cx="0" cy="0" rx="2.3" ry="6.4" fill="' + v.sep + '" transform="translate(' + f(p.x) + ' ' + f(p.y) + ') rotate(' + f(p.a - 90) + ')"/>');
+      } else {
+        s.push('<circle class="bead" style="--i:' + bi + '" cx="' + f(p.x) + '" cy="' + f(p.y) + '" r="' + BR + '" fill="' + v.bead + '"/>');
+        if (v.shine) s.push('<circle cx="' + f(p.x - 1.8) + '" cy="' + f(p.y - 1.9) + '" r="1.5" fill="#FFFFFF" fill-opacity=".38"/>');
+        bi++;
+      }
+    });
+    // imam (shahid) + small bead
+    s.push('<path d="M100 176 C106 180 106.5 192 103.5 198 L96.5 198 C93.5 192 94 180 100 176 Z" fill="' + v.imam + '"/>');
+    s.push('<rect x="96" y="198" width="8" height="2.4" rx="1" fill="' + v.imam + '"/>');
+    s.push('<circle cx="100" cy="205" r="3.4" fill="' + v.bead + '"/>');
+    // tassel
+    s.push('<rect x="97" y="209" width="6" height="5" rx="1.2" fill="' + v.tassel + '"/>');
+    s.push('<g stroke="' + v.tassel + '" stroke-width="1.1" stroke-linecap="round">');
+    for (var k = 0; k < 9; k++) {
+      var t = (k - 4) / 4;
+      s.push('<line x1="' + f(100 + t * 2.4) + '" y1="214" x2="' + f(100 + t * 9.5) + '" y2="' + f(243 - Math.abs(t) * 3) + '"/>');
+    }
+    s.push('</g>');
+    if (opts.construct) s.push(opts.construct);
+    s.push('</svg>');
+    return s.join("");
+  }
+
+  // render marks
+  document.querySelectorAll("[data-mark]").forEach(function (el) {
+    var v = VARIANTS[el.getAttribute("data-mark")] || VARIANTS.primary;
+    el.innerHTML = mark(v);
+  });
+
+  // construction drawing
+  var con = document.querySelector("[data-construct]");
+  if (con) {
+    var it = items();
+    var guides = [
+      '<g fill="none" stroke="var(--accent-2)" stroke-width=".6" stroke-dasharray="3 3">',
+      '<rect x="' + (CX - R - 4 * BR) + '" y="' + (CY - R - 4 * BR) + '" width="' + (2 * R + 8 * BR) + '" height="' + (243 - (CY - R - 4 * BR) + 4 * BR) + '"/>',
+      '<line x1="100" y1="0" x2="100" y2="250"/>',
+      '</g>',
+      '<g font-family="Marcellus, Georgia, serif" font-size="11" fill="var(--accent)" text-anchor="middle">',
+      '<text x="' + f(it[30].x + 14) + '" y="' + f(it[30].y - 6) + '">A</text>',
+      '<text x="' + f(it[11].x - 14) + '" y="' + f(it[11].y + 4) + '">B</text>',
+      '<text x="' + f(it[23].x + 14) + '" y="' + f(it[23].y + 4) + '">B</text>',
+      '<text x="118" y="192">C</text>',
+      '<text x="122" y="236">D</text>',
+      '<text x="14" y="18">E</text>',
+      '</g>'
+    ].join("");
+    var v = { bead: "var(--accent)", sep: "var(--fg)", imam: "var(--fg)", thread: "var(--fg)", tassel: "var(--muted)", shine: false };
+    con.outerHTML = mark(v, { construct: guides })
+      .replace(/(fill|stroke)="(var\([^)]+\))"/g, 'style="$1:$2"')
+      .replace('<svg ', '<svg data-construct ');
+  }
+
+  // strand dividers
+  function strand(w, h, color) {
+    var s = [], y = h / 2, step = 13, n = Math.ceil(w / step) + 1;
+    s.push('<line x1="0" y1="' + y + '" x2="' + w + '" y2="' + y + '" stroke="' + color + '" stroke-width="1" stroke-opacity=".6"/>');
+    for (var i = 0; i < n; i++) {
+      var x = i * step + 6;
+      if (i % 12 === 11) s.push('<rect x="' + (x - 1.6) + '" y="' + (y - 5) + '" width="3.2" height="10" rx="1.6" fill="' + color + '"/>');
+      else s.push('<circle cx="' + x + '" cy="' + y + '" r="4.2" fill="' + color + '"/>');
+    }
+    return s.join("");
+  }
+  function drawStrands() {
+    document.querySelectorAll("[data-strand]").forEach(function (el) {
+      var w = Math.max(40, Math.round(el.getBoundingClientRect().width)), h = el.getBoundingClientRect().height || 22;
+      el.setAttribute("viewBox", "0 0 " + w + " " + h);
+      el.innerHTML = strand(w, h, "currentColor");
+    });
+  }
+
+  // pattern
+  function drawPatterns() {
+    document.querySelectorAll("[data-pattern]").forEach(function (el) {
+      var r = el.getBoundingClientRect(), w = Math.max(60, Math.round(r.width)), h = Math.max(60, Math.round(r.height));
+      var dense = el.hasAttribute("data-dense"), gapY = dense ? 18 : 26, s = [];
+      el.setAttribute("viewBox", "0 0 " + w + " " + h);
+      for (var row = 0, y = 12; y < h + 10; row++, y += gapY) {
+        var off = (row % 2) * 39, step = 13;
+        s.push('<line x1="0" y1="' + y + '" x2="' + w + '" y2="' + y + '" stroke="' + C.kahramanLt + '" stroke-width=".7" stroke-opacity=".35"/>');
+        for (var i = -3, x; (x = i * step + off) < w + 10; i++) {
+          var idx = ((i % 12) + 12) % 12;
+          if (idx === 11) s.push('<rect x="' + (x - 1.4) + '" y="' + (y - 4.5) + '" width="2.8" height="9" rx="1.4" fill="' + C.adhm + '" fill-opacity=".7"/>');
+          else s.push('<circle cx="' + x + '" cy="' + y + '" r="' + (dense ? 3.4 : 4.4) + '" fill="' + C.kahraman + '" fill-opacity="' + (row % 3 === 1 ? .95 : .55) + '"/>');
+        }
+      }
+      el.innerHTML = s.join("");
+    });
+  }
+
+  // swatches
+  var SW = [
+    { n: "عود", role: "الأرضية الداكنة والنصوص", hex: C.oud, rgb: "42 25 20", fg: C.adhm },
+    { n: "عظم", role: "الأرضية الفاتحة", hex: C.adhm, rgb: "238 232 221", fg: C.oud },
+    { n: "كهرب", role: "لون الحبّات واللمعة", hex: C.kahraman, rgb: "200 137 46", fg: C.oud },
+    { n: "فيروز", role: "إشارة بقلّة: شريط، زر، سعر", hex: C.fairouz, rgb: "47 138 132", fg: C.adhm },
+    { n: "فضة", role: "الشرابة والخطوط الرفيعة", hex: C.fidda, rgb: "156 154 147", fg: C.yusr },
+    { n: "يسر", role: "الطباعة الأحادية والختم", hex: C.yusr, rgb: "20 21 21", fg: C.adhm }
+  ];
+  var swEl = document.querySelector("[data-swatches]");
+  if (swEl) swEl.innerHTML = SW.map(function (c) {
+    return '<div class="swatch"><div class="chip" style="background:' + c.hex + ';color:' + c.fg + '">' + c.n + '</div>' +
+      '<div class="info"><span>' + c.role + '</span><code>' + c.hex + '</code><code>RGB ' + c.rgb + '</code></div></div>';
+  }).join("");
+
+  // copy SVG
+  document.querySelectorAll("[data-copy]").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var svg = mark(VARIANTS[btn.getAttribute("data-copy")]).replace(/ class="bead" style="--i:\d+"/g, "");
+      var done = function () { var t = btn.textContent; btn.textContent = "تم النسخ"; setTimeout(function () { btn.textContent = t; }, 1600); };
+      try {
+        navigator.clipboard.writeText(svg).then(done, function () { fallback(svg); });
+      } catch (e) { fallback(svg); }
+      function fallback(text) {
+        var ta = document.createElement("textarea");
+        ta.value = text; ta.setAttribute("readonly", ""); ta.style.position = "fixed"; ta.style.opacity = "0";
+        document.body.appendChild(ta); ta.select();
+        try { document.execCommand("copy"); done(); } catch (e2) {}
+        ta.remove();
+      }
+    });
+  });
+
+  drawStrands(); drawPatterns();
+  var rt; window.addEventListener("resize", function () { clearTimeout(rt); rt = setTimeout(function () { drawStrands(); drawPatterns(); }, 120); });
+})();
+</script>
