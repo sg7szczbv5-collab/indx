@@ -1,0 +1,305 @@
+<title>زاوية</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@500;700&family=Noto+Naskh+Arabic:wght@400;600&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap">
+<style>
+/* Layout: a reading desk framed by right-angle corner marks; the featured piece sits inside a large "zawiya", the rest flows in a two-column index. */
+:root {
+  --paper: #F1F3EE;
+  --sheet: #FAFBF8;
+  --ink: #141A17;
+  --muted: #59635D;
+  --line: #D5DAD2;
+  --accent: #1E5C50;
+  --accent-ink: #FFFFFF;
+  --brass: #A8822A;
+  --display: "Reem Kufi", "IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif;
+  --body: "Noto Naskh Arabic", "Amiri", "Traditional Arabic", serif;
+  --ui: "IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #0F1412; --sheet: #161D1A; --ink: #E5E9E3; --muted: #9AA59E;
+    --line: #2A332F; --accent: #6DBBA9; --accent-ink: #0C1210; --brass: #D2AE55;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #0F1412; --sheet: #161D1A; --ink: #E5E9E3; --muted: #9AA59E;
+  --line: #2A332F; --accent: #6DBBA9; --accent-ink: #0C1210; --brass: #D2AE55;
+  color-scheme: dark;
+}
+body { background: var(--paper); color: var(--ink); font-family: var(--ui); }
+.site { direction: rtl; text-align: right; }
+.wrap {
+  max-width: 1120px; margin-inline: auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* corner marks — the brand device */
+.corners { position: relative; }
+.corners::before, .corners::after {
+  content: ""; position: absolute; width: 28px; height: 28px; pointer-events: none;
+  border-color: var(--brass); border-style: solid;
+}
+.corners::before { top: 0; right: 0; border-width: 3px 3px 0 0; }
+.corners::after { bottom: 0; left: 0; border-width: 0 0 3px 3px; }
+
+/* header */
+header.top { border-bottom: 1px solid var(--line); background: var(--paper); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 18px; flex-wrap: wrap; }
+.logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.logo svg { width: 38px; height: 38px; flex: none; }
+.logo b { font-family: var(--display); font-size: 2rem; font-weight: 700; line-height: 1; }
+.logo small { display: block; font-size: .78rem; color: var(--muted); margin-top: 4px; }
+nav.main { display: flex; gap: 6px; flex-wrap: wrap; }
+nav.main a { text-decoration: none; font-weight: 500; padding: 8px 12px; border-radius: 4px; color: var(--muted); }
+nav.main a:hover, nav.main a[aria-current] { color: var(--ink); background: var(--sheet); }
+
+/* hero / featured */
+.hero { padding-block: 48px 40px; }
+.issue { display: flex; gap: 14px; align-items: baseline; flex-wrap: wrap; color: var(--muted); font-size: .9rem; margin-bottom: 20px; }
+.issue strong { color: var(--accent); font-weight: 600; letter-spacing: .02em; }
+.feature {
+  display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 40px;
+  background: var(--sheet); padding: 44px; align-items: center;
+}
+.feature h1 {
+  font-family: var(--display); font-weight: 700; font-size: clamp(2rem, 4.6vw, 3.4rem);
+  line-height: 1.25; margin: 10px 0 18px; text-wrap: balance;
+}
+.feature p.lede { font-family: var(--body); font-size: 1.2rem; line-height: 2; color: var(--muted); margin: 0 0 24px; max-width: 34em; }
+.kicker { font-size: .85rem; font-weight: 600; color: var(--accent); }
+.meta { display: flex; gap: 16px; flex-wrap: wrap; font-size: .88rem; color: var(--muted); }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px; margin-top: 26px;
+  background: var(--accent); color: var(--accent-ink); text-decoration: none;
+  font-weight: 600; padding: 12px 22px; border-radius: 3px; border: 0; font: inherit; font-weight: 600; cursor: pointer;
+}
+.btn:hover { filter: brightness(1.08); }
+.angle-art { width: 100%; max-width: 100%; aspect-ratio: 1; }
+.angle-art .ray { stroke: var(--ink); }
+.angle-art .arc { stroke: var(--brass); }
+.angle-art .fill { fill: var(--accent); opacity: .14; }
+.angle-art text { fill: var(--muted); font-family: var(--ui); font-size: 14px; }
+
+/* sections */
+section.block { padding-block: 40px; border-top: 1px solid var(--line); }
+.sec-head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; margin-bottom: 24px; }
+.sec-head h2 { font-family: var(--display); font-size: 1.7rem; font-weight: 700; margin: 0; }
+.sec-head p { margin: 0; color: var(--muted); }
+
+.filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 26px; }
+.chip {
+  font: inherit; font-size: .92rem; cursor: pointer; padding: 7px 14px; border-radius: 999px;
+  border: 1px solid var(--line); background: transparent; color: var(--ink);
+  display: inline-flex; gap: 8px; align-items: baseline;
+}
+.chip span { color: var(--brass); font-size: .8rem; font-variant-numeric: tabular-nums; }
+.chip[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.chip[aria-pressed="true"] span { color: var(--paper); opacity: .75; }
+
+.posts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 48px; }
+.post { padding-block: 22px; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 18px; }
+.post .deg { font-family: var(--display); font-size: 1.5rem; color: var(--brass); line-height: 1.2; text-align: center; }
+.post .deg small { display: block; font-family: var(--ui); font-size: .72rem; color: var(--muted); }
+.post h3 { font-family: var(--display); font-weight: 500; font-size: 1.3rem; line-height: 1.5; margin: 0 0 6px; text-wrap: balance; }
+.post h3 a { text-decoration: none; }
+.post h3 a:hover { color: var(--accent); }
+.post p { font-family: var(--body); line-height: 1.95; margin: 0 0 10px; color: var(--muted); }
+.empty { color: var(--muted); padding: 20px 0; }
+
+/* writers */
+.writers { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
+.writer { background: var(--sheet); padding: 22px; }
+.avatar {
+  width: 52px; height: 52px; display: grid; place-items: center; border-radius: 50%;
+  background: var(--paper); border: 1px solid var(--line);
+  font-family: var(--display); font-size: 1.4rem; color: var(--accent); margin-bottom: 14px;
+}
+.writer h4 { margin: 0 0 4px; font-size: 1.05rem; }
+.writer p { margin: 0; color: var(--muted); font-size: .9rem; line-height: 1.7; }
+
+/* newsletter */
+.letter { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; align-items: center; background: var(--sheet); padding: 40px; }
+.letter h2 { font-family: var(--display); font-size: 1.8rem; margin: 0 0 8px; }
+.letter p { margin: 0; color: var(--muted); font-family: var(--body); line-height: 1.9; }
+form.sub { display: flex; gap: 10px; flex-wrap: wrap; }
+form.sub label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+form.sub input {
+  flex: 1 1 220px; min-width: 0; font: inherit; padding: 12px 14px; border-radius: 3px;
+  border: 1px solid var(--line); background: var(--paper); color: var(--ink); direction: ltr; text-align: right;
+}
+form.sub .btn { margin-top: 0; }
+.note { flex-basis: 100%; font-size: .88rem; color: var(--accent); min-height: 1.4em; }
+
+footer { border-top: 1px solid var(--line); padding-block: 28px; color: var(--muted); font-size: .88rem; }
+footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+@media (max-width: 860px) {
+  .feature, .letter { grid-template-columns: minmax(0, 1fr); padding: 28px 22px; }
+  .angle-art { max-width: 260px; justify-self: center; }
+  .posts { grid-template-columns: minmax(0, 1fr); }
+  .writers { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 420px) { .writers { grid-template-columns: minmax(0, 1fr); } }
+@media (prefers-reduced-motion: no-preference) {
+  .angle-art .arc { stroke-dasharray: 260; stroke-dashoffset: 260; animation: draw 1.2s .3s ease-out forwards; }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+}
+</style>
+
+<div class="site" dir="rtl" lang="ar">
+  <header class="top">
+    <div class="wrap">
+      <a class="logo" href="#top" aria-label="زاوية — الصفحة الرئيسية">
+        <svg viewBox="0 0 40 40" aria-hidden="true">
+          <path d="M34 6 V34 H6" fill="none" stroke="currentColor" stroke-width="4"/>
+          <path d="M34 20 A14 14 0 0 1 20 34" fill="none" stroke="var(--brass)" stroke-width="3"/>
+        </svg>
+        <span><b>زاوية</b><small>لكل فكرة زاوية تُرى منها</small></span>
+      </a>
+      <nav class="main" aria-label="الأقسام">
+        <a href="#top" aria-current="page">الرئيسية</a>
+        <a href="#latest">المقالات</a>
+        <a href="#writers">الكتّاب</a>
+        <a href="#letter">النشرة</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <div class="wrap hero">
+      <div class="issue">
+        <strong>العدد ٢٤</strong>
+        <span>الاثنين ٢٣ نوفمبر ٢٠٢٦ · ٢ جمادى الآخرة ١٤٤٨</span>
+      </div>
+      <article class="feature corners">
+        <div>
+          <span class="kicker">مقال العدد · زاوية الفكر</span>
+          <h1>لماذا نرى الشيء نفسه ولا نتفق عليه؟</h1>
+          <p class="lede">الخلاف في كثير من الأحيان ليس على الحقيقة، بل على المكان الذي نقف فيه حين ننظر إليها. هذه محاولة لرسم خريطة الزوايا التي نختارها دون أن ننتبه.</p>
+          <div class="meta"><span>بقلم سارة المنصور</span><span>٩ دقائق قراءة</span></div>
+          <a class="btn" href="#latest">اقرأ المقال <span aria-hidden="true">←</span></a>
+        </div>
+        <svg class="angle-art" viewBox="0 0 300 300" role="img" aria-label="رسم لزاوية قياسها ٦٠ درجة">
+          <path class="fill" d="M250 250 L50 250 A200 200 0 0 1 150 76.8 Z"/>
+          <line class="ray" x1="250" y1="250" x2="30" y2="250" stroke-width="3"/>
+          <line class="ray" x1="250" y1="250" x2="140" y2="59.5" stroke-width="3"/>
+          <path class="arc" d="M170 250 A80 80 0 0 1 210 180.7" fill="none" stroke-width="4"/>
+          <text x="150" y="226">٦٠°</text>
+        </svg>
+      </article>
+    </div>
+
+    <section class="block" id="latest" aria-labelledby="latest-h">
+      <div class="wrap">
+        <div class="sec-head">
+          <h2 id="latest-h">أحدث المقالات</h2>
+          <p>اختر الزاوية التي تريد أن تقرأ منها</p>
+        </div>
+        <div class="filters" role="group" aria-label="تصفية حسب القسم" id="filters"></div>
+        <div class="posts" id="posts" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="block" id="writers" aria-labelledby="writers-h">
+      <div class="wrap">
+        <div class="sec-head">
+          <h2 id="writers-h">كتّاب زاوية</h2>
+          <p>أصوات مختلفة، وزوايا مختلفة</p>
+        </div>
+        <div class="writers">
+          <div class="writer"><div class="avatar" aria-hidden="true">س</div><h4>سارة المنصور</h4><p>تكتب عن الفلسفة اليومية وأسئلة المعنى.</p></div>
+          <div class="writer"><div class="avatar" aria-hidden="true">ي</div><h4>يوسف الحربي</h4><p>مهندس برمجيات يكتب عن التقنية بلغة الناس.</p></div>
+          <div class="writer"><div class="avatar" aria-hidden="true">ل</div><h4>ليلى عبد الله</h4><p>قارئة نهمة، تراجع الكتب العربية الجديدة.</p></div>
+          <div class="writer"><div class="avatar" aria-hidden="true">م</div><h4>مازن خليل</h4><p>يمشي في المدن ويكتب عن أزقتها وناسها.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="block" id="letter" aria-labelledby="letter-h">
+      <div class="wrap">
+        <div class="letter corners">
+          <div>
+            <h2 id="letter-h">نشرة زاوية</h2>
+            <p>مقال واحد مختار كل أحد، ورابطان يستحقان وقتك. بلا ضجيج.</p>
+          </div>
+          <form class="sub" id="subForm" novalidate>
+            <label for="email">البريد الإلكتروني</label>
+            <input id="email" type="email" placeholder="name@example.com" autocomplete="email" required>
+            <button class="btn" type="submit">اشترك</button>
+            <div class="note" id="note" role="status"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>© ٢٠٢٦ زاوية — منصة مقالات عربية</span>
+      <span>عن زاوية · اكتب معنا · الخصوصية</span>
+    </div>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var cats = [
+    { id: "all", name: "الكل", deg: "" },
+    { id: "fikr", name: "فكر", deg: "٦٠°" },
+    { id: "tech", name: "تقنية", deg: "٩٠°" },
+    { id: "books", name: "كتب", deg: "٤٥°" },
+    { id: "cities", name: "مدن", deg: "٣٠°" },
+    { id: "culture", name: "ثقافة", deg: "١٢٠°" }
+  ];
+  var posts = [
+    { c: "tech", t: "الذكاء الاصطناعي لا يكتب عنك، بل يكتب مثلك", x: "ما الذي يبقى من صوت الكاتب حين تصبح الآلة قادرة على تقليده؟", a: "يوسف الحربي", m: "٧ دقائق" },
+    { c: "books", t: "خمس روايات عربية صدرت هذا الخريف", x: "قراءة سريعة في أعمال جديدة تستحق مكاناً على رفّك قبل نهاية العام.", a: "ليلى عبد الله", m: "١١ دقيقة" },
+    { c: "cities", t: "شارع واحد، ثلاثة أجيال", x: "مشيت في الشارع الذي سكنه جدي، وسألت الدكاكين عمّا تغيّر.", a: "مازن خليل", m: "٨ دقائق" },
+    { c: "fikr", t: "في مديح البطء", x: "عن الأشياء التي لا تنضج إلا إذا تركناها وقتاً أطول مما نحتمل.", a: "سارة المنصور", m: "٦ دقائق" },
+    { c: "culture", t: "حين صارت القهوة طقساً عاماً", x: "كيف تحوّل فنجان الصباح من عادة منزلية إلى مساحة لقاء في مدننا.", a: "مازن خليل", m: "٥ دقائق" },
+    { c: "tech", t: "دليل مبسّط لحماية حساباتك في ١٠ دقائق", x: "خطوات عملية لا تحتاج خبرة تقنية، ابدأ بها اليوم.", a: "يوسف الحربي", m: "١٠ دقائق" },
+    { c: "books", t: "هل ما زلنا نقرأ الشعر؟", x: "أرقام المبيعات تقول شيئاً، وقرّاء الشعر يقولون شيئاً آخر.", a: "ليلى عبد الله", m: "٧ دقائق" },
+    { c: "fikr", t: "الرأي الثاني", x: "لماذا يصعب علينا أن نغيّر رأينا، حتى حين نقتنع؟", a: "سارة المنصور", m: "٩ دقائق" }
+  ];
+  var current = "all";
+  var fEl = document.getElementById("filters"), pEl = document.getElementById("posts");
+  function degOf(id) { for (var i = 0; i < cats.length; i++) if (cats[i].id === id) return cats[i]; }
+  function esc(s) { return s.replace(/[&<>"]/g, function (ch) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[ch]; }); }
+  function renderFilters() {
+    fEl.innerHTML = cats.map(function (c) {
+      return '<button class="chip" type="button" data-c="' + c.id + '" aria-pressed="' + (c.id === current) + '">' +
+        esc(c.name) + (c.deg ? "<span>" + c.deg + "</span>" : "") + "</button>";
+    }).join("");
+  }
+  function renderPosts() {
+    var list = posts.filter(function (p) { return current === "all" || p.c === current; });
+    if (!list.length) { pEl.innerHTML = '<p class="empty">لا مقالات في هذه الزاوية بعد.</p>'; return; }
+    pEl.innerHTML = list.map(function (p) {
+      var c = degOf(p.c);
+      return '<article class="post"><div class="deg">' + c.deg + "<small>" + esc(c.name) + "</small></div><div>" +
+        '<h3><a href="#latest">' + esc(p.t) + "</a></h3><p>" + esc(p.x) + '</p><div class="meta"><span>' +
+        esc(p.a) + "</span><span>" + p.m + " قراءة</span></div></div></article>";
+    }).join("");
+  }
+  fEl.addEventListener("click", function (e) {
+    var b = e.target.closest(".chip"); if (!b) return;
+    current = b.getAttribute("data-c"); renderFilters(); renderPosts();
+  });
+  renderFilters(); renderPosts();
+
+  document.getElementById("subForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var input = document.getElementById("email"), note = document.getElementById("note");
+    if (!input.checkValidity() || !input.value) { note.textContent = "اكتب بريداً إلكترونياً صحيحاً، مثل name@example.com"; input.focus(); return; }
+    note.textContent = "شكراً! سيعمل الاشتراك فعلياً بعد ربط الموقع بخدمة بريد.";
+    input.value = "";
+  });
+})();
+</script>
