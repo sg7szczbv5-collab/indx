@@ -1,0 +1,680 @@
+<title>هوية دزرة مسباح</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600&family=Reem+Kufi:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: a printed brand book on black coral (يُسر) — wide RTL sheets, each chapter opened by a Sadu band, plaster (جص) sheets where the mark must show on light. */
+:root{
+  --yusr:#16110E;      /* black coral — ground */
+  --yusr-2:#211914;    /* raised sheet */
+  --yusr-3:#2E241D;    /* hairlines on dark */
+  --kahraman:#D08A2E;  /* amber — the bead */
+  --kahraman-hi:#F2B85C;
+  --sadu:#9B2B1F;      /* Sadu weave red */
+  --teen:#8A6143;      /* Najdi mud wall */
+  --jiss:#EDE3D2;      /* plaster */
+  --fidda:#B8B4AC;     /* silver — separators & shahid */
+  --ink:#EDE3D2;
+  --muted:#A99C89;
+  --font-ruqaa:"Aref Ruqaa","Amiri","Traditional Arabic",serif;
+  --font-kufi:"Reem Kufi","IBM Plex Sans Arabic","Segoe UI",sans-serif;
+  --font-body:"IBM Plex Sans Arabic","Segoe UI","Tahoma",sans-serif;
+  --step--1:.875rem; --step-0:1.0625rem; --step-1:1.35rem; --step-2:1.9rem; --step-3:2.8rem; --step-4:clamp(3.2rem,9vw,6.5rem);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--yusr);color:var(--ink);font-family:var(--font-body);font-size:var(--step-0);line-height:1.75}
+.book{direction:rtl}
+.wrap{max-width:1160px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--font-kufi);font-weight:600;line-height:1.25;text-wrap:balance;margin:0}
+h2{font-size:var(--step-3)}
+h3{font-size:var(--step-1)}
+p{margin:0;max-width:62ch}
+.kicker{font-family:var(--font-kufi);color:var(--kahraman);font-size:var(--step--1);font-weight:500}
+.lead{color:var(--muted);font-size:var(--step-1);line-height:1.7}
+.muted{color:var(--muted)}
+.latin{direction:ltr;unicode-bidi:isolate;font-variant-numeric:tabular-nums}
+
+/* Sadu band */
+.band{display:block;width:100%;height:34px}
+.band.thin{height:14px}
+
+/* Hero */
+.hero{padding-block:3.5rem 4rem;position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:center}
+.hero h1{font-family:var(--font-ruqaa);font-weight:700;font-size:var(--step-4);line-height:1.15;color:var(--jiss)}
+.hero h1 span{color:var(--kahraman)}
+.hero .tagline{font-family:var(--font-ruqaa);font-size:var(--step-2);color:var(--kahraman-hi);margin-top:.5rem}
+.hero .meta{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;margin-top:2rem;font-size:var(--step--1);color:var(--muted);border-top:1px solid var(--yusr-3);padding-top:1rem}
+.hero .meta b{color:var(--ink);font-weight:500}
+.hero-mark{display:flex;justify-content:center}
+.hero-mark svg{width:min(100%,380px);height:auto;filter:drop-shadow(0 30px 60px rgba(0,0,0,.45))}
+
+section.chapter{padding-block:4.5rem}
+.chapter-head{display:grid;grid-template-columns:auto 1fr;gap:.25rem 1.25rem;align-items:baseline;margin-bottom:2.5rem}
+.chapter-head .kicker{grid-column:1/-1}
+.chapter-head p{grid-column:1/-1;margin-top:.75rem}
+
+/* Concept */
+.concept{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--yusr-3);border:1px solid var(--yusr-3)}
+.concept > div{background:var(--yusr);padding:1.5rem;display:flex;flex-direction:column;gap:.75rem;min-width:0}
+.concept .fig{height:96px;display:flex;align-items:center;justify-content:flex-start}
+.concept .num{font-family:var(--font-kufi);font-size:3.4rem;color:var(--kahraman);line-height:1}
+.concept p{font-size:.95rem;color:var(--muted)}
+
+/* Logo sheets */
+.logo-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:1rem}
+.sheet{border-radius:4px;padding:2rem;display:flex;flex-direction:column;gap:1rem;min-width:0}
+.sheet .art{flex:1;display:flex;align-items:center;justify-content:center;min-height:220px}
+.sheet .art svg{max-width:100%;height:auto}
+.sheet .cap{font-size:var(--step--1);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.on-yusr{background:var(--yusr-2);color:var(--ink)}
+.on-jiss{background:var(--jiss);color:var(--yusr)}
+.on-jiss .cap{color:#5d4a39}
+.on-kahraman{background:var(--kahraman);color:var(--yusr)}
+.on-sadu{background:var(--sadu);color:var(--jiss)}
+.on-white{background:#fff;color:#111}
+.on-white .cap{color:#555}
+.span-3{grid-column:span 3}.span-2{grid-column:span 2}.span-4{grid-column:span 4}.span-6{grid-column:span 6}
+.sizes{display:flex;align-items:flex-end;gap:1.5rem;flex-wrap:wrap}
+.sizes figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:.5rem;font-size:.8rem;color:var(--muted)}
+
+.rules{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:1rem}
+.clear{position:relative;display:flex;justify-content:center;padding:1.5rem}
+.clear .cs{position:relative;outline:1px dashed var(--kahraman);outline-offset:28px;margin:34px}
+.clear .cs::before{content:"س";position:absolute;top:-30px;right:-30px;font-size:.75rem;color:var(--kahraman);font-family:var(--font-body)}
+.donts{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:1rem}
+.dont{background:var(--yusr-2);border-radius:4px;padding:1rem;display:flex;flex-direction:column;gap:.75rem;align-items:center;text-align:center;min-width:0}
+.dont .art{height:130px;display:flex;align-items:center;justify-content:center;width:100%;overflow:hidden;border-radius:3px}
+.dont .x{font-size:.85rem;color:var(--muted)}
+.dont .x b{color:#E0604E;font-weight:600;margin-inline-end:.35rem}
+
+/* Colors */
+.swatches{display:grid;grid-template-columns:2.2fr 1.2fr 1fr 1fr 1fr;gap:1rem}
+.sw{border-radius:4px;overflow:hidden;background:var(--yusr-2);display:flex;flex-direction:column;min-width:0}
+.sw .chip{height:190px;padding:1rem;display:flex;align-items:flex-end;font-family:var(--font-ruqaa);font-size:2rem}
+.sw .info{padding:1rem;display:flex;flex-direction:column;gap:.35rem;font-size:.85rem}
+.sw .info h3{font-size:1.1rem}
+.sw dl{display:grid;grid-template-columns:auto 1fr;gap:.1rem .75rem;margin:.25rem 0 0}
+.sw dt{color:var(--muted)} .sw dd{margin:0}
+.copy{all:unset;cursor:pointer;font-family:var(--font-body);font-size:.8rem;color:var(--kahraman);border-bottom:1px dotted currentColor;justify-self:start}
+.copy:focus-visible{outline:2px solid var(--kahraman);outline-offset:3px}
+.ratio{display:flex;height:22px;border-radius:3px;overflow:hidden;margin-top:1.5rem}
+.ratio-legend{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;margin-top:.6rem;font-size:.85rem;color:var(--muted)}
+
+/* Type */
+.type-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.spec{background:var(--yusr-2);border-radius:4px;padding:1.75rem;display:flex;flex-direction:column;gap:1rem;min-width:0}
+.spec .sample{font-size:4.2rem;line-height:1.2;color:var(--jiss)}
+.spec .role{display:flex;justify-content:space-between;gap:1rem;font-size:.85rem;color:var(--muted);border-top:1px solid var(--yusr-3);padding-top:.75rem;flex-wrap:wrap}
+.spec .alpha{font-size:1.3rem;color:var(--muted);line-height:1.6}
+.scale{margin-top:1rem;background:var(--yusr-2);border-radius:4px;padding:1.75rem;display:flex;flex-direction:column;gap:.75rem}
+.scale div{display:grid;grid-template-columns:7rem 1fr;gap:1rem;align-items:baseline;border-bottom:1px solid var(--yusr-3);padding-bottom:.6rem}
+.scale div:last-child{border:0}
+.scale small{color:var(--muted);font-size:.8rem}
+
+/* Patterns */
+.patterns{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.pat{background:var(--yusr-2);border-radius:4px;overflow:hidden;min-width:0}
+.pat svg{display:block;width:100%;height:auto}
+.pat .info{padding:1.25rem;display:flex;flex-direction:column;gap:.35rem}
+.pat .info p{font-size:.9rem;color:var(--muted)}
+
+/* Voice */
+.voice{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem}
+.voice .card{background:var(--yusr-2);border-radius:4px;padding:1.5rem;display:flex;flex-direction:column;gap:.75rem;min-width:0}
+.voice ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.voice li{padding-inline-start:1.1rem;position:relative}
+.voice li::before{content:"";position:absolute;inset-inline-start:0;top:.75em;width:6px;height:6px;border-radius:50%;background:var(--kahraman)}
+.voice .no li::before{background:transparent;border:1px solid var(--muted)}
+.voice .no li{color:var(--muted);text-decoration:line-through;text-decoration-color:rgba(169,156,137,.5)}
+.quote{font-family:var(--font-ruqaa);font-size:1.7rem;line-height:1.6;color:var(--kahraman-hi)}
+
+/* Applications */
+.apps{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
+.stage{border-radius:4px;padding:2.5rem 1.5rem;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.25rem;min-width:0;background:var(--teen);background-image:radial-gradient(120% 90% at 30% 10%,rgba(255,255,255,.12),transparent 60%)}
+.stage.dark{background:var(--yusr-2);background-image:radial-gradient(100% 80% at 70% 0%,rgba(208,138,46,.12),transparent 60%)}
+.stage .label{font-size:.85rem;color:rgba(237,227,210,.8);align-self:stretch;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.a-cards{grid-column:span 7}.a-tag{grid-column:span 5}.a-box{grid-column:span 6}.a-post{grid-column:span 6}.a-seal{grid-column:span 4}.a-bag{grid-column:span 8}
+
+.bcard{width:min(100%,336px);aspect-ratio:85/55;border-radius:5px;box-shadow:0 18px 40px rgba(0,0,0,.35);position:relative;overflow:hidden}
+.bcard.front{background:var(--yusr);display:flex;align-items:center;justify-content:center}
+.bcard.front .strip{position:absolute;inset:auto 0 0 0;height:12px;width:100%}
+.bcard.back{background:var(--jiss);color:var(--yusr);padding:1.1rem 1.25rem;display:flex;flex-direction:column;justify-content:space-between}
+.bcard.back .n{font-family:var(--font-kufi);font-size:1.15rem;font-weight:600;line-height:1.3}
+.bcard.back .r{font-size:.75rem;color:#6b5644}
+.bcard.back .c{font-size:.72rem;line-height:1.6;display:flex;flex-direction:column}
+.bcard.back .top{display:flex;justify-content:space-between;align-items:flex-start;gap:.5rem}
+.cards-row{display:flex;gap:1.25rem;flex-wrap:wrap;justify-content:center;width:100%}
+
+.tag{width:220px;background:var(--jiss);color:var(--yusr);border-radius:4px 4px 4px 4px;clip-path:polygon(0 18px,18px 0,calc(100% - 18px) 0,100% 18px,100% 100%,0 100%);padding:2.2rem 1.25rem 1.25rem;position:relative;box-shadow:0 18px 40px rgba(0,0,0,.3);display:flex;flex-direction:column;gap:.75rem;align-items:center}
+.tag::before{content:"";position:absolute;top:12px;left:50%;width:12px;height:12px;margin-left:-6px;border-radius:50%;background:var(--teen);box-shadow:inset 0 0 0 2px var(--fidda)}
+.tag table{width:100%;color:inherit;border-collapse:collapse;font-size:.78rem}
+.tag td{padding:.3rem 0;border-bottom:1px solid #d6c8b1}
+.tag td:last-child{text-align:left;font-weight:600}
+.tag .sn{font-size:.7rem;color:#6b5644}
+
+.box{width:min(100%,300px);aspect-ratio:1;background:var(--yusr);border-radius:3px;position:relative;box-shadow:0 26px 50px rgba(0,0,0,.45),inset 0 0 0 1px rgba(208,138,46,.25);display:flex;align-items:center;justify-content:center}
+.box .ribbon{position:absolute;inset:0 auto 0 18%;width:26px;height:100%}
+.box .foil{position:relative}
+
+.post{width:min(100%,320px);aspect-ratio:1;background:var(--yusr);border-radius:3px;position:relative;overflow:hidden;box-shadow:0 18px 40px rgba(0,0,0,.35);display:flex;flex-direction:column;justify-content:space-between;padding:1.25rem}
+.post .t{font-family:var(--font-ruqaa);font-size:2rem;line-height:1.3;color:var(--jiss);position:relative}
+.post .t span{color:var(--kahraman)}
+.post .s{font-size:.75rem;color:var(--muted);position:relative;display:flex;justify-content:space-between;align-items:center;padding-inline-end:5.5rem}
+.post .t{padding-inline-end:4.5rem}
+.post .strand{position:absolute;inset:0}
+
+.bag{display:flex;gap:1.5rem;align-items:flex-end;justify-content:center;flex-wrap:wrap}
+.pouch{width:150px;height:190px;background:var(--sadu);border-radius:8px 8px 40px 40px;position:relative;display:flex;align-items:center;justify-content:center;box-shadow:0 18px 40px rgba(0,0,0,.35)}
+.pouch::before{content:"";position:absolute;top:22px;left:10px;right:10px;border-top:2px dashed rgba(237,227,210,.55)}
+.paperbag{width:200px;height:250px;background:var(--jiss);position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;box-shadow:0 18px 40px rgba(0,0,0,.35)}
+.paperbag::before{content:"";position:absolute;top:-34px;left:50%;width:70px;height:46px;margin-left:-35px;border:5px solid var(--yusr);border-bottom:0;border-radius:40px 40px 0 0}
+.paperbag .strip{position:absolute;inset:auto 0 0 0;height:18px;width:100%}
+
+footer{padding-block:3rem 4rem;border-top:1px solid var(--yusr-3);color:var(--muted);font-size:.9rem}
+footer .wrap{display:flex;justify-content:space-between;gap:2rem;flex-wrap:wrap;align-items:center}
+
+@media (max-width:960px){
+  .hero .wrap{grid-template-columns:1fr}
+  .hero-mark{order:-1}
+  .concept{grid-template-columns:1fr 1fr}
+  .logo-grid{grid-template-columns:1fr 1fr}
+  .span-2,.span-3,.span-4,.span-6{grid-column:span 2}
+  .logo-grid .half{grid-column:span 1}
+  .swatches{grid-template-columns:1fr 1fr}
+  .swatches .sw:first-child{grid-column:span 2}
+  .type-grid,.voice{grid-template-columns:1fr}
+  .patterns,.rules{grid-template-columns:1fr}
+  .donts{grid-template-columns:1fr 1fr}
+  .apps > *{grid-column:span 12 !important}
+}
+@media (max-width:520px){
+  .concept,.logo-grid{grid-template-columns:1fr}
+  .logo-grid .half,.span-2,.span-3,.span-4,.span-6{grid-column:span 1}
+  .swatches{grid-template-columns:1fr}
+  .swatches .sw:first-child{grid-column:span 1}
+  .scale div{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:no-preference){
+  .hero-mark .bead{animation:glint 6s ease-in-out infinite}
+}
+@keyframes glint{0%,100%{opacity:1}50%{opacity:.82}}
+</style>
+
+<!-- Shared pattern defs -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <pattern id="sadu" width="48" height="34" patternUnits="userSpaceOnUse">
+      <rect width="48" height="34" fill="#9B2B1F"/>
+      <rect y="0" width="48" height="3" fill="#16110E"/>
+      <rect y="31" width="48" height="3" fill="#16110E"/>
+      <path d="M0 3 L17 17 L0 31Z M48 3 L31 17 L48 31Z" fill="#16110E"/>
+      <path d="M24 6 L34 17 L24 28 L14 17Z" fill="#EDE3D2"/>
+      <path d="M24 12 L29 17 L24 22 L19 17Z" fill="#D08A2E"/>
+      <circle cx="4" cy="17" r="1.6" fill="#EDE3D2"/><circle cx="44" cy="17" r="1.6" fill="#EDE3D2"/>
+    </pattern>
+    <pattern id="sadu-thin" width="20" height="14" patternUnits="userSpaceOnUse">
+      <rect width="20" height="14" fill="#9B2B1F"/>
+      <path d="M0 0 L10 7 L0 14Z" fill="#16110E"/>
+      <path d="M10 3 L14 7 L10 11 L6 7Z" fill="#EDE3D2"/>
+    </pattern>
+    <pattern id="shurfa" width="28" height="30" patternUnits="userSpaceOnUse">
+      <path d="M0 30 L0 22 L4 22 L4 16 L8 16 L8 10 L12 10 L12 4 L16 4 L16 10 L20 10 L20 16 L24 16 L24 22 L28 22 L28 30Z" fill="#8A6143"/>
+      <path d="M11 30 L14 23 L17 30Z" fill="#16110E"/>
+    </pattern>
+  </defs>
+</svg>
+
+<div class="book" lang="ar">
+
+<svg class="band" aria-hidden="true"><rect width="100%" height="100%" fill="url(#sadu)"/></svg>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <div class="kicker">دليل الهوية البصرية · الإصدار الأول</div>
+      <h1>دزرة <span>مسباح</span></h1>
+      <p class="tagline">حبّةٌ تتلو حبّة.. ونظمٌ يليق بيدك</p>
+      <p class="lead" style="margin-top:1.25rem">مسابح رجالية وإكسسوارات تُختار خاماتها بعناية وتُصنع باليد. هذا الدليل يجمع الشعار والألوان والخطوط والزخارف وطريقة الكلام، حتى يظهر البراند بشكل واحد في المحل، وعلى العلبة، وفي حساباته.</p>
+      <div class="meta">
+        <span>التخصص <b>مسابح رجالية وإكسسوارات</b></span>
+        <span>الطابع <b>نجدي سعودي أصيل</b></span>
+        <span>التاريخ <b>جمادى الأولى ١٤٤٨هـ</b></span>
+      </div>
+    </div>
+    <div class="hero-mark" data-logo="primary" data-variant="gold"></div>
+  </div>
+</header>
+
+<!-- ========== الفكرة ========== -->
+<section class="chapter" id="concept">
+  <div class="wrap">
+    <div class="chapter-head">
+      <span class="kicker">الفكرة</span>
+      <h2>الشعار مسباح كامل</h2>
+      <p class="lead">«الدزرة» هي النظم: خيط واحد يجمع الحبّات فلا تتفرق. لذلك بُني الشعار من مسباح حقيقي بعدّه الصحيح، مأخوذ من أربعة عناصر يعرفها كل من مسك سبحة أو مرّ بحيّ نجدي قديم.</p>
+    </div>
+    <div class="concept">
+      <div>
+        <div class="fig"><span class="num">٣٣</span></div>
+        <h3>ثلاث وثلاثون حبّة</h3>
+        <p>حلقة الشعار تحمل ٣٣ حبّة بالضبط، وهو عدد المسباح الذي يُحمل في اليد ويُدار ثلاث مرات لتمام التسبيح.</p>
+      </div>
+      <div>
+        <div class="fig" data-logo="fawasil"></div>
+        <h3>الفاصلتان</h3>
+        <p>فاصلتان من الفضة تقسمان الحبّات إلى ثلاثة أقسام، كل قسم إحدى عشرة حبّة، كما في المسباح الأصلي.</p>
+      </div>
+      <div>
+        <div class="fig" data-logo="shahid"></div>
+        <h3>الشاهد والشرّابة</h3>
+        <p>الشاهد (المئذنة) يقف أسفل الحلقة ويمسك طرفي الخيط، وتنسدل تحته الشرّابة. هو العمود الذي تقوم عليه الهوية.</p>
+      </div>
+      <div>
+        <div class="fig"><svg width="140" height="60" viewBox="0 0 140 60" aria-hidden="true"><rect width="140" height="60" fill="url(#shurfa)"/></svg></div>
+        <h3>الشُّرفة والسدو</h3>
+        <p>مثلثات الشُّرفات النجدية على أسوار الطين، ونقش السدو المنسوج في بيوت الشَّعر. منهما تأتي الزخرفة والفواصل.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<svg class="band thin" aria-hidden="true"><rect width="100%" height="100%" fill="url(#sadu-thin)"/></svg>
+
+<!-- ========== الشعار ========== -->
+<section class="chapter" id="logo">
+  <div class="wrap">
+    <div class="chapter-head">
+      <span class="kicker">الشعار</span>
+      <h2>ثلاث صيغ لكل مقام</h2>
+      <p class="lead">الشعار الرئيسي للعلب والواجهات، والأفقي للمطبوعات العريضة والموقع، والختم (حرف الدال داخل الحلقة) للمساحات الصغيرة والأيقونات. كلها تُستخدم كما هي، من الملفات المعتمدة فقط.</p>
+    </div>
+
+    <div class="logo-grid">
+      <div class="sheet on-yusr span-3"><div class="art" data-logo="primary" data-variant="gold" data-w="300"></div><div class="cap"><b>الرئيسي</b><span class="muted">كهرماني على يُسر</span></div></div>
+      <div class="sheet on-jiss span-3"><div class="art" data-logo="primary" data-variant="ink" data-w="300"></div><div class="cap"><b>الرئيسي</b><span>يُسر على جصّ</span></div></div>
+      <div class="sheet on-yusr span-4"><div class="art" data-logo="horizontal" data-variant="gold"></div><div class="cap"><b>الأفقي</b><span class="muted">للموقع والفواتير واللوحات العريضة</span></div></div>
+      <div class="sheet on-sadu span-2"><div class="art" data-logo="monogram" data-variant="jiss" data-w="170"></div><div class="cap"><b>الختم</b><span>جصّ على سدو</span></div></div>
+      <div class="sheet on-kahraman span-2 half"><div class="art" data-logo="monogram" data-variant="yusr" data-w="170"></div><div class="cap"><b>الختم</b><span>يُسر على كهرمان</span></div></div>
+      <div class="sheet on-white span-2 half"><div class="art" data-logo="primary" data-variant="black" data-w="170"></div><div class="cap"><b>أحادي اللون</b><span>للختم والحفر والفاكس</span></div></div>
+      <div class="sheet on-yusr span-2">
+        <div class="art"><div class="sizes">
+          <figure><span data-logo="icon" data-variant="gold" data-w="64"></span>٦٤ بكسل</figure>
+          <figure><span data-logo="icon" data-variant="gold" data-w="32"></span>٣٢</figure>
+          <figure><span data-logo="icon" data-variant="gold" data-w="16"></span>١٦</figure>
+        </div></div>
+        <div class="cap"><b>الأيقونة</b><span class="muted">المسباح وحده للأحجام الصغيرة</span></div>
+      </div>
+    </div>
+
+    <div class="rules">
+      <div class="sheet on-yusr">
+        <h3>مساحة الأمان</h3>
+        <div class="clear"><div class="cs" data-logo="primary" data-variant="gold" data-w="170"></div></div>
+        <p class="muted" style="font-size:.9rem">اترك حول الشعار فراغاً لا يقل عن «س»، وهي ارتفاع كلمة «مسباح» داخل الشعار. لا يدخل هذه المساحة نص ولا صورة ولا حافة صفحة.</p>
+      </div>
+      <div class="sheet on-yusr">
+        <h3>أصغر مقاس</h3>
+        <dl style="display:grid;grid-template-columns:auto 1fr;gap:.6rem 1.5rem;margin:0">
+          <dt class="muted">الرئيسي، طباعة</dt><dd style="margin:0">٢٥ ملم عرضاً</dd>
+          <dt class="muted">الرئيسي، شاشة</dt><dd style="margin:0">١٢٠ بكسل عرضاً</dd>
+          <dt class="muted">الأفقي</dt><dd style="margin:0">٤٠ ملم / ١٨٠ بكسل</dd>
+          <dt class="muted">الختم</dt><dd style="margin:0">١٢ ملم / ٤٨ بكسل</dd>
+          <dt class="muted">الأيقونة</dt><dd style="margin:0">حتى ١٦ بكسل</dd>
+        </dl>
+        <p class="muted" style="font-size:.9rem">تحت هذه المقاسات تتلاصق الحبّات وتضيع الكتابة، فانتقل إلى الصيغة الأصغر بدل تصغير الشعار.</p>
+      </div>
+    </div>
+
+    <div class="donts">
+      <div class="dont"><div class="art on-yusr"><span data-logo="primary" data-variant="gold" data-w="90" style="display:inline-block;transform:scaleX(1.6)"></span></div><div class="x"><b>✕</b>لا تمطّه ولا تضغطه</div></div>
+      <div class="dont"><div class="art on-yusr"><span data-logo="primary" data-variant="gold" data-w="90" style="display:inline-block;transform:rotate(-25deg)"></span></div><div class="x"><b>✕</b>لا تُدِره، فالشاهد دائماً للأسفل</div></div>
+      <div class="dont"><div class="art" style="background:#1d3b8a"><span data-logo="primary" data-variant="neon" data-w="90"></span></div><div class="x"><b>✕</b>لا ألوان من خارج اللوحة</div></div>
+      <div class="dont"><div class="art"><div style="position:relative;width:100%;height:130px;display:flex;align-items:center;justify-content:center"><svg width="100%" height="130" style="position:absolute;inset:0" aria-hidden="true"><rect width="100%" height="100%" fill="url(#sadu)"/></svg><span data-logo="primary" data-variant="gold" data-w="90" style="position:relative"></span></div></div><div class="x"><b>✕</b>لا تضعه فوق السدو أو صورة مزدحمة</div></div>
+    </div>
+  </div>
+</section>
+
+<svg class="band thin" aria-hidden="true"><rect width="100%" height="100%" fill="url(#sadu-thin)"/></svg>
+
+<!-- ========== الألوان ========== -->
+<section class="chapter" id="color">
+  <div class="wrap">
+    <div class="chapter-head">
+      <span class="kicker">الألوان</span>
+      <h2>ألوان من خامات المسباح والبيت النجدي</h2>
+      <p class="lead">كل لون في اللوحة له أصل يُلمس: حجر، أو مرجان، أو طين، أو صوف. اليُسر هو الأرضية دائماً، والكهرمان للشعار والتفاصيل الثمينة، والسدو للزخرفة فقط.</p>
+    </div>
+    <div class="swatches" id="swatches"></div>
+    <div class="ratio" aria-hidden="true">
+      <span style="flex:60;background:var(--yusr);outline:1px solid var(--yusr-3)"></span>
+      <span style="flex:20;background:var(--jiss)"></span>
+      <span style="flex:10;background:var(--kahraman)"></span>
+      <span style="flex:5;background:var(--sadu)"></span>
+      <span style="flex:3;background:var(--teen)"></span>
+      <span style="flex:2;background:var(--fidda)"></span>
+    </div>
+    <div class="ratio-legend"><span>يُسر ٦٠٪</span><span>جصّ ٢٠٪</span><span>كهرمان ١٠٪</span><span>سدو ٥٪</span><span>طين ٣٪</span><span>فضة ٢٪</span></div>
+  </div>
+</section>
+
+<svg class="band thin" aria-hidden="true"><rect width="100%" height="100%" fill="url(#sadu-thin)"/></svg>
+
+<!-- ========== الخطوط ========== -->
+<section class="chapter" id="type">
+  <div class="wrap">
+    <div class="chapter-head">
+      <span class="kicker">الخطوط</span>
+      <h2>رقعة للروح، وكوفي للبناء، ونسخ للقراءة</h2>
+      <p class="lead">ثلاثة خطوط مجانية من Google Fonts، تعمل في الطباعة والشاشة. لا تُباعد بين الحروف العربية أبداً، فالتباعد يقطع اتصالها.</p>
+    </div>
+    <div class="type-grid">
+      <div class="spec">
+        <div class="sample" style="font-family:var(--font-ruqaa);font-weight:700">دزرة</div>
+        <div class="alpha" style="font-family:var(--font-ruqaa)">أ ب ت ث ج ح خ د ذ ر ز س ش ص ض</div>
+        <div class="role"><b>عارف رقعة · Aref Ruqaa</b><span>الشعار والعبارات القصيرة</span></div>
+      </div>
+      <div class="spec">
+        <div class="sample" style="font-family:var(--font-kufi);font-weight:600">يُسر</div>
+        <div class="alpha" style="font-family:var(--font-kufi)">أ ب ت ث ج ح خ د ذ ر ز س ش ص ض</div>
+        <div class="role"><b>ريم كوفي · Reem Kufi</b><span>العناوين وأسماء الخامات</span></div>
+      </div>
+      <div class="spec">
+        <div class="sample" style="font-family:var(--font-body);font-weight:500;font-size:3.6rem">كهرمان</div>
+        <div class="alpha" style="font-family:var(--font-body)">أ ب ت ث ج ح خ د ذ ر ز س ش ص ض</div>
+        <div class="role"><b>آي بي إم بلكس عربي · IBM Plex Sans Arabic</b><span>النصوص والأسعار والبطاقات</span></div>
+      </div>
+    </div>
+    <div class="scale">
+      <div><small>عبارة · رقعة ٤٨</small><span style="font-family:var(--font-ruqaa);font-size:2.6rem;line-height:1.4">كل حبّة لها حكاية</span></div>
+      <div><small>عنوان · كوفي ٣٢</small><span style="font-family:var(--font-kufi);font-size:2rem;font-weight:600">مسباح كهرمان بلطيقي</span></div>
+      <div><small>فرعي · كوفي ٢٠</small><span style="font-family:var(--font-kufi);font-size:1.3rem;font-weight:500">٣٣ حبّة · شاهد فضة عيار ٩٢٥</span></div>
+      <div><small>نص · بلكس ١٦</small><span>حبّات مخروطة يدوياً، تزداد لمعتها مع الأيام وكثرة التسبيح. يأتي في علبة خشب مع شهادة الخامة.</span></div>
+      <div><small>تفاصيل · بلكس ١٣</small><span class="muted" style="font-size:.85rem">رقم القطعة ٠٣٣/١٤٤٨ · نُظمت في الرياض</span></div>
+    </div>
+  </div>
+</section>
+
+<svg class="band thin" aria-hidden="true"><rect width="100%" height="100%" fill="url(#sadu-thin)"/></svg>
+
+<!-- ========== الزخارف ========== -->
+<section class="chapter" id="pattern">
+  <div class="wrap">
+    <div class="chapter-head">
+      <span class="kicker">الزخارف</span>
+      <h2>نقشان وخيط</h2>
+      <p class="lead">تُستخدم الزخارف أشرطةً على الحواف فقط: أسفل بطاقة، أو شريط علبة، أو رأس صفحة. لا تملأ بها خلفية كاملة، ولا تضع الشعار فوقها.</p>
+    </div>
+    <div class="patterns">
+      <div class="pat">
+        <svg viewBox="0 0 600 136" aria-hidden="true"><rect width="600" height="136" fill="url(#sadu)"/></svg>
+        <div class="info"><h3>شريط السدو</h3><p>مثلثات ومعيّنات بألوان الصوف: أحمر السدو والأسود والجصّي، مع عين كهرمانية في كل معيّن. للعلب والأكياس والحواف السفلية.</p></div>
+      </div>
+      <div class="pat">
+        <svg viewBox="0 0 600 136" aria-hidden="true"><rect width="600" height="136" fill="#211914"/><rect y="46" width="600" height="90" fill="url(#shurfa)"/></svg>
+        <div class="info"><h3>الشُّرفة النجدية</h3><p>درجات الطين المثلثة مع فتحتها الصغيرة كما على أسوار الدرعية. لرؤوس الصفحات وأعلى الواجهات وحدود الفيديو.</p></div>
+      </div>
+      <div class="pat" style="grid-column:1/-1">
+        <svg viewBox="0 0 1200 60" id="strand-divider" aria-hidden="true"></svg>
+        <div class="info"><h3>خيط الدزرة</h3><p>فاصل من حبّات منظومة على خيط، مع فاصلة فضية كل إحدى عشرة حبّة. يفصل بين الأقسام بدل الخطوط المستقيمة.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<svg class="band thin" aria-hidden="true"><rect width="100%" height="100%" fill="url(#sadu-thin)"/></svg>
+
+<!-- ========== الصوت ========== -->
+<section class="chapter" id="voice">
+  <div class="wrap">
+    <div class="chapter-head">
+      <span class="kicker">نبرة الصوت</span>
+      <h2>نتكلم مثل صاحب محل يعرف خاماته</h2>
+      <p class="lead">هادئ وواثق ومختصر. نسمّي الخامة باسمها، ونذكر العدد والمقاس، ونترك المبالغة. عربية فصيحة قريبة، تقبل الكلمة النجدية حين تكون أصدق.</p>
+    </div>
+    <div class="voice">
+      <div class="card">
+        <h3>نقول</h3>
+        <ul>
+          <li>كهرمان بلطيقي، ٣٣ حبّة، ١٠ ملم</li>
+          <li>نُظمت باليد، حبّةً حبّة</li>
+          <li>يُسر طبيعي، يزداد لمعة مع الاستعمال</li>
+          <li>حيّاك الله في المحل</li>
+        </ul>
+      </div>
+      <div class="card no">
+        <h3>لا نقول</h3>
+        <ul>
+          <li>أفخم مسباح في العالم!!!</li>
+          <li>عرض لا يتكرر، اطلب الآن</li>
+          <li>Premium Luxury Collection</li>
+          <li>ستبهر الجميع</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>عبارات معتمدة</h3>
+        <p class="quote">حبّةٌ تتلو حبّة</p>
+        <p class="quote">كل حبّة لها حكاية</p>
+        <p class="quote">نظمٌ يليق بيدك</p>
+      </div>
+      <div class="card" style="grid-column:1/-1">
+        <h3>أقسام المتجر</h3>
+        <p class="muted">نسمّي كل قسم باسمه العربي المعروف، ونكتبه بالخط الكوفي على اللافتات وفي قوائم الموقع.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:.75rem 2rem;font-family:var(--font-kufi);font-size:1.4rem;color:var(--jiss)">
+          <span>المسابح</span><span>الخواتم</span><span>الكبكات</span><span>الميداليات</span><span>الأقلام</span><span>علب الهدايا</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<svg class="band thin" aria-hidden="true"><rect width="100%" height="100%" fill="url(#sadu-thin)"/></svg>
+
+<!-- ========== التطبيقات ========== -->
+<section class="chapter" id="apps">
+  <div class="wrap">
+    <div class="chapter-head">
+      <span class="kicker">التطبيقات</span>
+      <h2>الهوية على الأشياء</h2>
+      <p class="lead">نماذج توضيحية للمطبوعات الأساسية. الأسماء وأرقام القطع فيها أمثلة.</p>
+    </div>
+    <div class="apps">
+      <div class="stage a-cards">
+        <div class="cards-row">
+          <div class="bcard front"><span data-logo="primary" data-variant="gold" data-w="110"></span><svg class="strip" aria-hidden="true"><rect width="100%" height="100%" fill="url(#sadu-thin)"/></svg></div>
+          <div class="bcard back">
+            <div class="top"><div><div class="n">فهد بن سعد</div><div class="r">المؤسس · مثال</div></div><span data-logo="monogram" data-variant="ink" data-w="46"></span></div>
+            <div class="c"><span class="latin" style="text-align:right">+966 5X XXX XXXX</span><span>الرياض، حي الطريف</span><span class="latin" style="text-align:right">@dazratmisbah</span></div>
+          </div>
+        </div>
+        <div class="label"><span>بطاقة العمل</span><span>٨٥ × ٥٥ ملم · رقائق ذهبية على ورق أسود</span></div>
+      </div>
+
+      <div class="stage dark a-tag">
+        <div class="tag">
+          <span data-logo="monogram" data-variant="ink" data-w="54"></span>
+          <div style="font-family:var(--font-kufi);font-weight:600;font-size:1.05rem">كهرمان بلطيقي</div>
+          <table>
+            <tr><td>عدد الحبّات</td><td>٣٣</td></tr>
+            <tr><td>المقاس</td><td>١٠ ملم</td></tr>
+            <tr><td>الفواصل والشاهد</td><td>فضة ٩٢٥</td></tr>
+            <tr><td>الوزن</td><td>٢٨ غرام</td></tr>
+          </table>
+          <div class="sn">قطعة رقم ٠٣٣/١٤٤٨</div>
+        </div>
+        <div class="label"><span>بطاقة الخامة</span><span>تُعلّق في الشاهد</span></div>
+      </div>
+
+      <div class="stage a-box">
+        <div class="box"><svg class="ribbon" aria-hidden="true"><rect width="100%" height="100%" fill="url(#sadu-thin)"/></svg><span class="foil" data-logo="primary" data-variant="gold" data-w="150"></span></div>
+        <div class="label"><span>علبة الهدية</span><span>خشب مغطى بالجلد · شريط سدو</span></div>
+      </div>
+
+      <div class="stage dark a-post">
+        <div class="post">
+          <svg class="strand" viewBox="0 0 320 320" aria-hidden="true" id="post-strand"></svg>
+          <div class="t">يُسر طبيعي<br><span>حبّةٌ تتلو حبّة</span></div>
+          <div class="s"><span>٣٣ حبّة · شاهد فضة</span><span data-logo="icon" data-variant="gold" data-w="34"></span></div>
+        </div>
+        <div class="label"><span>منشور إنستقرام</span><span>١٠٨٠ × ١٠٨٠</span></div>
+      </div>
+
+      <div class="stage dark a-seal">
+        <span data-logo="seal" data-w="200"></span>
+        <div class="label"><span>ختم الشمع والملصق</span><span>٤٠ ملم</span></div>
+      </div>
+
+      <div class="stage a-bag">
+        <div class="bag">
+          <div class="pouch"><span data-logo="monogram" data-variant="jiss" data-w="80"></span></div>
+          <div class="paperbag"><span data-logo="primary" data-variant="ink" data-w="110"></span><svg class="strip" aria-hidden="true"><rect width="100%" height="100%" fill="url(#sadu-thin)"/></svg></div>
+        </div>
+        <div class="label"><span>كيس القماش وكيس المحل</span><span>مخمل أحمر سدو · ورق جصّي</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span data-logo="horizontal" data-variant="gold" data-w="240"></span>
+    <span>دليل هوية دزرة مسباح · الإصدار الأول ١٤٤٨هـ</span>
+  </div>
+</footer>
+
+<svg class="band" aria-hidden="true"><rect width="100%" height="100%" fill="url(#sadu)"/></svg>
+</div>
+
+<script>
+(function(){
+  var uid=0;
+  var V={
+    gold:{bead:['#F6C978','#D08A2E','#7A4A12'],sep:'#C9C5BC',str:'#8A6143',text:'#EDE3D2',sub:'#D08A2E',tassel:'#D08A2E',shahid:'#C9C5BC'},
+    ink:{bead:['#4a3a2f','#2a1f19','#16110E'],sep:'#8A6143',str:'#8A6143',text:'#16110E',sub:'#9B2B1F',tassel:'#9B2B1F',shahid:'#16110E'},
+    black:{flat:'#000',sep:'#000',str:'#000',text:'#000',sub:'#000',tassel:'#000',shahid:'#000'},
+    jiss:{flat:'#EDE3D2',sep:'#EDE3D2',str:'#EDE3D2',text:'#EDE3D2',sub:'#EDE3D2',tassel:'#EDE3D2',shahid:'#EDE3D2'},
+    yusr:{flat:'#16110E',sep:'#16110E',str:'#16110E',text:'#16110E',sub:'#16110E',tassel:'#16110E',shahid:'#16110E'},
+    neon:{bead:['#9ff','#2de','#06a'],sep:'#f0f',str:'#f0f',text:'#7f7',sub:'#ff0',tassel:'#f0f',shahid:'#f0f'}
+  };
+  // Ring + shahid + tassel, drawn in a 400×520 box.
+  function parts(c, id){
+    var cx=200,cy=200,R=150,gap=10,n=35,out=[];
+    var fill=c.flat?c.flat:'url(#g'+id+')';
+    var defs=c.flat?'':'<defs><radialGradient id="g'+id+'" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="'+c.bead[0]+'"/><stop offset=".55" stop-color="'+c.bead[1]+'"/><stop offset="1" stop-color="'+c.bead[2]+'"/></radialGradient></defs>';
+    var a0=90+gap, step=(360-2*gap)/(n-1);
+    var ax=function(d){return cx+R*Math.cos(d*Math.PI/180)}, ay=function(d){return cy+R*Math.sin(d*Math.PI/180)};
+    out.push('<path d="M'+ax(90+gap).toFixed(1)+' '+ay(90+gap).toFixed(1)+' A'+R+' '+R+' 0 1 1 '+ax(90-gap).toFixed(1)+' '+ay(90-gap).toFixed(1)+'" fill="none" stroke="'+c.str+'" stroke-width="1.6"/>');
+    out.push('<path d="M'+ax(90+gap).toFixed(1)+' '+ay(90+gap).toFixed(1)+' L200 372 L'+ax(90-gap).toFixed(1)+' '+ay(90-gap).toFixed(1)+'" fill="none" stroke="'+c.str+'" stroke-width="1.6"/>');
+    for(var i=0;i<n;i++){
+      var d=a0+i*step,x=ax(d).toFixed(1),y=ay(d).toFixed(1);
+      if(i===11||i===23){
+        out.push('<ellipse cx="'+x+'" cy="'+y+'" rx="11" ry="5.5" transform="rotate('+(d+90).toFixed(1)+' '+x+' '+y+')" fill="'+c.sep+'"/>');
+      } else {
+        out.push('<circle class="bead" cx="'+x+'" cy="'+y+'" r="11.4" fill="'+fill+'"/>');
+      }
+    }
+    // shahid (minaret)
+    out.push('<circle cx="200" cy="374" r="8" fill="'+c.sep+'"/>');
+    out.push('<path d="M200 384 C216 392 217 412 211 432 L207 456 L193 456 L189 432 C183 412 184 392 200 384Z" fill="'+(c.flat?c.flat:fill)+'"/>');
+    out.push('<rect x="189" y="404" width="22" height="3" fill="'+c.shahid+'"/><rect x="190" y="428" width="20" height="3" fill="'+c.shahid+'"/>');
+    out.push('<rect x="191" y="456" width="18" height="7" rx="2" fill="'+c.shahid+'"/>');
+    var t=[];for(var k=-5;k<=5;k++){t.push('<path d="M'+(200+k*1.2).toFixed(1)+' 463 L'+(200+k*3.4).toFixed(1)+' 512" stroke="'+c.tassel+'" stroke-width="1.6" stroke-linecap="round"/>')}
+    out.push(t.join(''));
+    return defs+out.join('');
+  }
+  function shurfaRow(x,y,w,color){
+    var s='',k=Math.floor(w/14);
+    for(var i=0;i<k;i++){var X=x+i*14;s+='<path d="M'+X+' '+(y+8)+' L'+(X+7)+' '+y+' L'+(X+14)+' '+(y+8)+'Z" fill="'+color+'"/>'}
+    return s;
+  }
+  var AR='font-family="Aref Ruqaa, Amiri, serif"', KF='font-family="Reem Kufi, IBM Plex Sans Arabic, sans-serif"';
+  function svg(vb,w,inner,label){
+    var p=vb.split(' '),h=Math.round(w*p[3]/p[2]);
+    return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="'+vb+'" width="'+w+'" height="'+h+'" role="img" aria-label="'+label+'">'+inner+'</svg>';
+  }
+  var B={
+    primary:function(c,w,id){
+      return svg('0 0 400 520',w||360,parts(c,id)+
+        '<text x="200" y="214" text-anchor="middle" '+AR+' font-weight="700" font-size="104" fill="'+c.text+'">دزرة</text>'+
+        shurfaRow(158,236,84,c.sub)+
+        '<text x="200" y="290" text-anchor="middle" '+KF+' font-weight="600" font-size="36" fill="'+c.sub+'">مسباح</text>','دزرة مسباح');
+    },
+    monogram:function(c,w,id){
+      return svg('0 0 400 520',w||200,parts(c,id)+'<text x="200" y="250" text-anchor="middle" '+AR+' font-weight="700" font-size="190" fill="'+c.text+'">د</text>','دزرة مسباح');
+    },
+    icon:function(c,w,id){
+      return svg('0 0 400 520',w||32,parts(c,id),'دزرة مسباح');
+    },
+    horizontal:function(c,w,id){
+      return svg('0 0 1000 300',w||440,
+        '<g transform="translate(770 22) scale(.49)">'+parts(c,id)+'<text x="200" y="250" text-anchor="middle" '+AR+' font-weight="700" font-size="190" fill="'+c.text+'">د</text></g>'+
+        '<text x="370" y="168" text-anchor="middle" '+AR+' font-weight="700" font-size="128" fill="'+c.text+'">دزرة <tspan fill="'+c.sub+'">مسباح</tspan></text>'+
+        strandLine(80,212,580,c,id,6)+
+        '<text x="370" y="270" text-anchor="middle" font-family="IBM Plex Sans Arabic, sans-serif" font-weight="500" font-size="26" letter-spacing="11" fill="'+c.sub+'">DAZRAT MISBAH</text>','دزرة مسباح');
+    },
+    fawasil:function(){
+      var c=V.gold,id=++uid,s='<defs><radialGradient id="g'+id+'" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#F6C978"/><stop offset=".55" stop-color="#D08A2E"/><stop offset="1" stop-color="#7A4A12"/></radialGradient></defs><line x1="0" y1="30" x2="170" y2="30" stroke="#8A6143" stroke-width="1.6"/>';
+      [12,38,64].forEach(function(x){s+='<circle cx="'+x+'" cy="30" r="11" fill="url(#g'+id+')"/>'});
+      s+='<ellipse cx="88" cy="30" rx="10" ry="5" fill="#C9C5BC"/>';
+      [112,138,164].forEach(function(x){s+='<circle cx="'+x+'" cy="30" r="11" fill="url(#g'+id+')"/>'});
+      return '<svg viewBox="0 0 176 60" width="176" height="60" aria-hidden="true">'+s+'</svg>';
+    },
+    shahid:function(){
+      var id=++uid;
+      return '<svg viewBox="150 350 100 170" width="58" height="96" aria-hidden="true">'+parts(V.gold,id)+'</svg>';
+    },
+    seal:function(c,w){
+      var t='دزرة مسباح · نُظمت باليد · الرياض · ١٤٤٨هـ · ';
+      return svg('0 0 300 300',w||200,
+        '<defs><path id="sp" d="M150 150 m-104 0 a104 104 0 1 1 208 0 a104 104 0 1 1 -208 0"/></defs>'+
+        '<circle cx="150" cy="150" r="146" fill="#9B2B1F"/><circle cx="150" cy="150" r="138" fill="none" stroke="#EDE3D2" stroke-width="1.4"/>'+
+        '<circle cx="150" cy="150" r="82" fill="none" stroke="#EDE3D2" stroke-width="1.4"/>'+
+        '<text '+KF+' font-size="19" font-weight="500" fill="#EDE3D2" direction="ltr"><textPath href="#sp" startOffset="50%" text-anchor="middle">'+t+'</textPath></text>'+
+        '<text x="150" y="190" text-anchor="middle" '+AR+' font-weight="700" font-size="120" fill="#EDE3D2">د</text>','ختم دزرة مسباح');
+    }
+  };
+  function strandLine(x,y,w,c,id,r){
+    var s='<line x1="'+x+'" y1="'+y+'" x2="'+(x+w)+'" y2="'+y+'" stroke="'+c.str+'" stroke-width="1.4"/>';
+    var gapc=r*2+4,n=Math.floor(w/gapc);
+    for(var i=0;i<=n;i++){
+      var X=(x+i*gapc).toFixed(1);
+      if(i%12===11) s+='<ellipse cx="'+X+'" cy="'+y+'" rx="'+(r+1)+'" ry="'+(r/2)+'" fill="'+c.sep+'"/>';
+      else s+='<circle cx="'+X+'" cy="'+y+'" r="'+r+'" fill="'+(c.flat||('url(#g'+id+')'))+'"/>';
+    }
+    return s;
+  }
+  document.querySelectorAll('[data-logo]').forEach(function(el){
+    var k=el.getAttribute('data-logo'),c=V[el.getAttribute('data-variant')||'gold'],w=+el.getAttribute('data-w')||0;
+    el.innerHTML=B[k](c,w,++uid);
+  });
+  // divider + post strand
+  (function(){
+    var id=++uid,c=V.gold;
+    var d=document.getElementById('strand-divider');
+    d.innerHTML='<defs><radialGradient id="g'+id+'" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#F6C978"/><stop offset=".55" stop-color="#D08A2E"/><stop offset="1" stop-color="#7A4A12"/></radialGradient></defs><rect width="1200" height="60" fill="#211914"/>'+strandLine(20,30,1160,c,id,9);
+    var p=document.getElementById('post-strand'),s='<defs><radialGradient id="h'+id+'" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#F6C978"/><stop offset=".55" stop-color="#D08A2E"/><stop offset="1" stop-color="#7A4A12"/></radialGradient></defs>';
+    s+='<path d="M70 -20 C 10 90, 150 170, 30 340" fill="none" stroke="#8A6143" stroke-width="1.4"/>';
+    for(var i=0;i<14;i++){var t=i/13,x=Math.pow(1-t,3)*70+3*Math.pow(1-t,2)*t*10+3*(1-t)*t*t*150+t*t*t*30,y=Math.pow(1-t,3)*(-20)+3*Math.pow(1-t,2)*t*90+3*(1-t)*t*t*170+t*t*t*340;s+='<circle cx="'+x.toFixed(1)+'" cy="'+y.toFixed(1)+'" r="11" fill="url(#h'+id+')" opacity=".9"/>'}
+    p.innerHTML=s;
+  })();
+  // swatches
+  var S=[
+    {n:'يُسر',m:'المرجان الأسود، أعز خامات المسباح. أرضية الهوية.',hex:'#16110E',rgb:'22 17 14',cmyk:'40 50 60 100',t:'#EDE3D2'},
+    {n:'كهرمان',m:'لون الحبّة. للشعار والتفاصيل الثمينة.',hex:'#D08A2E',rgb:'208 138 46',cmyk:'0 34 78 18',t:'#16110E'},
+    {n:'جصّ',m:'بياض الجدران النجدية. للورق والمساحات الفاتحة.',hex:'#EDE3D2',rgb:'237 227 210',cmyk:'0 4 11 7',t:'#16110E'},
+    {n:'سدو',m:'أحمر الصوف في بيت الشَّعر. للزخرفة فقط.',hex:'#9B2B1F',rgb:'155 43 31',cmyk:'0 72 80 39',t:'#EDE3D2'},
+    {n:'طين',m:'أسوار الطين. خلفيات ثانوية وخيط المسباح.',hex:'#8A6143',rgb:'138 97 67',cmyk:'0 30 51 46',t:'#EDE3D2'}
+  ];
+  document.getElementById('swatches').innerHTML=S.map(function(s,i){
+    return '<div class="sw"><div class="chip" style="background:'+s.hex+';color:'+s.t+(i===0?';box-shadow:inset 0 0 0 1px #2E241D':'')+'">'+s.n+'</div><div class="info"><h3>'+s.n+'</h3><p class="muted">'+s.m+'</p><dl><dt>HEX</dt><dd class="latin"><button class="copy" type="button" data-hex="'+s.hex+'">'+s.hex+'</button></dd><dt>RGB</dt><dd class="latin">'+s.rgb+'</dd><dt>CMYK</dt><dd class="latin">'+s.cmyk+'</dd></dl></div></div>';
+  }).join('');
+  document.addEventListener('click',function(e){
+    var b=e.target.closest('.copy');if(!b)return;var h=b.getAttribute('data-hex');
+    var done=function(){b.textContent='نُسخ';setTimeout(function(){b.textContent=h},1200)};
+    try{navigator.clipboard.writeText(h).then(done,function(){selectText(b)})}catch(_){selectText(b)}
+  });
+  function selectText(el){var r=document.createRange();r.selectNodeContents(el);var s=getSelection();s.removeAllRanges();s.addRange(r)}
+})();
+</script>
