@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="ar" dir="rtl" data-type="software" data-radius="soft" data-ground="sky" data-buttons="arrow" data-motion>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>زاوية: الهوية البصرية لمنصة المحتوى الاجتماعي</title>
+<meta name="description" content="شعار زاوية وألوانها وخطوطها وقوالب منشوراتها في 23 ملف SVG جاهزة للتطبيق والحسابات.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="زاوية: الهوية البصرية لمنصة المحتوى الاجتماعي">
+<meta property="og:description" content="الشعار والألوان والخطوط وقوالب المنشورات في ملف واحد.">
+<meta property="og:image" content="share.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="logo/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#f7f7f5">
+<!-- <link rel="canonical" href="https://[the client's domain]/"> -->
+<meta name="site-kind" content="software">
+<meta name="page-type" content="software">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;500;600&family=Geist:wght@400..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/system.css">
+<link rel="stylesheet" href="assets/ui/cards.css">
+<link rel="stylesheet" href="assets/motion/motion.css">
+<link rel="stylesheet" href="assets/backgrounds/backgrounds.css">
+<link rel="stylesheet" href="assets/layout/layout.css">
+<link rel="stylesheet" href="assets/icons/icon.css">
+<style>
+:root {
+  --p-bg: #f7f7f5; --p-surface: #ebebe8; --p-ink: #000000; --p-muted: #666662;
+  --p-accent: #d0106f; --p-accent-ink: #ffffff; --p-action: #d0106f; --p-action-ink: #ffffff;
+  --p-inv-bg: #000000; --p-inv-surface: #010101; --p-inv-ink: #f7f7f5; --p-inv-muted: #828280;
+  --p-inv-accent: #d0106f; --p-inv-accent-ink: #ffffff; --p-inv-action: #d0106f; --p-inv-action-ink: #ffffff;
+  --font-display: "Geist", system-ui, sans-serif;
+  --font-text: "Geist", system-ui, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  --display-weight: 500;
+  --display-tracking: -0.035em;
+  --display-tracking-xl: -0.045em;
+}
+</style>
+<!-- the page is Arabic: Alexandria carries every Arabic letter (Geist has none) and Arabic is never tracked,
+     since letter-spacing breaks the joins between letters -->
+<style>
+:root {
+  --font-display: "Geist", "Alexandria", system-ui, sans-serif;
+  --font-text: "Geist", "Alexandria", system-ui, sans-serif;
+  --font-mono: "Geist", "Alexandria", ui-monospace, monospace;
+  --display-tracking: 0em;
+  --display-tracking-xl: 0em;
+}
+html[lang="ar"] body :is(h1, h2, h3, h4, p, a, span, li, dt, dd, b, strong, small, button, label, blockquote) { letter-spacing: 0; }
+/* Arabic needs room above and below the letters for its dots */
+html[lang="ar"] :is(h1, h2) { line-height: 1.3; }
+/* arrows point the way the page reads */
+html[dir="rtl"] .m-arrow, html[dir="rtl"] .link::after,
+html[dir="rtl"][data-buttons="arrow"] :is(.btn--primary, .btn--secondary)::after { scale: -1 1; }
+@media (hover: hover) and (pointer: fine) {
+  html[dir="rtl"][data-buttons="arrow"] .btn:hover::after, html[dir="rtl"] .link:hover::after { transform: translateX(-3px); }
+}
+</style>
+<link rel="stylesheet" href="assets/ui/base.css">
+<script>document.documentElement.classList.add('m-enter');setTimeout(()=>document.documentElement.classList.add('m-enter-done'),700)</script>
+<script src="assets/backgrounds/backgrounds.js"></script>
+<script>document.documentElement.classList.add('mo-js');setTimeout(()=>document.documentElement.classList.add('mo-safe'),2500)</script>
+<link rel="modulepreload" href="assets/moments/moments.js">
+<link rel="modulepreload" href="assets/moments/lib.js">
+<link rel="modulepreload" href="assets/moments/line-carries-colour/moment.js">
+<style>
+/* ---------- page CSS: only inside visuals ---------- */
+.nav__logo img { height: 32px; width: auto; display: block; }
+.footer .nav__logo img { height: 40px; }
+.zw-mark { display: inline-block; width: .74em; height: .74em; vertical-align: -.02em; margin-inline-end: .14em; }
+.zw-mark svg { width: 100%; height: 100%; display: block; }
+
+/* the hero window: Zawiyah's post editor on the lit ground */
+.hero__window { background: linear-gradient(170deg, #cfdff0, #e8eef4 70%, #f1f3f4); }
+.zw-win { background: #fff; color: #0b0b0a; border-radius: 16px; box-shadow: 0 0 0 1px rgb(0 0 0 / .08), 0 30px 60px -30px rgb(20 30 50 / .45); overflow: hidden; font-size: 13px; }
+.zw-win__bar { height: 44px; display: flex; align-items: center; gap: 12px; padding: 0 16px; border-bottom: 1px solid rgb(0 0 0 / .07); color: #666662; }
+.zw-win__bar img { width: 22px; height: 22px; border-radius: 6px; }
+.zw-win__bar b { color: #0b0b0a; font-weight: 500; }
+.zw-win__bar .sp { flex: 1; }
+.zw-win__body { display: grid; grid-template-columns: 240px minmax(0, 1fr); min-height: 420px; }
+.zw-list { border-inline-end: 1px solid rgb(0 0 0 / .07); padding: 10px; display: grid; align-content: start; gap: 2px; }
+.zw-list .r { display: grid; grid-template-columns: 34px 1fr auto; gap: 2px 10px; padding: 9px 8px; border-radius: 10px; }
+.zw-list .r.is-on { background: #f3f3f1; }
+.zw-list .r i { grid-row: 1 / span 2; width: 34px; height: 34px; border-radius: 8px; background-size: cover; }
+.zw-list .r b { font-weight: 500; }
+.zw-list .r time { color: #8a8a86; font-size: 12px; }
+.zw-list .r span { grid-column: 2 / -1; color: #666662; }
+.zw-edit { padding: 16px 20px; display: grid; gap: 12px; align-content: start; }
+.zw-edit .tool { display: inline-flex; align-items: center; gap: 8px; color: #666662; }
+.zw-edit .tool::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #d0106f; }
+.hero--centred .hero__lead { color: var(--ink); }
+.zw-edit__head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.zw-post { display: grid; grid-template-columns: 130px minmax(0, 1fr); gap: 16px; align-items: start; }
+.zw-post p { margin: 0; line-height: 1.7; font-size: 14px; }
+.zw-post .tags { color: #d0106f; }
+.acts { display: flex; gap: 8px; }
+.acts span { height: 32px; padding: 0 14px; border-radius: 8px; display: inline-flex; align-items: center; font-weight: 500; background: #d0106f; color: #fff; }
+.acts span + span { background: #f0f0ee; color: #0b0b0a; }
+
+/* the post template (used in the hero and in #social): ink square, white corner top-right, pink dot */
+.tpl { position: relative; aspect-ratio: 1; background: #0b0b0a; color: #fff; border-radius: 6px; overflow: hidden; display: grid; align-content: end; padding: 9%; font-family: "Alexandria", sans-serif; container-type: inline-size; }
+.tpl::before { content: ""; position: absolute; top: 8%; right: 8%; width: 16%; height: 16%; border-top: 4cqw solid #fff; border-right: 4cqw solid #fff; border-top-right-radius: 3cqw; }
+.tpl::after { content: ""; position: absolute; top: 18%; right: 23%; width: 6cqw; height: 6cqw; border-radius: 50%; background: #d0106f; }
+.tpl b { display: block; font-weight: 600; font-size: 10.5cqw; line-height: 1.25; }
+.tpl small { display: block; margin-top: 5cqw; font-size: 4.6cqw; color: #b9b9b4; }
+.tpl--pink { background: #d0106f; } .tpl--pink::after { background: #0b0b0a; } .tpl--pink small { color: #ffe1ef; }
+.tpl--paper { background: #f7f7f5; color: #0b0b0a; } .tpl--paper::before { border-color: #0b0b0a; } .tpl--paper small { color: #666662; }
+.tpl--story { aspect-ratio: 9 / 16; padding: 12%; }
+.tpl--story b { font-size: 15cqw; }
+.tpl--story small { font-size: 7cqw; }
+
+/* #logo: the construction drawing */
+.construct { display: grid; place-items: center; background: #fff; border-radius: var(--r-lg); min-height: 640px; }
+.construct svg { width: min(86%, 460px); height: auto; }
+.construct .g { stroke: #d6d6d2; stroke-width: 1; fill: none; }
+.construct .dim { stroke: #d0106f; stroke-width: 1.5; fill: none; }
+.construct text { fill: #666662; font: 500 9px "Geist", "Alexandria", sans-serif; }
+
+/* #versions: three panels, each the lockup on its ground */
+#versions .panel { --p-h: 360px; display: grid; place-items: center; }
+#versions .panel img { width: 78%; height: auto; }
+#versions .p-ink { background: #0b0b0a; } #versions .p-pink { background: #d0106f; } #versions .p-paper { background: #fff; }
+#versions .panel::before { display: none; }
+
+/* #colours: four swatches */
+.swatch { display: grid; grid-template-rows: 300px auto; border-radius: var(--r-lg); overflow: hidden; background: var(--bg); }
+.swatch__chip { display: grid; align-content: end; padding: var(--s-5); font: 500 var(--t-card)/1.3 var(--font-text); }
+.swatch dl { margin: 0; padding: var(--s-5); display: grid; grid-template-columns: auto 1fr; gap: var(--s-2) var(--s-4); }
+.swatch dt { color: var(--muted); font-size: var(--t-label); }
+.swatch dd { margin: 0; font-family: "Geist", sans-serif; direction: ltr; text-align: right; font-variant-numeric: tabular-nums; }
+.share { display: flex; height: 12px; border-radius: 99px; overflow: hidden; margin-top: var(--s-7); }
+.share i { display: block; height: 100%; }
+
+/* #type: two specimens */
+.spec { background: var(--bg); border-radius: var(--r-lg); padding: var(--s-6); display: grid; gap: var(--s-5); align-content: start; min-height: 560px; }
+.spec__pic { background: var(--g-alt, #ebebe8); border-radius: var(--r-md); height: 300px; display: grid; place-items: center; overflow: hidden; container-type: inline-size; }
+.spec__pic .spec__big { font-size: min(128px, 24cqw); }
+.spec__big { font-size: 128px; line-height: 1.1; margin: 0; }
+.spec__big--ar { font-family: "Alexandria", sans-serif; font-weight: 600; }
+.spec__big--en { font-family: "Geist", sans-serif; font-weight: 600; letter-spacing: -0.04em !important; direction: ltr; text-align: right; }
+.spec .rows > li { grid-template-columns: minmax(0, 1fr) auto; }
+.spec .rows__value { font-family: "Geist", sans-serif; direction: ltr; color: var(--muted); }
+.spec .s-ar { font-family: "Alexandria", sans-serif; }
+.spec .s-en { font-family: "Geist", sans-serif; direction: ltr; text-align: right; }
+
+/* #social: three templates as open cards */
+#social .panel { --p-h: 400px; display: grid; place-items: center; background: #e6edf3; }
+#social .panel::before { display: none; }
+#social .panel .tpl { width: 300px; }
+#social .panel .tpl--story { width: auto; height: 340px; }
+.profile { width: 320px; background: #fff; color: #0b0b0a; border-radius: 16px; box-shadow: 0 0 0 1px rgb(0 0 0 / .08), 0 24px 48px -28px rgb(20 30 50 / .5); overflow: hidden; font-size: 13px; }
+.profile__cover { height: 96px; background: #0b0b0a; position: relative; }
+.profile__cover::after { content: ""; position: absolute; top: 18px; right: 18px; width: 28px; height: 28px; border-top: 6px solid #d0106f; border-right: 6px solid #d0106f; border-top-right-radius: 5px; }
+.profile__av { width: 56px; height: 56px; border-radius: 14px; display: block; grid-row: span 2; }
+.profile__body { padding: 16px 16px 18px; display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 4px 12px; }
+.profile__body > :nth-child(n+4) { grid-column: 1 / -1; }
+.profile__body b { font-size: 16px; font-weight: 600; font-family: "Alexandria", sans-serif; }
+.profile__body .h { color: #666662; direction: ltr; text-align: right; }
+.profile__body .n { display: flex; gap: 16px; margin-top: 8px; color: #666662; }
+.profile__body .n b { font-size: 13px; color: #0b0b0a; }
+
+/* #faq: the logo's place on a video frame */
+.vid { position: relative; aspect-ratio: 4 / 3; border-radius: var(--r-lg); overflow: hidden; background: linear-gradient(160deg, #2a2b2e, #0b0b0a 70%); }
+.vid img { position: absolute; top: 6%; right: 4%; width: 9%; height: auto; }
+.vid__bar { position: absolute; inset: auto 4% 6% 4%; height: 4px; border-radius: 99px; background: rgb(255 255 255 / .25); }
+.vid__bar i { display: block; width: 38%; height: 100%; border-radius: inherit; background: #d0106f; margin-inline-start: auto; }
+
+/* three cards across down to 1024 (the logos and templates read at 220px); stacked from 1023 */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  #versions .grid > .card, #social .grid > .card { grid-column: auto / span 4; }
+  #versions .panel, #social .panel { --p-h: 220px; }
+  #social .panel .tpl { width: 180px; } #social .panel .tpl--story { height: 200px; } .profile { width: 250px; }
+}
+@media (min-width: 640px) and (max-width: 1023px) {
+  #social, #colours { --h: 2 }
+  #versions .grid > .card { grid-column: auto / span 4; }
+  #versions .panel { --p-h: 400px; height: 400px; }
+  #type .grid > .spec { grid-column: auto / span 6; }
+  #type .spec__pic { height: 420px; }
+  #faq .grid > .span-5 { grid-column: 1 / span 5; }
+  #faq .grid > .faq { grid-column: 6 / span 7; }
+}
+
+/* the closing name */
+.close__word { font-family: "Alexandria", sans-serif !important; font-weight: 600; line-height: 1.35 !important; overflow: visible !important; }
+
+@media (max-width: 1279px) { .zw-list .r:nth-child(3) { display: none; } .spec { min-height: 0; padding: 0; background: none; } .spec__pic { height: 240px; background: var(--bg); } }
+@media (max-width: 1023px) {
+  .construct { min-height: 380px; }
+  .spec { min-height: 0; padding: var(--s-6); }
+  .spec__big { font-size: 88px; }
+  #versions .panel { --p-h: 220px; }
+  #social .panel { --p-h: 360px; }
+  #social .panel .tpl { width: 230px; } #social .panel .tpl--story { height: 260px; }
+  .profile { width: 280px; }
+  .swatch { grid-template-rows: 160px auto; }
+}
+@media (max-width: 639px) {
+  .zw-win__body { grid-template-columns: 1fr; }
+  .zw-list { display: none; }
+  .zw-post { grid-template-columns: 120px minmax(0, 1fr); gap: 12px; }
+  .zw-post p { font-size: 13px; }
+  .zw-win__bar .sp ~ span { display: none; }
+  .construct { min-height: 260px; }
+  .logo__note, .zw-edit__head .acts, #faq .faq__item:nth-child(n+4), #logo .rows li:nth-child(n+4) { display: none; }
+  #faq .vid { aspect-ratio: 16 / 9; }
+  .construct svg { width: 200px; }
+  .spec__big { font-size: 64px; }
+  .spec { padding: var(--s-5); gap: var(--s-4); }
+  #versions .panel { --p-h: 120px; }
+  #versions .card > p { display: none; }
+  .spec__pic { height: 170px; }
+  #social .panel { --p-h: 360px; }
+  #social .panel .tpl { width: 200px; } #social .panel .tpl--story { height: 230px; }
+  .swatch { grid-template-rows: 96px auto; }
+  #colours .grid > .swatch { grid-column: auto / span 6; }
+  .swatch dl { grid-template-columns: 1fr; gap: 0; }
+  .swatch dt { display: none; }
+  .spec .rows li:nth-child(n+2) { display: none; }
+  .swatch dl { padding: var(--s-4); }
+}
+</style>
+</head>
+<body>
+<!-- type: software (a social content platform's identity book)
+     deal: hero centred, nav centre (nav-cards dealt; no photographs to put on its cards, so dealt again), close word,
+     footer columns, rhythm surface-pairs (#colours and #type), buttons arrow, mark: the client's own logo (designed here),
+     palette card-pastels (a pink accent and off-white ground: a feed of bright posts on a quiet page), type geist
+     + Alexandria for the Arabic letters, ground sky
+     moments: line-carries-colour on #colours (the page steps from its base ground to the surface band) -->
+
+<header class="nav nav--centre">
+  <div class="wrap nav__bar">
+    <a class="skip-link" href="#top">انتقل إلى المحتوى</a>
+    <a class="nav__logo" href="#top"><img src="logo/lockup-ink.svg" alt="زاوية" width="98" height="32"></a>
+    <nav class="nav__links" aria-label="الأقسام">
+      <div class="nav__item">
+        <a class="nav__link" href="#logo">الشعار <svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="nav__menu">
+          <div class="wrap grid">
+            <div class="menu-col span-3">
+              <p class="t-label">الشعار</p>
+              <a href="#logo">البناء<span>الزاوية والنقطة على شبكة 200</span></a>
+              <a href="#versions">الصيغ<span>على الحبر والوردي والورق</span></a>
+            </div>
+            <div class="menu-col span-3">
+              <p class="t-label">التطبيق</p>
+              <a href="#social">القوالب<span>منشور وقصة وصفحة حساب</span></a>
+              <a href="#faq">الاستخدام<span>ما يجوز وما لا يجوز</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav__item"><a class="nav__link" href="#colours">الألوان</a></div>
+      <div class="nav__item"><a class="nav__link" href="#type">الخطوط</a></div>
+      <div class="nav__item"><a class="nav__link" href="#social">القوالب</a></div>
+    </nav>
+    <div class="nav__actions">
+      <a class="btn btn--primary" href="zawiyah-identity.zip" download>تنزيل ملفات الهوية</a>
+    </div>
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-label="القائمة">
+      <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M2 5h14M2 13h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero hero--centred" data-enter aria-labelledby="hero-h">
+    <div class="wrap"><div class="hero-text">
+      <div class="hero__c">
+        <a class="pill" href="#logo"><span>الإصدار 1.0 من الهوية</span><span class="muted">23 ملف SVG</span></a>
+        <h1 id="hero-h" aria-label="هوية زاوية، منصة المحتوى الاجتماعي"><span class="zw-mark" aria-hidden="true"><svg viewBox="0 0 200 200"><path d="M40 40H144a16 16 0 0 1 16 16V160" fill="none" stroke="currentColor" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"/><circle cx="76" cy="124" r="28" fill="#d0106f"/></svg></span>هوية زاوية، منصة المحتوى الاجتماعي</h1>
+        <p class="hero__lead">زاوية كإطار الكاميرا ونقطة وردية كزر التسجيل، ومعهما لونان وخطّان وقوالب منشورات لكل منصة.</p>
+        <div class="btn-row"><a class="btn btn--primary" href="zawiyah-identity.zip" download>تنزيل ملفات الهوية<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a><a class="btn btn--secondary" href="#logo">اقرأ بناء الشعار</a></div>
+      </div>
+      <div class="hero__window" role="img" aria-label="محرر المنشورات في تطبيق زاوية يطبّق قالب الهوية على منشور جديد">
+        <div class="ly-piece zw-win" aria-hidden="true">
+          <div class="zw-win__bar"><img width="200" height="200" src="logo/app-icon-ink.svg" alt=""><b>زاوية</b><span>المنشورات</span><span class="sp"></span><span>مسودة · الأحد 10:42</span></div>
+          <div class="zw-win__body">
+            <div class="zw-list">
+              <div class="r is-on"><i style="background:#0b0b0a"></i><b>5 لقطات بالجوال</b><time>10:42</time><span>مسودة · قالب الحبر</span></div>
+              <div class="r"><i style="background:#d0106f"></i><b>سؤال الأسبوع</b><time>أمس</time><span>منشور · 1.2 ألف تفاعل</span></div>
+              <div class="r"><i style="background:#ebebe8"></i><b>قصة: خلف الكاميرا</b><time>السبت</time><span>قصة · 18 ساعة متبقية</span></div>
+            </div>
+            <div class="zw-edit" data-ly-steps="900">
+              <div class="zw-edit__head"><span class="tool">قالب الحبر · 1080 × 1080</span><div class="acts" data-step><span>نشر الآن</span><span>جدولة</span></div></div>
+              <div class="zw-post">
+                <div class="tpl"><b>5 لقطات بالجوال لمنتجك</b><small>@zawiyah</small></div>
+                <p>صوّر منتجك عند النافذة قبل الظهر، والخلفية ورقة بيضاء واحدة. الخطوات الخمس في الصور. <span class="tags">#زاوية #تصوير</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div></div>
+  </section>
+
+  <section class="section" id="logo" aria-labelledby="logo-h">
+    <div class="wrap">
+      <div class="grid grid--top fill">
+        <div class="span-5 stack-5">
+          <h2 id="logo-h">الشعار زاوية ونقطة. <span class="muted">إطار كاميرا وزر تسجيل.</span></h2>
+          <ul class="rows">
+            <li><span class="rows__name">الشبكة</span><span class="rows__value">200 × 200 وحدة</span></li>
+            <li><span class="rows__name">سماكة الزاوية</span><span class="rows__value">40 وحدة، أطراف دائرية</span></li>
+            <li><span class="rows__name">النقطة</span><span class="rows__value">قطرها 56، بالوردي</span></li>
+            <li><span class="rows__name">المسافة الآمنة</span><span class="rows__value">قطر النقطة من كل جهة</span></li>
+            <li><span class="rows__name">أصغر مقاس</span><span class="rows__value">16 بكسل للرمز، 96 للشعار</span></li>
+          </ul>
+          <p class="logo__note">النقطة نفسها نقطة الزاي في اسم «زاوية»، لذلك يقرأ الرمز والاسم معًا كقطعة واحدة.</p>
+        </div>
+        <div class="construct span-7 start-6" role="img" aria-label="رمز زاوية على شبكة البناء مع سماكة الخط وقطر النقطة">
+          <svg viewBox="0 0 240 240" aria-hidden="true">
+            <g transform="translate(20 20)">
+              <path class="g" d="M0 0H200V200H0Z M0 40H200 M0 80H200 M0 120H200 M0 160H200 M40 0V200 M80 0V200 M120 0V200 M160 0V200"/>
+              <path d="M40 40H144a16 16 0 0 1 16 16V160" fill="none" stroke="#0b0b0a" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="76" cy="124" r="28" fill="#d0106f"/>
+              <path class="dim" d="M180 20V60 M176 20h8 M176 60h8"/>
+              <text x="186" y="43" style="direction:ltr">40</text>
+              <path class="dim" d="M48 168H104 M48 164v8 M104 164v8"/>
+              <text x="68" y="182" style="direction:ltr">56</text>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="versions" aria-labelledby="versions-h">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="versions-h">ثلاث صيغ للشعار. <span class="muted">واحدة لكل خلفية.</span></h2>
+      </div>
+      <div class="grid">
+        <article class="card card--row card--open span-4">
+          <h3>على الورق</h3>
+          <p>الصيغة الأساسية: حبر ونقطة وردية، للتطبيق والموقع والمطبوعات.</p>
+          <div class="panel p-paper" role="img" aria-label="شعار زاوية بالحبر على الورق"><img width="200" height="88" src="logo/lockup-ink.svg" alt="" loading="lazy"></div>
+        </article>
+        <article class="card card--row card--open span-4">
+          <h3>على الحبر</h3>
+          <p>للوضع الداكن وغلاف الحساب والفيديو: أبيض ونقطة وردية.</p>
+          <div class="panel p-ink" role="img" aria-label="شعار زاوية بالأبيض على الحبر"><img width="200" height="88" src="logo/lockup-white.svg" alt="" loading="lazy"></div>
+        </article>
+        <article class="card card--row card--open span-4">
+          <h3>على الوردي</h3>
+          <p>للحملات وصورة الحساب فقط: أبيض، والنقطة بالحبر.</p>
+          <div class="panel p-pink" role="img" aria-label="شعار زاوية بالأبيض على الوردي"><img width="200" height="88" src="logo/lockup-mono-white.svg" alt="" loading="lazy"></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section ground-surface" id="colours" aria-labelledby="colours-h" data-moment="line-carries-colour" data-moment-opts='{"from": "base"}'>
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="colours-h">أربعة ألوان، والوردي أقلّها. <span class="muted">الورق والحبر أغلب الشاشة.</span></h2>
+      </div>
+      <div class="grid">
+        <div class="swatch span-3"><div class="swatch__chip" role="img" aria-label="عينة لون الحبر" style="background:#0b0b0a;color:#fff">حبر</div><dl><dt>HEX</dt><dd>#0B0B0A</dd><dt>RGB</dt><dd>11 11 10</dd><dt>الاستخدام</dt><dd>النصوص والرمز</dd></dl></div>
+        <div class="swatch span-3"><div class="swatch__chip" role="img" aria-label="عينة الوردي" style="background:#d0106f;color:#fff">وردي زاوية</div><dl><dt>HEX</dt><dd>#D0106F</dd><dt>RGB</dt><dd>208 16 111</dd><dt>الاستخدام</dt><dd>النقطة والزر الأساسي</dd></dl></div>
+        <div class="swatch span-3"><div class="swatch__chip" role="img" aria-label="عينة لون الورق" style="background:#f7f7f5;color:#0b0b0a;box-shadow:inset 0 0 0 1px rgb(0 0 0 / .08)">ورق</div><dl><dt>HEX</dt><dd>#F7F7F5</dd><dt>RGB</dt><dd>247 247 245</dd><dt>الاستخدام</dt><dd>الخلفية</dd></dl></div>
+        <div class="swatch span-3"><div class="swatch__chip" role="img" aria-label="عينة الرمادي الدافئ" style="background:#ebebe8;color:#0b0b0a">رمادي دافئ</div><dl><dt>HEX</dt><dd>#EBEBE8</dd><dt>RGB</dt><dd>235 235 232</dd><dt>الاستخدام</dt><dd>البطاقات والفواصل</dd></dl></div>
+      </div>
+      <div class="share" role="img" aria-label="نسبة الألوان في الشاشة: ورق 60، حبر 30، رمادي 7، وردي 3 في المئة"><i style="width:60%;background:#fff"></i><i style="width:30%;background:#0b0b0a"></i><i style="width:7%;background:#c9c9c4"></i><i style="width:3%;background:#d0106f"></i></div>
+    </div>
+  </section>
+
+  <section class="section ground-surface" id="type" aria-labelledby="type-h">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="type-h">خطّان: الإسكندرية وجيست. <span class="muted">عربي ولاتيني.</span></h2>
+      </div>
+      <div class="grid">
+        <div class="spec span-6">
+          <div class="spec__pic" role="img" aria-label="عينة خط الإسكندرية: كلمة زاوية"><p class="spec__big spec__big--ar" aria-hidden="true">زاوية</p></div>
+          <ul class="rows">
+            <li><span class="rows__name s-ar">العناوين: الإسكندرية 600</span><span class="rows__value">48 / 1.2</span></li>
+            <li><span class="rows__name s-ar">النص: الإسكندرية 400</span><span class="rows__value">16 / 1.7</span></li>
+            <li><span class="rows__name s-ar">لا تباعد بين الحروف العربية</span><span class="rows__value">0</span></li>
+          </ul>
+        </div>
+        <div class="spec span-6">
+          <div class="spec__pic" role="img" aria-label="عينة خط جيست: كلمة Zawiyah"><p class="spec__big spec__big--en" aria-hidden="true">Zawiyah</p></div>
+          <ul class="rows">
+            <li><span class="rows__name s-en">Geist 600, headlines</span><span class="rows__value">48 / 1.1</span></li>
+            <li><span class="rows__name s-en">Geist 400, numbers and handles</span><span class="rows__value">16 / 1.5</span></li>
+            <li><span class="rows__name s-en">ZAWIYAH in capitals, wide</span><span class="rows__value">+0.12em</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="social" aria-labelledby="social-h" style="--hm: 2">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="social-h">قوالب المنشورات. <span class="muted">الزاوية في الركن الأيمن.</span></h2>
+      </div>
+      <div class="grid">
+        <article class="card card--row card--open span-4">
+          <h3>منشور مربع 1080 × 1080</h3>
+          <p>عنوان من سطرين على الحبر، واسم الحساب تحته.</p>
+          <div class="panel"><div class="tpl" role="img" aria-label="منشور مربع بقالب زاوية على الحبر"><b>سؤال الأسبوع: ما أول جهاز صوّرت به؟</b><small>@zawiyah</small></div></div>
+        </article>
+        <article class="card card--row card--open span-4">
+          <h3>قصة 1080 × 1920</h3>
+          <p>على الوردي للإعلانات والبث المباشر فقط.</p>
+          <div class="panel"><div class="tpl tpl--pink tpl--story" role="img" aria-label="قصة بقالب زاوية على الوردي"><b>بث مباشر الليلة 9 مساءً</b><small>@zawiyah</small></div></div>
+        </article>
+        <article class="card card--row card--open span-4">
+          <h3>صفحة الحساب</h3>
+          <p>صورة الحساب أيقونة التطبيق، والغلاف حبر وزاوية وردية.</p>
+          <div class="panel">
+            <div class="profile" role="img" aria-label="صفحة حساب زاوية بصورة الأيقونة والغلاف الداكن">
+              <div class="profile__cover"></div>
+              <div class="profile__body"><img loading="lazy" width="200" height="200" class="profile__av" src="logo/app-icon-ink.svg" alt=""><b>زاوية</b><span class="h">@zawiyah</span><span>منصة محتوى لصنّاع المحتوى العرب</span><div class="n"><span><b>48</b> منشورًا</span><span><b>12.4K</b> متابع</span></div></div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="faq" aria-labelledby="faq-h">
+    <div class="wrap">
+      <div class="grid grid--top fill">
+        <div class="span-5 stack-5">
+          <h2 id="faq-h">أسئلة عن استخدام الهوية</h2>
+          <div class="vid" role="img" aria-label="إطار فيديو داكن عليه رمز زاوية الأبيض في الركن الأيمن العلوي">
+            <img loading="lazy" width="200" height="200" src="logo/symbol-white.svg" alt="">
+            <span class="vid__bar" aria-hidden="true"><i></i></span>
+          </div>
+        </div>
+        <div class="faq span-7 start-6">
+          <div class="faq__item"><h3>هل أغيّر لون النقطة؟</h3><p>لا. النقطة وردية على الحبر والورق، وبالحبر على الوردي فقط.</p></div>
+          <div class="faq__item"><h3>متى أستخدم الرمز وحده؟</h3><p>تحت 96 بكسل عرضًا: صورة الحساب وأيقونة التطبيق والعلامة المائية على الفيديو.</p></div>
+          <div class="faq__item"><h3>هل أكتب الاسم بخط آخر؟</h3><p>لا. الاسم ملف SVG جاهز، ولا يعاد كتابته بخط الإسكندرية أو غيره.</p></div>
+          <div class="faq__item"><h3>هل أرسم الرمز بخطوط رفيعة؟</h3><p>لا. سماكة الزاوية ثابتة عند كل مقاس، ولا يستخدم الرمز مفرّغًا.</p></div>
+          <div class="faq__item"><h3>هل أضع الشعار فوق صورة؟</h3><p>نعم إذا كان الجزء تحته هادئًا وداكنًا، بالأبيض. وإلا فاستخدم قالب الحبر.</p></div>
+          <div class="faq__item"><h3>أين أضع الشعار على الفيديو؟</h3><p>في الركن الأيمن العلوي، على بعد 4 في المئة من الحافتين، وبالأبيض.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer closing" id="contact" aria-labelledby="close-h">
+  <div class="wrap">
+    <div class="closing__cta close--word">
+      <div class="section-head--split">
+        <div><h2 id="close-h">تنزيل ملفات الهوية</h2><p class="t-lead">ملف مضغوط فيه 23 ملف SVG: الشعار والرمز والاسمان وأيقونة التطبيق.</p></div>
+        <a class="btn btn--primary" href="zawiyah-identity.zip" download>تنزيل ملفات الهوية<svg class="m-arrow" viewBox="0 0 12 12" aria-hidden="true"><path class="m-arrow__stem" d="M1 6h8"/><path class="m-arrow__head" d="M4.5 2.5 8 6l-3.5 3.5"/></svg></a>
+      </div>
+      <p class="close__word" aria-hidden="true">زاوية</p>
+    </div>
+    <div class="closing__links">
+      <div class="grid">
+        <div class="span-4 stack-4">
+          <a class="nav__logo" href="#top"><img src="logo/lockup-ink.svg" alt="زاوية" width="122" height="40" loading="lazy"></a>
+          <p class="footer__lede">منصة محتوى اجتماعي لصنّاع المحتوى العرب.</p>
+        </div>
+        <div class="span-2 footer__col"><h3>الشعار</h3><ul><li><a href="#logo">البناء</a></li><li><a href="#versions">الصيغ</a></li></ul></div>
+        <div class="span-2 footer__col"><h3>الألوان</h3><ul><li><a href="#colours">اللوحة</a></li><li><a href="#type">الخطوط</a></li></ul></div>
+        <div class="span-2 footer__col"><h3>القوالب</h3><ul><li><a href="#social">المنشورات</a></li><li><a href="#faq">الاستخدام</a></li></ul></div>
+        <div class="span-2 footer__col"><h3>الملفات</h3><ul><li><a href="logo/lockup-ink.svg">الشعار SVG</a></li><li><a href="logo/app-icon-ink.svg">الأيقونة SVG</a></li></ul></div>
+      </div>
+      <div class="footer__legal">
+        <span>&copy; 2026 زاوية</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script type="module" src="assets/system.js"></script>
+<script type="module" src="assets/motion/motion.js"></script>
+<script type="module" src="assets/layout/layout.js"></script>
+</body>
+</html>
