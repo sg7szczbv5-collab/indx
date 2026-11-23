@@ -611,8 +611,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:2rem;flex-wrap:wrap;
       return svg('0 0 1000 300',w||440,
         '<g transform="translate(770 22) scale(.49)">'+parts(c,id)+'<text x="200" y="250" text-anchor="middle" '+AR+' font-weight="700" font-size="190" fill="'+c.text+'">د</text></g>'+
         '<text x="370" y="168" text-anchor="middle" '+AR+' font-weight="700" font-size="128" fill="'+c.text+'">دزرة <tspan fill="'+c.sub+'">مسباح</tspan></text>'+
-        strandLine(80,212,580,c,id,6)+
-        '<text x="370" y="270" text-anchor="middle" font-family="IBM Plex Sans Arabic, sans-serif" font-weight="500" font-size="26" letter-spacing="11" fill="'+c.sub+'">DAZRAT MISBAH</text>','دزرة مسباح');
+        strandLine(80,238,580,c,id,6)+
+        '<text x="370" y="286" text-anchor="middle" font-family="IBM Plex Sans Arabic, sans-serif" font-weight="500" font-size="26" letter-spacing="11" fill="'+c.sub+'">DAZRAT MISBAH</text>','دزرة مسباح');
     },
     fawasil:function(){
       var c=V.gold,id=++uid,s='<defs><radialGradient id="g'+id+'" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#F6C978"/><stop offset=".55" stop-color="#D08A2E"/><stop offset="1" stop-color="#7A4A12"/></radialGradient></defs><line x1="0" y1="30" x2="170" y2="30" stroke="#8A6143" stroke-width="1.6"/>';
@@ -645,6 +645,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:2rem;flex-wrap:wrap;
     }
     return s;
   }
+  window.DZ={B:B,V:V,next:function(){return ++uid}};
   document.querySelectorAll('[data-logo]').forEach(function(el){
     var k=el.getAttribute('data-logo'),c=V[el.getAttribute('data-variant')||'gold'],w=+el.getAttribute('data-w')||0;
     el.innerHTML=B[k](c,w,++uid);
