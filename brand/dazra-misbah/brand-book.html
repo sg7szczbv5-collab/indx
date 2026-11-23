@@ -1,0 +1,379 @@
+<title>هوية دزرة مسباح</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@300;400;600&family=Cinzel:wght@500;600&display=swap">
+<style>
+/* Layout: a printed poster sheet on ghutra-cream; content sits in rounded tiles of yusr black and shemagh red, laid on a 12-col grid like a brand board. */
+:root{
+  --ghutra:#ECE4D6;   /* page — ghutra cotton */
+  --ghutra-2:#E2D8C6;
+  --yusr:#181615;     /* black coral */
+  --shmagh:#9B1C24;   /* shemagh red */
+  --shmagh-deep:#741520;
+  --gold:#B8924A;     /* thread gold */
+  --ink:#2a2420;
+  --ink-soft:#6d6157;
+  --rule:rgba(24,22,21,.14);
+  --f-ar-display:"Amiri","IBM Plex Sans Arabic",serif;
+  --f-body:"IBM Plex Sans Arabic",system-ui,sans-serif;
+  --f-latin:"Cinzel","Times New Roman",serif;
+  --r:22px;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ghutra);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.85;direction:rtl}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--f-ar-display);font-weight:700;margin:0;line-height:1.35;text-wrap:balance}
+p{margin:0}
+svg{display:block}
+.latin{font-family:var(--f-latin);direction:ltr;letter-spacing:.32em}
+
+/* top sheet bar */
+.sheetbar{display:flex;justify-content:space-between;align-items:center;padding-block:28px 8px}
+.sheetbar .mark{width:44px}
+.sheetbar small{font-size:14px;color:var(--shmagh);font-weight:600}
+
+/* board */
+.board{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:18px;padding-block:28px 40px}
+.tile{border-radius:var(--r);overflow:hidden;position:relative;min-width:0;display:flex;align-items:center;justify-content:center}
+.t-black{background:var(--yusr)}
+.t-red{background:var(--shmagh)}
+.t-cream{background:var(--ghutra-2)}
+.s3{grid-column:span 3}.s4{grid-column:span 4}.s5{grid-column:span 5}.s6{grid-column:span 6}.s7{grid-column:span 7}.s8{grid-column:span 8}.s9{grid-column:span 9}.s12{grid-column:span 12}
+.h1{min-height:260px}.h2{min-height:300px}.h3{min-height:150px}
+@media (max-width:760px){.board>.tile{grid-column:1/-1}}
+.lock{display:flex;align-items:center;gap:clamp(18px,4vw,48px);padding:40px 24px;direction:rtl}
+.lock .w{display:flex;flex-direction:column;align-items:center;gap:6px}
+.lock .w svg{width:clamp(200px,34vw,380px);height:auto}
+.lock .w .latin{color:var(--ghutra);font-size:clamp(20px,3vw,36px);font-weight:600;letter-spacing:.34em;margin-left:-.34em}
+.lock .s svg{height:clamp(140px,20vw,210px);width:auto}
+
+/* section heads */
+section{padding-block:56px}
+.head{display:flex;flex-direction:column;gap:10px;margin-bottom:32px;max-width:66ch}
+.head .kick{font-family:var(--f-latin);font-size:13px;letter-spacing:.3em;color:var(--shmagh);direction:ltr;text-align:right}
+.head h2{font-size:clamp(30px,4.4vw,44px);color:var(--yusr)}
+.head p{color:var(--ink-soft)}
+hr.sep{border:0;height:14px;margin:0;background:none}
+
+/* construction */
+.sheet{background:var(--ghutra-2);border-radius:var(--r);padding:clamp(16px,3vw,36px);overflow-x:auto}
+.sheet svg{width:100%;min-width:560px;height:auto}
+.legend{display:flex;gap:22px;flex-wrap:wrap;font-size:14px;color:var(--ink-soft);margin-top:14px}
+.legend i{display:inline-block;width:12px;height:12px;margin-left:6px;vertical-align:-1px}
+.cons-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:18px;margin-top:18px}
+.note{font-size:15px;color:var(--ink-soft);line-height:1.8}
+.note b{color:var(--yusr)}
+
+/* logo variants */
+.variants{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:18px}
+.var{border-radius:var(--r);min-height:230px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:24px}
+.var .cap{font-size:13px;opacity:.75}
+.do-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:22px;margin-top:26px}
+.do-list div{border-top:2px solid var(--yusr);padding-top:12px;font-size:15px}
+.do-list b{display:block;font-family:var(--f-ar-display);font-size:19px}
+.do-list .no{border-color:var(--shmagh)}
+.do-list .no b{color:var(--shmagh)}
+
+/* colors */
+.colors{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr));gap:14px}
+.col{border-radius:var(--r);overflow:hidden;background:#fff3;border:1px solid var(--rule);min-width:0}
+.col .chip{height:170px;padding:16px;display:flex;align-items:flex-end;font-family:var(--f-latin);font-size:12px;letter-spacing:.2em;direction:ltr;justify-content:flex-end}
+.col .meta{padding:14px 16px 16px}
+.col b{font-family:var(--f-ar-display);font-size:21px;display:block;line-height:1.3}
+.col code{font-family:var(--f-latin);letter-spacing:.06em;font-size:14px;color:var(--ink-soft);direction:ltr;display:inline-block;font-variant-numeric:tabular-nums}
+.col p{font-size:14px;color:var(--ink-soft);line-height:1.6;margin-top:6px}
+.col button{all:unset;cursor:pointer;font-size:13px;color:var(--shmagh);border-bottom:1px solid currentColor;margin-top:8px;display:inline-block}
+.col button:focus-visible{outline:2px solid var(--shmagh);outline-offset:3px}
+.bar{display:flex;height:16px;border-radius:8px;overflow:hidden;margin-top:20px}
+
+/* type */
+.type{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.2fr);gap:24px;align-items:center;border-top:1px solid var(--rule);padding-block:26px}
+@media (max-width:700px){.type{grid-template-columns:1fr}}
+.type .lb b{font-family:var(--f-ar-display);font-size:20px;display:block}
+.type .lb span{font-size:14px;color:var(--ink-soft)}
+.type .lb code{font-family:var(--f-latin);font-size:13px;letter-spacing:.1em;color:var(--shmagh);direction:ltr;display:inline-block}
+
+/* applications */
+.apps{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:18px}
+.app{grid-column:span 6;display:flex;flex-direction:column;gap:12px;min-width:0}
+.app.w4{grid-column:span 4}.app.w8{grid-column:span 8}
+@media (max-width:860px){.app,.app.w4,.app.w8{grid-column:1/-1}}
+.app .stage{border-radius:var(--r);min-height:340px;display:flex;align-items:center;justify-content:center;gap:20px;padding:28px;flex-wrap:wrap;background:var(--ghutra-2)}
+.app h3{font-size:21px}
+.app p{font-size:15px;color:var(--ink-soft)}
+
+.box{width:min(270px,100%);aspect-ratio:1;background:var(--yusr);border-radius:6px;position:relative;display:flex;align-items:center;justify-content:center;box-shadow:0 26px 40px -12px rgba(24,22,21,.55),inset 0 0 0 9px #22201e,inset 0 0 0 10px var(--gold)}
+.box .ribbon{position:absolute;top:0;bottom:0;left:18%;width:30px;background:var(--shmagh)}
+.box .ribbon::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 6px,rgba(0,0,0,.12) 6px 7px)}
+.box svg{height:56%;width:auto;position:relative}
+
+.pouch{width:220px;max-width:100%}
+.tagc{width:180px;background:var(--ghutra);border-radius:6px;padding:46px 16px 16px;position:relative;box-shadow:0 18px 30px -10px rgba(24,22,21,.4);clip-path:polygon(20% 0,80% 0,100% 11%,100% 100%,0 100%,0 11%)}
+.tagc::before{content:"";position:absolute;top:15px;left:50%;width:12px;height:12px;margin-left:-6px;border-radius:50%;background:var(--ghutra-2);box-shadow:0 0 0 3px var(--shmagh)}
+.tagc .sy{height:52px;width:auto;margin:0 auto 6px}
+.tagc .t{font-family:var(--f-ar-display);font-weight:700;font-size:20px;text-align:center;line-height:1.3}
+.tagc dl{display:grid;grid-template-columns:auto 1fr;gap:0 10px;font-size:12.5px;margin:10px 0 0;border-top:1px solid var(--rule);padding-top:8px}
+.tagc dt{color:var(--ink-soft)}
+.tagc dd{margin:0;text-align:left;font-variant-numeric:tabular-nums}
+.tagc .pr{margin-top:8px;border-top:1px solid var(--rule);padding-top:6px;text-align:center;font-family:var(--f-ar-display);font-weight:700;font-size:22px;color:var(--shmagh)}
+
+.card{width:280px;max-width:100%;aspect-ratio:85/55;border-radius:8px;box-shadow:0 16px 28px -10px rgba(24,22,21,.45);position:relative;overflow:hidden}
+.card.f{background:var(--yusr);display:flex;align-items:center;justify-content:center}
+.card.f svg{height:58%;width:auto}
+.card.b{background:var(--ghutra);padding:18px 20px;display:flex;flex-direction:column;justify-content:space-between}
+.card.b .nm{font-family:var(--f-ar-display);font-weight:700;font-size:19px;line-height:1.2}
+.card.b .rl{font-size:11px;color:var(--ink-soft)}
+.card.b .ct{font-family:var(--f-latin);font-size:10px;letter-spacing:.12em;direction:ltr;text-align:right;line-height:1.8}
+.card.b .wm{position:absolute;left:16px;top:16px;width:84px;height:auto}
+
+.bag{width:180px;height:230px;position:relative;margin-top:44px;display:flex;align-items:center;justify-content:center;box-shadow:0 22px 34px -12px rgba(24,22,21,.5);border-radius:4px}
+.bag::before{content:"";position:absolute;top:-46px;left:50%;width:76px;height:54px;margin-left:-38px;border:5px solid var(--gold);border-bottom:none;border-radius:40px 40px 0 0}
+.bag svg{height:58%;width:auto}
+
+.post{width:min(320px,100%);aspect-ratio:1;background:var(--yusr);border-radius:6px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;padding:18px}
+.post .ill{position:absolute;top:3%;left:50%;width:46%;transform:translateX(-50%)}
+.post .tt{position:relative;font-family:var(--f-ar-display);font-weight:700;color:var(--ghutra);font-size:24px;line-height:1.3}
+.post .st{position:relative;color:var(--gold);font-size:14px}
+.post .lg{position:absolute;top:14px;right:16px;height:34px;width:auto}
+
+/* voice */
+.voice{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:18px}
+.vbox{border-radius:var(--r);padding:26px}
+.vbox h3{font-size:22px;margin-bottom:8px}
+.vbox ul{margin:0;padding:0 20px 0 0}
+.vbox li{margin-bottom:8px}
+.vbox.yes{background:var(--yusr);color:var(--ghutra)}
+.vbox.yes h3{color:var(--gold)}
+.vbox.no{background:var(--ghutra-2)}
+.vbox.no h3{color:var(--shmagh)}
+.vbox.no li{text-decoration:line-through;text-decoration-color:rgba(155,28,36,.55);color:var(--ink-soft)}
+.lines{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.lines span{font-family:var(--f-ar-display);font-size:24px;font-weight:700;color:var(--shmagh);border:1.5px solid var(--shmagh);border-radius:999px;padding:4px 24px}
+
+footer{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:12px;padding-block:40px 56px;font-size:14px;color:var(--ink-soft)}
+footer .latin{font-size:12px;color:var(--shmagh)}
+</style>
+
+<div class="wrap">
+  <div class="sheetbar"><div class="mark" data-bead="shmagh"></div><small>© ٢٠٢٦ · دليل الهوية</small></div>
+
+  <!-- brand board -->
+  <div class="board" aria-label="لوحة الهوية">
+    <div class="tile t-black s4 h1" data-symbol="shmagh" data-h="70%"></div>
+    <div class="tile t-red s8 h1" id="velvet"></div>
+    <div class="tile t-black s12 h2"><div class="lock"><div class="w"><div data-word="ghutra"></div><div class="latin">DAZRA</div></div><div class="s" data-symbol="shmagh" data-h="clamp(140px,20vw,210px)"></div></div></div>
+    <div class="tile t-red s7 h1" id="boardPattern"></div>
+    <div class="tile t-black s5 h1" id="gemTile"></div>
+    <div class="tile t-cream s4 h3" id="dots"></div>
+    <div class="tile t-black s8 h3"><span class="latin" style="color:var(--shmagh);font-size:clamp(26px,4vw,44px);font-weight:600">DAZRA&nbsp;MISBAH</span></div>
+  </div>
+</div>
+
+<main class="wrap">
+  <!-- story -->
+  <section>
+    <div class="head"><span class="kick">THE IDEA</span><h2>حبّةٌ تحمل اسمها</h2>
+      <p>دزرة مسباح علامة سعودية للسِّبَح الرجالية الفاخرة. بُني الرمز من شيئين: حبّة السبحة، وحرف الدال الأول من الاسم محفوراً فيها كما يُحفر الختم. تحت الحبّة الفاصلة الماسية ثم الشُّرّابة، فيُقرأ الرمز سبحةً كاملة مختصرة في ثلاث قطع.</p></div>
+    <div class="cons-grid">
+      <div class="sheet" id="symCons"></div>
+      <div class="note" style="align-self:center;display:grid;gap:14px">
+        <p><b>الحبّة:</b> دائرة كاملة، نصف قطرها وحدة القياس لكل الرمز. الخيط يدخلها من أعلى ويخرج من أسفل.</p>
+        <p><b>الدال:</b> مأخوذة من الشعار الكتابي نفسه بلا تعديل، فيبقى الرمز والكلمة من يدٍ واحدة.</p>
+        <p><b>الفاصلة:</b> مُعيّن بنسبة ٣٠ إلى ٣٦، وهو الشكل نفسه الذي صارت عليه النقاط في الكلمة.</p>
+        <p><b>الشُّرّابة:</b> عدسة طويلة بشقّ في وسطها، تُكمل اتجاه الرمز إلى الأسفل.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- wordmark construction -->
+  <section>
+    <div class="head"><span class="kick">THE LETTERING</span><h2>رحلة الحرف</h2>
+      <p>الكلمة مرسومة باليد حرفاً حرفاً، لا بخطٍّ جاهز. كل حرف مسارٌ واحد تتبعه سنّ قلم عريضة مائلة بزاوية ٧٠ درجة، فيغلظ الخط في الأفقي ويرقّ في النزول، كما يحدث مع قلم القصب. النقاط صارت معيّنات حادة، وذيل الراء يمتدّ تحت التاء المربوطة ليحملها.</p></div>
+    <div class="sheet" id="wordCons"></div>
+    <div class="legend"><span><i style="background:var(--shmagh)"></i>مسار القلم</span><span><i style="background:#fff;border:1px solid var(--yusr)"></i>نقاط الارتكاز</span><span><i style="background:var(--shmagh);border-radius:50%"></i>مقابض الانحناء</span><span><i style="border:1px solid var(--ink-soft)"></i>حدود الحرف النهائية</span></div>
+  </section>
+
+  <!-- logo system -->
+  <section>
+    <div class="head"><span class="kick">LOGO SYSTEM</span><h2>صيغ الشعار</h2><p>أربع صيغ تتبادل الأدوار بحسب المساحة. الأساس هو الصيغة الأفقية، والحبّة وحدها للمساحات الأصغر من ٢٠ ملم.</p></div>
+    <div class="variants">
+      <div class="var" style="background:var(--yusr);color:var(--ghutra)"><div style="display:flex;align-items:center;gap:16px"><div data-word="ghutra" data-w="170px"></div><div data-symbol="shmagh" data-h="96px"></div></div><span class="cap">الأفقية · الأساسية</span></div>
+      <div class="var" style="background:var(--shmagh);color:var(--ghutra)"><div data-symbol="ghutra" data-h="100px"></div><div data-word="ghutra" data-w="150px"></div><span class="cap">العمودية</span></div>
+      <div class="var" style="background:var(--ghutra-2)"><div data-word="yusr" data-w="220px"></div><span class="cap" style="color:var(--ink-soft)">الكلمة وحدها</span></div>
+      <div class="var" style="background:var(--ghutra-2)"><div data-bead="shmagh" data-h="92px"></div><span class="cap" style="color:var(--ink-soft)">الحبّة · للأيقونات والأختام</span></div>
+    </div>
+    <div class="do-list">
+      <div><b>المسافة الآمنة</b>تساوي قطر الفاصلة الماسية من كل جهة، ولا يقترب منها نص أو صورة.</div>
+      <div><b>أصغر حجم</b>الأفقية ٣٥ ملم في الطباعة و١٤٠ بكسل على الشاشة. الحبّة وحدها حتى ٨ ملم.</div>
+      <div class="no"><b>لا تفعل</b>لا تُدوّر الرمز، ولا تفصل الشُّرّابة عن الحبّة، ولا تكتب الكلمة بخطٍّ آخر، ولا تضع الأحمر على الذهبي.</div>
+    </div>
+  </section>
+
+  <!-- colors -->
+  <section>
+    <div class="head"><span class="kick">COLOUR</span><h2>ألوان من مجلس الرجال</h2><p>الأحمر من الشماغ، والعاجي من الغترة، والأسود من اليُسر، والذهبي من خيوط البشت. خمسة ألوان فقط، والأحمر يظهر بقدرٍ يلفت النظر ولا يغلب.</p></div>
+    <div class="colors" id="colors"></div>
+    <div class="bar" id="bar" aria-hidden="true"></div>
+  </section>
+
+  <!-- type -->
+  <section>
+    <div class="head"><span class="kick">TYPOGRAPHY</span><h2>الخطوط المساندة</h2><p>الشعار مرسوم ولا يُكتب بخط. وحولَه ثلاثة خطوط مجانية من Google Fonts.</p></div>
+    <div class="type"><div class="lb"><b>أميري</b><code>AMIRI</code><br><span>العناوين وأسماء القطع</span></div><div style="font-family:var(--f-ar-display);font-weight:700;font-size:clamp(34px,5vw,54px);line-height:1.35">كهرمانٌ بلطيقيّ، قطعةٌ واحدة</div></div>
+    <div class="type"><div class="lb"><b>بلكس عربي</b><code>IBM PLEX SANS ARABIC</code><br><span>الأوصاف وصفحات المتجر</span></div><div style="max-width:60ch">سبحة من الكهرمان البلطيقي الطبيعي، ثلاث وثلاثون حبة بقطر ٩ ملم، بفاصلتين وشاهد من الفضة عيار ٩٢٥. تصل في علبة دزرة مع شهادة الفحص.</div></div>
+    <div class="type"><div class="lb"><b>سينزل</b><code>CINZEL</code><br><span>الاسم اللاتيني والأرقام المرجعية</span></div><div class="latin" style="font-size:clamp(26px,4vw,40px);font-weight:600;text-align:right">DAZRA · DZ-0147</div></div>
+  </section>
+
+  <!-- pattern -->
+  <section>
+    <div class="head"><span class="kick">PATTERN</span><h2>نقش «نظم السبحة»</h2><p>الحبّة تتكرر على شبكة مائلة، والخيوط بينها تمرّ بفواصل ماسية كما تُنظم السبحة. يُطبع لوناً على لون من العائلة نفسها، أحمر على أحمر أو أسود على أسود، ليبقى خلفيةً هادئة.</p></div>
+    <div class="variants">
+      <div class="var" style="padding:0;overflow:hidden;min-height:260px" data-pattern="red"></div>
+      <div class="var" style="padding:0;overflow:hidden;min-height:260px" data-pattern="black"></div>
+      <div class="var" style="padding:0;overflow:hidden;min-height:260px" data-pattern="cream"></div>
+    </div>
+  </section>
+
+  <!-- applications -->
+  <section>
+    <div class="head"><span class="kick">APPLICATIONS</span><h2>الهوية في يد العميل</h2><p>من العلبة إلى البطاقة المعلّقة على الشُّرّابة. كل ما يصل للعميل يحمل الرمز مرةً واحدة، في مكانٍ واضح.</p></div>
+    <div class="apps">
+      <div class="app w8"><div class="stage"><div class="box"><span class="ribbon"></span><span data-symbol="gold" data-h="100%" style="height:56%;display:flex"></span></div></div><h3>علبة السبحة</h3><p>خشب مصبوغ أسود بإطار ذهبي، والرمز بالختم الحراري الذهبي، وشريط أحمر على الغطاء.</p></div>
+      <div class="app w4"><div class="stage"><div class="tagc"><div class="sy" data-symbol="shmagh" data-h="52px" style="display:flex;justify-content:center"></div><div class="t">كهرمان بلطيقي</div>
+        <dl><dt>الحبات</dt><dd>٣٣</dd><dt>القطر</dt><dd>٩ ملم</dd><dt>الوزن</dt><dd>٢٤ غ</dd><dt>الشاهد</dt><dd>فضة ٩٢٥</dd><dt>الرقم</dt><dd style="font-family:var(--f-latin);letter-spacing:.05em">DZ-0147</dd></dl>
+        <div class="pr">١٬٤٥٠ ر.س</div></div></div><h3>البطاقة المعلّقة</h3><p>تُربط بالشُّرّابة، وعليها مواصفات القطعة بالأرقام.</p></div>
+      <div class="app"><div class="stage" id="pouch"></div><h3>كيس المخمل</h3><p>مخمل أحمر برباط ذهبي، والرمز مطرّز بخيط عاجي.</p></div>
+      <div class="app"><div class="stage"><div class="card f" data-symbol="shmagh" data-h="58%"></div><div class="card b"><div data-word="shmagh" data-w="84px" class="wm" style="position:absolute;left:16px;top:16px"></div><div><div class="nm">عبدالله الدوسري</div><div class="rl">المؤسس</div></div><div class="ct">+966 50 000 0000<br>DAZRA.SA</div></div></div><h3>بطاقة العمل</h3><p>الوجه أسود بالرمز الأحمر، والظهر عاجي. الاسم والرقم مثال.</p></div>
+      <div class="app w4"><div class="stage"><div class="post"><div class="lg" data-bead="shmagh" data-h="34px"></div><div class="ill" id="postIll"></div><div class="tt">وصل كهرمان الشتاء</div><div class="st">٣٣ حبة · ٩ ملم · قطعة واحدة</div></div></div><h3>منشور إنستغرام</h3><p>خلفية سوداء، قطعة واحدة، وسطران.</p></div>
+      <div class="app w8"><div class="stage"><div class="bag" style="background:var(--shmagh)" data-symbol="ghutra" data-h="58%"></div><div class="bag" style="background:var(--yusr)" data-symbol="gold" data-h="58%"></div><div class="bag" style="background:var(--ghutra)" data-symbol="shmagh" data-h="58%"></div></div><h3>أكياس التسوق</h3><p>ثلاث نسخ: الأحمر للهدايا، والأسود للقطع الخاصة، والعاجي للمشتريات اليومية.</p></div>
+    </div>
+  </section>
+
+  <!-- voice -->
+  <section>
+    <div class="head"><span class="kick">VOICE</span><h2>كيف نتكلم</h2><p>بلسان رجلٍ يعرف السبح: قليل الكلام، دقيق في المواصفات، كريم في الضيافة.</p></div>
+    <div class="voice">
+      <div class="vbox yes"><h3>نقول</h3><ul><li>كهرمان بلطيقي، ٣٣ حبة، ٩ ملم.</li><li>قطعة واحدة. إذا راحت ما ترجع.</li><li>تصلك في علبة دزرة مع شهادة الفحص.</li><li>حيّاك في المعرض، والقهوة علينا.</li></ul></div>
+      <div class="vbox no"><h3>لا نقول</h3><ul><li>عرض خرافي!!! لا يفوتك</li><li>أفضل سبح في العالم</li><li>خصم ٧٠٪ على كل شيء</li><li>فخمة جداً جداً</li></ul></div>
+    </div>
+    <div class="lines"><span>هيبةٌ تُمسَك باليد</span><span>حبّةٌ تحمل اسمها</span><span>من نجد إلى مجلسك</span></div>
+  </section>
+</main>
+
+<footer class="wrap"><div><span class="latin">DAZRA MISBAH</span><br>دليل الهوية البصرية · الإصدار ١٫٠</div><div style="width:120px" data-word="shmagh" data-w="120px"></div></footer>
+
+<script id="assets" type="application/json">{"word":{"d":"M69.8 262.6L70.2 261.4L72.1 262.3L73.9 263.2L75.8 264.0L77.8 264.9L79.7 265.7L81.6 266.5L83.6 267.3L85.6 268.0L87.6 268.8L89.7 269.5L91.8 270.2L93.8 270.9L96.0 271.6L98.1 272.3L100.3 272.9L102.4 273.5L104.7 274.1L106.9 274.7L109.1 275.3L111.4 275.9L113.7 276.4L116.1 276.9L118.4 277.5L120.8 277.9L123.2 278.4L125.7 278.9L128.2 279.3L130.7 279.8L133.2 280.2L135.7 280.6L138.3 281.0L140.9 281.4L143.6 281.7L146.2 282.1L148.9 282.4L151.7 282.8L154.4 283.1L157.2 283.4L160.0 283.7L162.9 283.9L165.8 284.2L168.7 284.4L171.6 284.7L174.6 284.9L177.6 285.1L180.7 285.3L183.8 285.5L186.9 285.7L190.0 285.8L193.2 286.0L196.4 286.1L199.7 286.3L202.9 286.4L206.3 286.5L209.6 286.6L213.0 286.7L216.4 286.8L219.9 286.9L223.4 286.9L226.9 287.0L234.9 287.1L242.9 287.2L250.7 287.2L258.4 287.2L266.0 287.2L273.6 287.1L281.0 286.9L288.4 286.8L295.6 286.6L302.8 286.3L309.9 286.0L316.8 285.7L323.7 285.3L330.5 284.9L337.1 284.4L343.7 283.9L350.2 283.4L356.6 282.8L362.8 282.1L369.0 281.5L375.1 280.8L381.1 280.0L386.9 279.2L392.7 278.4L398.4 277.5L404.0 276.6L409.4 275.6L414.8 274.5L420.1 273.5L425.3 272.3L430.3 271.2L435.3 269.9L440.2 268.7L445.0 267.4L449.6 266.0L454.2 264.6L458.6 263.1L463.0 261.6L467.2 260.1L471.4 258.5L475.4 256.9L479.3 255.2L483.2 253.5L486.9 251.7L490.5 249.9L494.0 248.0L497.4 246.1L500.7 244.2L503.9 242.2L506.9 240.1L509.9 238.1L512.7 235.9L515.5 233.8L518.1 231.5L520.6 229.3L523.0 227.0L525.3 224.6L527.5 222.2L529.6 219.8L531.5 217.3L532.6 216.1L533.7 214.9L534.7 213.7L535.7 212.5L536.6 211.2L536.6 211.2L536.6 209.9L536.6 208.7L536.5 207.4L536.4 206.2L536.2 204.9L536.0 203.7L535.8 202.5L535.6 201.3L535.3 200.1L535.0 198.9L534.7 197.7L534.4 196.6L534.0 195.4L533.6 194.3L533.1 193.2L532.6 192.0L532.2 190.7L531.9 188.9L531.7 186.9L531.6 184.5L531.6 181.9L531.5 179.2L531.5 176.4L540.5 151.6L541.9 150.8L543.1 150.1L544.3 149.6L545.4 149.4L546.3 149.5L547.1 149.9L547.7 150.7L548.2 151.8L548.6 152.9L549.0 154.1L549.4 155.2L549.8 156.4L550.1 157.6L550.4 158.8L550.6 160.0L550.9 161.2L551.1 162.4L551.3 163.6L551.4 164.8L551.5 166.1L551.6 167.3L551.7 168.6L551.7 169.8L551.7 171.1L551.6 172.4L551.6 173.7L551.5 174.9L551.4 176.2L551.2 177.5L551.0 178.8L550.8 180.1L550.6 181.4L550.3 182.7L550.0 184.0L549.6 185.4L549.3 186.7L548.9 188.0L548.5 189.3L548.0 190.6L533.0 232.0L532.5 233.3L532.0 234.6L531.4 235.9L530.8 237.2L530.2 238.5L529.6 239.8L528.9 241.1L528.2 242.4L527.5 243.7L526.8 245.0L526.0 246.2L525.2 247.5L524.3 248.8L523.4 250.1L522.5 251.3L521.6 252.6L520.6 253.8L519.6 255.0L518.6 256.3L517.6 257.5L516.5 258.7L514.5 261.2L512.4 263.6L510.3 266.0L508.0 268.3L505.6 270.6L503.0 272.9L500.4 275.1L497.7 277.3L494.8 279.4L491.9 281.5L488.8 283.5L485.6 285.5L482.3 287.5L478.9 289.4L475.4 291.2L471.8 293.1L468.1 294.8L464.3 296.5L460.4 298.2L456.3 299.9L452.2 301.4L447.9 303.0L443.6 304.5L439.1 305.9L434.6 307.3L429.9 308.7L425.1 310.0L420.3 311.3L415.3 312.5L410.2 313.7L405.0 314.8L399.8 315.9L394.4 316.9L388.9 317.9L383.3 318.8L377.7 319.7L371.9 320.6L366.0 321.4L360.0 322.1L354.0 322.8L347.8 323.5L341.5 324.0L335.2 324.6L328.7 325.1L322.2 325.5L315.5 325.8L308.8 326.1L302.0 326.4L295.1 326.6L288.1 326.7L281.0 326.8L273.8 326.8L266.5 326.8L259.1 326.7L251.7 326.6L244.1 326.4L236.5 326.1L228.8 325.8L221.0 325.5L213.1 325.0L209.6 324.7L206.3 324.3L202.9 323.9L199.6 323.4L196.4 323.0L193.2 322.5L190.0 322.0L186.9 321.4L183.8 320.9L180.7 320.3L177.7 319.7L174.7 319.1L171.8 318.4L168.9 317.8L166.0 317.1L163.2 316.4L160.4 315.6L157.6 314.9L154.9 314.1L152.2 313.3L149.6 312.4L147.0 311.6L144.4 310.7L141.8 309.8L139.3 308.9L136.8 307.9L134.4 306.9L132.0 305.9L129.6 304.9L127.3 303.9L124.9 302.8L122.7 301.7L120.4 300.6L118.2 299.5L116.0 298.4L113.8 297.2L111.7 296.0L109.6 294.8L107.5 293.5L105.5 292.3L103.4 291.0L101.4 289.7L99.5 288.4L97.5 287.0L95.6 285.7L93.7 284.3L91.9 282.9L90.0 281.4L88.2 280.0L86.4 278.5L84.7 277.0L82.9 275.5L81.2 273.9L79.5 272.4L77.8 270.8L76.2 269.2L74.5 267.6L72.9 266.0L71.3 264.3ZM250.1 226.0L250.1 224.5L250.2 223.0L250.4 221.6L250.6 220.1L250.8 218.6L251.2 217.1L251.6 215.6L252.1 214.1L252.6 212.6L263.4 182.8L264.0 181.3L264.7 179.8L265.4 178.4L266.2 176.9L267.0 175.4L267.9 174.0L268.9 172.5L269.9 171.1L271.0 169.7L272.1 168.3L273.3 167.0L274.5 165.6L275.8 164.3L277.1 163.0L278.5 161.7L280.0 160.5L281.4 159.3L283.0 158.1L284.6 156.9L286.2 155.8L287.9 154.7L289.6 153.7L291.4 152.7L293.2 151.7L295.1 150.8L297.0 149.9L298.9 149.1L300.9 148.3L302.9 147.6L305.0 146.9L307.1 146.2L309.2 145.6L311.4 145.1L313.0 145.1L314.6 145.2L316.1 145.3L317.7 145.4L319.2 145.5L320.7 145.7L322.2 145.9L323.6 146.2L325.1 146.4L326.5 146.7L327.9 147.1L329.3 147.4L330.6 147.8L332.0 148.2L333.3 148.7L334.6 149.2L335.8 149.7L337.1 150.2L338.3 150.8L339.5 151.3L340.7 152.0L341.8 152.6L342.9 153.3L344.0 153.9L345.1 154.7L346.1 155.4L347.1 156.2L348.1 157.0L349.0 157.8L349.9 158.6L350.8 159.5L351.7 160.4L352.5 161.3L353.3 162.2L354.0 163.1L354.8 164.1L355.5 165.1L356.1 166.1L356.7 167.2L357.3 168.2L357.9 169.3L358.4 170.4L358.9 171.5L359.4 172.6L359.8 173.8L360.2 175.0L360.5 176.2L360.8 177.4L361.1 178.6L361.3 179.8L361.5 181.1L361.7 182.4L361.8 183.7L361.9 185.0L361.9 186.3L361.9 187.6L361.8 189.0L361.7 190.3L361.6 191.7L361.4 193.1L361.2 194.7L360.9 196.3L360.5 197.8L360.0 199.3L349.1 229.0L348.6 230.5L348.0 231.9L347.3 233.3L346.5 234.7L345.7 236.0L344.8 237.3L343.8 238.6L342.8 239.8L341.7 241.0L340.6 242.1L339.4 243.3L338.1 244.3L336.8 245.4L335.5 246.4L334.1 247.4L332.7 248.3L331.2 249.2L329.7 250.0L328.1 250.8L326.5 251.6L324.9 252.4L323.2 253.0L321.6 253.7L319.8 254.3L318.1 254.9L316.3 255.4L314.5 255.9L312.7 256.3L310.9 256.7L309.1 257.0L307.2 257.3L305.4 257.6L303.5 257.8L301.6 258.0L299.7 258.1L297.8 258.1L296.0 258.2L294.1 258.1L292.2 258.1L290.3 257.9L288.4 257.8L286.6 257.5L284.7 257.3L282.9 256.9L281.0 256.6L279.2 256.1L277.5 255.6L275.7 255.1L273.9 254.5L272.2 253.9L270.5 253.2L268.9 252.4L267.3 251.6L265.7 250.8L264.1 249.9L262.6 248.9L261.2 247.9L259.9 246.8L258.8 245.7L257.6 244.6L256.6 243.4L255.7 242.2L254.8 241.0L254.0 239.7L253.3 238.5L252.6 237.2L252.1 235.8L251.6 234.5L251.1 233.1L250.8 231.7L250.5 230.3L250.3 228.9L250.2 227.4ZM261.1 198.3L261.2 199.1L261.4 200.5L261.6 201.9L262.0 203.3L262.4 204.7L262.9 206.1L263.5 207.4L264.1 208.7L264.8 210.0L265.6 211.2L266.5 212.5L267.4 213.6L268.5 214.8L269.6 215.9L270.8 217.0L272.1 218.1L273.4 219.1L274.9 220.1L276.5 221.0L278.1 221.9L279.7 222.7L281.4 223.4L283.1 224.1L284.8 224.8L286.5 225.3L288.3 225.9L290.1 226.4L291.9 226.8L293.7 227.2L295.5 227.5L297.4 227.8L299.3 228.0L301.1 228.2L303.0 228.3L304.9 228.4L306.8 228.4L308.7 228.4L310.6 228.3L312.4 228.2L314.3 228.0L316.2 227.8L318.1 227.6L319.9 227.3L321.8 226.9L323.6 226.5L325.4 226.1L327.2 225.6L328.9 225.1L330.7 224.5L332.4 223.9L334.1 223.3L335.7 222.6L337.4 221.9L338.9 221.1L340.5 220.3L342.0 219.4L343.5 218.5L344.9 217.6L346.3 216.6L347.7 215.6L349.0 214.6L350.2 213.5L350.9 212.8L350.8 212.1L350.7 210.9L350.5 209.6L350.3 208.4L350.0 207.1L349.7 205.9L349.3 204.7L349.0 203.6L348.5 202.4L348.1 201.3L347.6 200.2L347.1 199.1L346.5 198.0L345.9 196.9L345.3 195.9L344.6 194.9L343.9 193.9L343.2 192.9L342.4 192.0L341.6 191.0L340.8 190.1L340.0 189.2L339.1 188.4L338.2 187.5L337.2 186.7L336.2 185.9L335.2 185.2L334.2 184.4L333.2 183.7L332.1 183.0L331.0 182.4L329.8 181.7L328.7 181.1L327.5 180.5L326.3 180.0L325.0 179.4L323.7 178.9L322.5 178.4L321.1 178.0L319.8 177.6L318.5 177.2L317.1 176.8L315.7 176.5L314.3 176.2L312.8 175.9L311.3 175.7L309.9 175.5L308.4 175.3L306.8 175.1L305.3 175.0L303.7 175.0L302.2 174.9L300.6 174.9L298.4 175.4L296.3 176.0L294.2 176.6L292.1 177.3L290.1 178.1L288.1 178.8L286.1 179.7L284.2 180.6L282.4 181.5L280.5 182.4L278.8 183.5L277.0 184.5L275.4 185.6L273.7 186.7L272.1 187.9L270.6 189.0L269.1 190.3L267.7 191.5L266.3 192.8L265.0 194.1L263.7 195.4L262.4 196.7L261.3 198.1ZM277.0 112.0L290.0 95.0L303.0 112.0L290.0 129.0ZM315.0 112.0L328.0 95.0L341.0 112.0L328.0 129.0ZM555.4 299.7L556.6 296.3L559.6 295.4L562.5 294.5L565.4 293.5L568.3 292.5L571.1 291.5L573.9 290.5L576.7 289.4L579.4 288.4L582.1 287.3L584.8 286.1L587.4 285.0L590.0 283.8L592.6 282.7L595.1 281.5L597.6 280.3L600.1 279.0L602.5 277.8L605.0 276.5L607.3 275.2L609.7 273.9L612.0 272.6L614.3 271.3L616.6 270.0L618.8 268.7L621.0 267.3L623.1 265.9L625.3 264.6L627.4 263.2L629.5 261.8L631.5 260.4L633.5 259.0L635.5 257.6L637.4 256.2L639.4 254.7L641.3 253.3L643.1 251.9L645.0 250.4L646.8 249.0L648.6 247.5L650.3 246.1L652.0 244.6L653.7 243.2L655.4 241.7L657.0 240.3L658.6 238.8L660.2 237.4L661.8 235.9L663.3 234.5L664.8 233.0L666.3 231.6L667.7 230.1L669.1 228.7L670.5 227.3L671.9 225.8L673.2 224.4L674.5 223.0L675.8 221.6L677.1 220.1L678.3 218.7L679.5 217.3L680.6 216.1L681.7 214.9L682.7 213.7L683.7 212.5L684.6 211.2L684.6 211.2L684.6 209.9L684.6 208.7L684.5 207.4L684.4 206.2L684.2 204.9L684.0 203.7L683.8 202.5L683.6 201.3L683.3 200.1L683.0 198.9L682.7 197.7L682.4 196.6L682.0 195.4L681.6 194.3L681.2 192.9L680.9 191.3L680.6 189.6L680.4 187.6L680.2 185.6L680.0 183.4L679.9 181.1L679.7 178.8L679.5 176.4L688.5 151.6L689.7 151.3L690.8 151.0L691.9 150.8L692.9 150.7L693.8 150.8L694.7 151.0L695.4 151.4L696.1 152.1L696.6 153.0L697.0 154.1L697.4 155.2L697.8 156.4L698.1 157.6L698.4 158.8L698.6 160.0L698.9 161.2L699.1 162.4L699.3 163.6L699.4 164.8L699.5 166.1L699.6 167.3L699.7 168.6L699.7 169.8L699.7 171.1L699.6 172.4L699.6 173.7L699.5 174.9L699.4 176.2L699.2 177.5L699.0 178.8L698.8 180.1L698.6 181.4L698.3 182.7L698.0 184.0L697.6 185.4L697.3 186.7L696.9 188.0L696.5 189.3L696.0 190.6L681.0 232.0L680.5 233.3L680.0 234.6L679.4 235.9L678.8 237.2L678.2 238.5L677.6 239.8L676.9 241.1L676.2 242.4L675.5 243.7L674.8 245.0L674.0 246.2L673.2 247.5L672.3 248.8L671.4 250.1L670.5 251.3L669.6 252.6L668.6 253.8L667.6 255.0L666.6 256.3L665.6 257.5L664.5 258.7L663.3 260.1L662.0 261.4L660.8 262.8L659.6 264.1L658.3 265.4L657.0 266.7L655.7 268.0L654.4 269.2L653.0 270.4L651.7 271.6L650.3 272.8L648.9 274.0L647.5 275.1L646.1 276.2L644.6 277.3L643.2 278.3L641.7 279.4L640.2 280.4L638.7 281.4L637.1 282.3L635.5 283.3L634.0 284.2L632.4 285.1L630.7 286.0L629.1 286.8L627.4 287.6L625.7 288.4L624.0 289.2L622.3 289.9L620.5 290.6L618.7 291.3L616.9 291.9L615.1 292.6L613.2 293.2L611.3 293.8L609.4 294.3L607.5 294.8L605.6 295.4L603.6 295.8L601.6 296.3L599.5 296.7L597.5 297.1L595.4 297.5L593.3 297.8L591.1 298.1L589.0 298.4L586.8 298.7L584.5 298.9L582.3 299.1L580.0 299.3L577.7 299.5L575.3 299.6L572.9 299.7L570.5 299.8L568.1 299.8L565.6 299.8L563.1 299.8L560.6 299.8L558.0 299.7ZM676.0 118.0L690.0 100.0L704.0 118.0L690.0 136.0ZM741.4 227.7L742.6 224.3L746.8 224.2L750.9 224.0L755.1 223.7L759.2 223.5L763.2 223.3L767.3 223.0L771.3 222.7L775.3 222.5L779.2 222.2L783.1 221.9L787.0 221.6L790.8 221.2L794.6 220.9L798.4 220.6L802.1 220.2L805.8 219.9L809.4 219.5L812.9 219.2L816.5 218.8L819.9 218.5L823.3 218.1L826.7 217.7L830.0 217.4L833.2 217.0L836.4 216.6L839.5 216.2L842.5 215.8L845.5 215.5L848.4 215.1L851.2 214.7L854.0 214.3L856.7 213.9L859.3 213.5L861.9 213.1L864.4 212.7L866.8 212.3L869.1 211.9L871.3 211.5L873.5 211.1L875.6 210.7L877.6 210.2L879.6 209.7L881.4 209.1L883.2 208.5L884.9 207.9L886.3 207.3L886.2 206.3L885.9 204.5L885.6 202.7L885.3 200.9L885.0 199.0L884.6 197.2L884.2 195.4L883.8 193.6L883.3 191.8L882.9 190.0L882.4 188.2L881.8 186.5L881.3 184.7L880.7 182.9L880.1 181.2L879.5 179.4L878.8 177.7L878.2 176.0L877.5 174.3L876.8 172.6L876.0 170.9L875.3 169.2L874.5 167.6L873.8 165.9L873.0 164.3L872.1 162.7L871.3 161.1L870.5 159.6L869.6 158.0L868.7 156.5L867.9 155.0L867.0 153.5L866.1 152.0L865.1 150.6L864.2 149.2L863.3 147.8L862.3 146.5L861.4 145.1L860.5 143.5L859.8 141.5L859.2 139.2L858.8 136.5L858.4 133.6L858.1 130.5L857.9 127.4L866.1 104.6L867.9 103.7L869.6 103.0L871.2 102.4L872.7 102.2L874.1 102.3L875.3 102.8L876.4 103.8L877.4 105.1L878.3 106.5L879.3 107.9L880.2 109.3L881.1 110.7L882.0 112.2L882.9 113.6L883.8 115.1L884.7 116.7L885.5 118.2L886.4 119.8L887.2 121.4L888.0 123.0L888.8 124.6L889.6 126.2L890.3 127.9L891.1 129.5L891.8 131.2L892.5 132.9L893.2 134.6L893.9 136.3L894.5 138.1L895.1 139.8L895.8 141.6L896.3 143.3L896.9 145.1L897.4 146.9L897.9 148.7L898.4 150.5L898.8 152.3L899.3 154.1L899.7 155.9L900.0 157.7L900.4 159.5L900.7 161.3L901.0 163.1L901.2 165.0L901.4 166.8L901.6 168.6L901.8 170.4L901.9 172.2L902.0 174.0L902.0 175.8L902.1 177.6L902.0 179.4L902.0 181.1L901.9 182.9L901.8 184.7L901.6 186.4L901.4 188.2L901.1 189.9L900.9 191.6L900.5 193.3L900.1 194.6L885.1 235.9L884.6 237.2L884.0 238.4L883.3 239.5L882.5 240.6L881.7 241.7L880.7 242.7L879.6 243.6L878.5 244.5L877.3 245.4L876.0 246.3L874.6 247.1L873.1 247.8L871.5 248.5L869.9 249.2L868.2 249.8L866.4 250.4L864.5 251.0L862.6 251.5L860.5 252.0L858.5 252.5L856.3 252.9L854.1 253.2L851.8 253.5L849.5 253.7L847.1 253.9L844.6 253.9L842.1 254.0L839.6 253.9L837.0 253.8L834.4 253.6L831.7 253.4L828.9 253.1L826.2 252.8L823.3 252.4L820.5 251.9L817.6 251.4L814.6 250.8L811.6 250.2L808.6 249.5L805.5 248.8L802.4 248.0L799.3 247.2L796.1 246.4L792.9 245.4L789.7 244.5L786.4 243.5L783.1 242.5L779.8 241.4L776.4 240.3L773.0 239.2L769.6 238.0L766.2 236.8L762.7 235.6L759.2 234.3L755.7 233.0L752.2 231.7L748.6 230.4L745.0 229.0Z","view":[40,70,900,290],"strokes":[{"chain":[[[862,116],[882,138],[900,180],[893,214]],[[893,214],[886,240],[820,238],[742,226]]],"opt":{"W":44,"tin":0.06,"tout":0.32,"minIn":0.55}},{"chain":[[[684,164],[698,184],[694,214],[672,238]],[[672,238],[648,266],[612,290],[556,298]]],"opt":{"W":44,"tin":0.08,"tout":0.5,"minIn":0.6}},{"chain":[[[536,164],[550,184],[546,214],[524,238]],[[524,238],[486,288],[380,312],[220,306]],[[220,306],[150,302],[104,288],[70,262]]],"opt":{"W":44,"tin":0.04,"tout":0.45,"minIn":0.6,"min":0.03}},{"chain":[[[306,160],[262,170],[240,214],[268,234]],[[268,234],[298,254],[352,240],[356,208]],[[356,208],[360,180],[338,160],[306,160]]],"opt":{"W":31.68,"tin":0.001,"tout":0.001,"min":1}}],"dots":[[690,118,28,36],[290,112,26,34],[328,112,26,34]]},"symbol":{"d":"M96.0 170.0L96.1 164.9L96.5 159.8L97.1 154.7L98.0 149.7L99.1 144.7L100.5 139.8L102.1 135.0L103.9 130.2L106.0 125.5L108.3 121.0L110.8 116.5L113.5 112.2L116.5 108.0L119.6 104.0L122.9 100.2L126.5 96.5L130.2 92.9L134.0 89.6L138.0 86.5L142.2 83.5L146.5 80.8L151.0 78.3L155.5 76.0L160.2 73.9L165.0 72.1L169.8 70.5L174.7 69.1L179.7 68.0L184.7 67.1L189.8 66.5L194.9 66.1L196.5 66.1L196.5 40.0L203.5 40.0L203.5 66.1L205.1 66.1L210.2 66.5L215.3 67.1L220.3 68.0L225.3 69.1L230.2 70.5L235.0 72.1L239.8 73.9L244.5 76.0L249.0 78.3L253.5 80.8L257.8 83.5L262.0 86.5L266.0 89.6L269.8 92.9L273.5 96.5L277.1 100.2L280.4 104.0L283.5 108.0L286.5 112.2L289.2 116.5L291.7 121.0L294.0 125.5L296.1 130.2L297.9 135.0L299.5 139.8L300.9 144.7L302.0 149.7L302.9 154.7L303.5 159.8L303.9 164.9L304.0 170.0L303.9 175.1L303.5 180.2L302.9 185.3L302.0 190.3L300.9 195.3L299.5 200.2L297.9 205.0L296.1 209.8L294.0 214.5L291.7 219.0L289.2 223.5L286.5 227.8L283.5 232.0L280.4 236.0L277.1 239.8L273.5 243.5L269.8 247.1L266.0 250.4L262.0 253.5L257.8 256.5L253.5 259.2L249.0 261.7L244.5 264.0L239.8 266.1L235.0 267.9L230.2 269.5L225.3 270.9L220.3 272.0L215.3 272.9L210.2 273.5L205.1 273.9L203.5 273.9L203.5 300.2L215.0 314.0L200.0 332.0L185.0 314.0L196.5 300.2L196.5 273.9L194.9 273.9L189.8 273.5L184.7 272.9L179.7 272.0L174.7 270.9L169.8 269.5L165.0 267.9L160.2 266.1L155.5 264.0L151.0 261.7L146.5 259.2L142.2 256.5L138.0 253.5L134.0 250.4L130.2 247.1L126.5 243.5L122.9 239.8L119.6 236.0L116.5 232.0L113.5 227.8L110.8 223.5L108.3 219.0L106.0 214.5L103.9 209.8L102.1 205.0L100.5 200.2L99.1 195.3L98.0 190.3L97.1 185.3L96.5 180.2L96.1 175.1ZM140.5 211.2L143.3 212.5L146.0 213.8L148.7 215.0L151.4 216.3L154.0 217.5L156.7 218.7L159.3 219.8L161.9 221.0L164.5 222.1L167.1 223.2L169.6 224.3L172.1 225.3L174.6 226.3L177.1 227.3L179.6 228.2L182.0 229.1L184.4 229.9L186.8 230.7L189.2 231.5L191.5 232.2L193.8 232.9L196.1 233.5L198.3 234.1L200.6 234.6L202.8 235.1L204.9 235.5L207.1 235.9L209.1 236.2L211.2 236.5L213.2 236.7L215.2 236.8L217.2 236.9L219.1 237.0L221.0 236.9L222.9 236.9L224.7 236.7L226.4 236.5L228.2 236.3L229.9 235.9L231.5 235.6L233.1 235.2L234.6 234.8L236.0 234.4L237.4 233.9L238.8 233.4L240.1 232.9L241.3 232.3L242.4 231.7L243.5 231.1L244.5 230.5L245.5 229.8L246.4 229.0L247.2 228.3L248.0 227.5L248.6 226.7L249.2 225.8L249.8 224.9L250.2 224.0L250.6 223.1L266.6 179.1L266.9 178.1L267.2 176.8L267.4 175.4L267.6 174.1L267.8 172.7L267.9 171.3L268.0 170.0L268.1 168.6L268.1 167.2L268.1 165.8L268.1 164.4L268.1 163.0L268.0 161.6L267.9 160.2L267.8 158.8L267.7 157.4L267.5 156.0L267.3 154.5L267.1 153.1L266.8 151.7L266.6 150.3L266.3 148.9L266.0 147.5L265.6 146.1L265.3 144.7L264.9 143.3L264.5 141.9L264.1 140.5L263.7 139.1L263.2 137.7L262.8 136.4L262.3 135.0L261.8 133.6L261.2 132.3L260.7 131.0L260.2 129.6L259.6 128.3L259.0 127.0L258.4 125.7L257.8 124.5L257.2 123.2L256.5 122.0L255.9 120.7L255.2 119.5L254.6 118.3L253.9 117.1L253.2 115.9L252.5 114.8L251.8 113.6L251.1 112.5L250.4 111.4L249.6 110.4L248.9 109.3L248.1 108.3L247.3 107.6L246.2 107.4L245.0 107.6L243.7 108.2L242.2 109.1L240.7 110.3L239.2 111.5L230.4 135.7L230.4 138.7L230.4 141.7L230.5 144.4L230.7 146.9L231.0 149.1L231.5 150.9L232.1 152.2L232.9 153.3L233.6 154.3L234.3 155.4L235.1 156.5L235.8 157.6L236.5 158.8L237.2 159.9L237.9 161.1L238.6 162.3L239.2 163.5L239.9 164.7L240.5 165.9L241.2 167.2L241.8 168.4L242.4 169.7L243.0 171.0L243.6 172.3L244.1 173.6L244.7 174.9L245.2 176.3L245.8 177.6L246.3 179.0L246.7 180.3L247.2 181.7L247.7 183.1L248.1 184.5L248.5 185.9L248.9 187.2L249.3 188.6L249.6 190.1L249.9 191.0L249.1 191.2L247.5 191.6L245.9 192.0L244.2 192.3L242.4 192.6L240.6 192.9L238.7 193.3L236.8 193.6L234.8 194.0L232.7 194.3L230.6 194.7L228.4 195.1L226.1 195.4L223.8 195.8L221.5 196.2L219.1 196.6L216.6 197.0L214.1 197.4L211.5 197.9L208.9 198.3L206.2 198.7L203.5 199.2L200.8 199.6L198.0 200.0L195.1 200.5L192.3 200.9L189.3 201.4L186.4 201.8L183.4 202.3L180.4 202.7L177.3 203.2L174.2 203.6L171.1 204.0L167.9 204.5L164.7 204.9L161.5 205.3L158.3 205.7L155.0 206.1L151.8 206.5L148.5 206.9L145.1 207.3L141.8 207.7ZM184.3 386.0L184.3 383.8L184.4 381.6L184.5 379.4L184.7 377.3L184.9 375.1L185.2 372.9L185.6 370.7L186.0 368.6L186.5 366.4L187.0 364.3L187.6 362.2L188.2 360.1L188.9 358.0L189.6 355.9L190.4 353.8L191.3 351.7L192.2 349.7L193.1 347.7L194.1 345.7L195.2 343.7L196.3 341.7L197.5 339.8L198.7 337.9L200.0 336.0L201.3 337.9L202.5 339.8L203.7 341.7L204.8 343.7L205.9 345.7L206.9 347.7L207.8 349.7L208.8 351.7L209.6 353.8L210.4 355.9L211.1 358.0L211.8 360.1L212.4 362.2L213.0 364.3L213.5 366.4L214.0 368.6L214.4 370.7L214.8 372.9L215.1 375.1L215.3 377.3L215.5 379.4L215.6 381.6L215.7 383.8L215.8 386.0L215.7 388.2L215.6 390.4L215.5 392.6L215.3 394.7L215.1 396.9L214.8 399.1L214.4 401.3L214.0 403.4L213.5 405.6L213.0 407.7L212.4 409.8L211.8 411.9L211.1 414.0L210.4 416.1L209.6 418.2L208.8 420.3L207.8 422.3L206.9 424.3L205.9 426.3L204.8 428.3L203.7 430.3L202.5 432.2L201.3 434.1L200.0 436.0L198.7 434.1L197.5 432.2L196.3 430.3L195.2 428.3L194.1 426.3L193.1 424.3L192.2 422.3L191.3 420.3L190.4 418.2L189.6 416.1L188.9 414.0L188.2 411.9L187.6 409.8L187.0 407.7L186.5 405.6L186.0 403.4L185.6 401.3L185.2 399.1L184.9 396.9L184.7 394.7L184.5 392.6L184.4 390.4L184.3 388.2ZM196.5 388.0L196.5 389.1L196.6 390.3L196.6 391.4L196.6 392.5L196.7 393.7L196.8 394.8L196.8 395.9L196.9 397.1L197.0 398.2L197.1 399.3L197.3 400.4L197.4 401.5L197.6 402.6L197.7 403.7L197.9 404.7L198.1 405.8L198.3 406.9L198.5 407.9L198.7 409.0L198.9 410.0L199.2 411.0L199.4 412.0L199.7 413.0L200.0 414.0L200.3 413.0L200.6 412.0L200.8 411.0L201.1 410.0L201.3 409.0L201.5 407.9L201.7 406.9L201.9 405.8L202.1 404.7L202.3 403.7L202.4 402.6L202.6 401.5L202.7 400.4L202.9 399.3L203.0 398.2L203.1 397.1L203.2 395.9L203.2 394.8L203.3 393.7L203.4 392.5L203.4 391.4L203.4 390.3L203.5 389.1L203.5 388.0L203.5 386.9L203.4 385.7L203.4 384.6L203.4 383.5L203.3 382.3L203.2 381.2L203.2 380.1L203.1 378.9L203.0 377.8L202.9 376.7L202.7 375.6L202.6 374.5L202.4 373.4L202.3 372.3L202.1 371.3L201.9 370.2L201.7 369.1L201.5 368.1L201.3 367.0L201.1 366.0L200.8 365.0L200.6 364.0L200.3 363.0L200.0 362.0L199.7 363.0L199.4 364.0L199.2 365.0L198.9 366.0L198.7 367.0L198.5 368.1L198.3 369.1L198.1 370.2L197.9 371.3L197.7 372.3L197.6 373.4L197.4 374.5L197.3 375.6L197.1 376.7L197.0 377.8L196.9 378.9L196.8 380.1L196.8 381.2L196.7 382.3L196.6 383.5L196.6 384.6L196.6 385.7L196.5 386.9Z","box":[96,40,304,436]},"bead":{"d":"M96.0 170.0L96.1 164.9L96.5 159.8L97.1 154.7L98.0 149.7L99.1 144.7L100.5 139.8L102.1 135.0L103.9 130.2L106.0 125.5L108.3 121.0L110.8 116.5L113.5 112.2L116.5 108.0L119.6 104.0L122.9 100.2L126.5 96.5L130.2 92.9L134.0 89.6L138.0 86.5L142.2 83.5L146.5 80.8L151.0 78.3L155.5 76.0L160.2 73.9L165.0 72.1L169.8 70.5L174.7 69.1L179.7 68.0L184.7 67.1L189.8 66.5L194.9 66.1L200.0 66.0L205.1 66.1L210.2 66.5L215.3 67.1L220.3 68.0L225.3 69.1L230.2 70.5L235.0 72.1L239.8 73.9L244.5 76.0L249.0 78.3L253.5 80.8L257.8 83.5L262.0 86.5L266.0 89.6L269.8 92.9L273.5 96.5L277.1 100.2L280.4 104.0L283.5 108.0L286.5 112.2L289.2 116.5L291.7 121.0L294.0 125.5L296.1 130.2L297.9 135.0L299.5 139.8L300.9 144.7L302.0 149.7L302.9 154.7L303.5 159.8L303.9 164.9L304.0 170.0L303.9 175.1L303.5 180.2L302.9 185.3L302.0 190.3L300.9 195.3L299.5 200.2L297.9 205.0L296.1 209.8L294.0 214.5L291.7 219.0L289.2 223.5L286.5 227.8L283.5 232.0L280.4 236.0L277.1 239.8L273.5 243.5L269.8 247.1L266.0 250.4L262.0 253.5L257.8 256.5L253.5 259.2L249.0 261.7L244.5 264.0L239.8 266.1L235.0 267.9L230.2 269.5L225.3 270.9L220.3 272.0L215.3 272.9L210.2 273.5L205.1 273.9L200.0 274.0L194.9 273.9L189.8 273.5L184.7 272.9L179.7 272.0L174.7 270.9L169.8 269.5L165.0 267.9L160.2 266.1L155.5 264.0L151.0 261.7L146.5 259.2L142.2 256.5L138.0 253.5L134.0 250.4L130.2 247.1L126.5 243.5L122.9 239.8L119.6 236.0L116.5 232.0L113.5 227.8L110.8 223.5L108.3 219.0L106.0 214.5L103.9 209.8L102.1 205.0L100.5 200.2L99.1 195.3L98.0 190.3L97.1 185.3L96.5 180.2L96.1 175.1ZM140.5 211.2L143.3 212.5L146.0 213.8L148.7 215.0L151.4 216.3L154.0 217.5L156.7 218.7L159.3 219.8L161.9 221.0L164.5 222.1L167.1 223.2L169.6 224.3L172.1 225.3L174.6 226.3L177.1 227.3L179.6 228.2L182.0 229.1L184.4 229.9L186.8 230.7L189.2 231.5L191.5 232.2L193.8 232.9L196.1 233.5L198.3 234.1L200.6 234.6L202.8 235.1L204.9 235.5L207.1 235.9L209.1 236.2L211.2 236.5L213.2 236.7L215.2 236.8L217.2 236.9L219.1 237.0L221.0 236.9L222.9 236.9L224.7 236.7L226.4 236.5L228.2 236.3L229.9 235.9L231.5 235.6L233.1 235.2L234.6 234.8L236.0 234.4L237.4 233.9L238.8 233.4L240.1 232.9L241.3 232.3L242.4 231.7L243.5 231.1L244.5 230.5L245.5 229.8L246.4 229.0L247.2 228.3L248.0 227.5L248.6 226.7L249.2 225.8L249.8 224.9L250.2 224.0L250.6 223.1L266.6 179.1L266.9 178.1L267.2 176.8L267.4 175.4L267.6 174.1L267.8 172.7L267.9 171.3L268.0 170.0L268.1 168.6L268.1 167.2L268.1 165.8L268.1 164.4L268.1 163.0L268.0 161.6L267.9 160.2L267.8 158.8L267.7 157.4L267.5 156.0L267.3 154.5L267.1 153.1L266.8 151.7L266.6 150.3L266.3 148.9L266.0 147.5L265.6 146.1L265.3 144.7L264.9 143.3L264.5 141.9L264.1 140.5L263.7 139.1L263.2 137.7L262.8 136.4L262.3 135.0L261.8 133.6L261.2 132.3L260.7 131.0L260.2 129.6L259.6 128.3L259.0 127.0L258.4 125.7L257.8 124.5L257.2 123.2L256.5 122.0L255.9 120.7L255.2 119.5L254.6 118.3L253.9 117.1L253.2 115.9L252.5 114.8L251.8 113.6L251.1 112.5L250.4 111.4L249.6 110.4L248.9 109.3L248.1 108.3L247.3 107.6L246.2 107.4L245.0 107.6L243.7 108.2L242.2 109.1L240.7 110.3L239.2 111.5L230.4 135.7L230.4 138.7L230.4 141.7L230.5 144.4L230.7 146.9L231.0 149.1L231.5 150.9L232.1 152.2L232.9 153.3L233.6 154.3L234.3 155.4L235.1 156.5L235.8 157.6L236.5 158.8L237.2 159.9L237.9 161.1L238.6 162.3L239.2 163.5L239.9 164.7L240.5 165.9L241.2 167.2L241.8 168.4L242.4 169.7L243.0 171.0L243.6 172.3L244.1 173.6L244.7 174.9L245.2 176.3L245.8 177.6L246.3 179.0L246.7 180.3L247.2 181.7L247.7 183.1L248.1 184.5L248.5 185.9L248.9 187.2L249.3 188.6L249.6 190.1L249.9 191.0L249.1 191.2L247.5 191.6L245.9 192.0L244.2 192.3L242.4 192.6L240.6 192.9L238.7 193.3L236.8 193.6L234.8 194.0L232.7 194.3L230.6 194.7L228.4 195.1L226.1 195.4L223.8 195.8L221.5 196.2L219.1 196.6L216.6 197.0L214.1 197.4L211.5 197.9L208.9 198.3L206.2 198.7L203.5 199.2L200.8 199.6L198.0 200.0L195.1 200.5L192.3 200.9L189.3 201.4L186.4 201.8L183.4 202.3L180.4 202.7L177.3 203.2L174.2 203.6L171.1 204.0L167.9 204.5L164.7 204.9L161.5 205.3L158.3 205.7L155.0 206.1L151.8 206.5L148.5 206.9L145.1 207.3L141.8 207.7Z","box":[96,66,304,274]}}</script>
+<script>
+const A=JSON.parse(document.getElementById('assets').textContent);
+const C={yusr:"#181615",shmagh:"#9B1C24",ghutra:"#ECE4D6",gold:"#B8924A",deep:"#741520"};
+const vb=(b,p=8)=>[b[0]-p,b[1]-p,b[2]-b[0]+2*p,b[3]-b[1]+2*p].join(" ");
+const P=(d,f,extra="")=>`<path d="${d}" fill="${f}" fill-rule="evenodd" ${extra}/>`;
+const wordSVG=(f,w="100%")=>`<svg viewBox="${A.word.view.join(" ")}" style="width:${w};height:auto" role="img" aria-label="دزرة">${P(A.word.d,f)}</svg>`;
+const symSVG=(f,h="100%")=>`<svg viewBox="${vb(A.symbol.box)}" style="height:${h};width:auto" role="img" aria-label="رمز دزرة">${P(A.symbol.d,f)}</svg>`;
+const beadSVG=(f,h="100%")=>`<svg viewBox="${vb(A.bead.box)}" style="height:${h};width:auto;max-width:100%" role="img" aria-label="حبّة دزرة">${P(A.bead.d,f)}</svg>`;
+const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s);
+$$("[data-word]").forEach(el=>el.innerHTML=wordSVG(C[el.dataset.word],el.dataset.w||"100%"));
+$$("[data-symbol]").forEach(el=>el.innerHTML=symSVG(C[el.dataset.symbol],el.dataset.h||"100%"));
+$$("[data-bead]").forEach(el=>el.innerHTML=beadSVG(C[el.dataset.bead],el.dataset.h||"100%"));
+$$(".sheetbar .mark").forEach(el=>el.innerHTML=beadSVG(C.shmagh,"44px"));
+
+/* bezier sampling for construction drawings */
+const bz=(p0,c1,c2,p3,t)=>{const u=1-t;return[u*u*u*p0[0]+3*u*u*t*c1[0]+3*u*t*t*c2[0]+t*t*t*p3[0],u*u*u*p0[1]+3*u*u*t*c1[1]+3*u*t*t*c2[1]+t*t*t*p3[1]]};
+function wordConstruction(){
+  const [x,y,w,h]=A.word.view;let g="";
+  // baseline + x-height guides
+  for(const gy of [118,166,238,306]) g+=`<line x1="${x}" x2="${x+w}" y1="${gy}" y2="${gy}" stroke="${C.yusr}" stroke-opacity=".18" stroke-dasharray="4 6"/>`;
+  g+=`<circle cx="820" cy="178" r="74" fill="none" stroke="${C.yusr}" stroke-opacity=".16"/><circle cx="312" cy="206" r="64" fill="none" stroke="${C.yusr}" stroke-opacity=".16"/><circle cx="380" cy="120" r="250" fill="none" stroke="${C.yusr}" stroke-opacity=".1"/>`;
+  g+=P(A.word.d,C.yusr,'fill-opacity=".07"');
+  g+=`<path d="${A.word.d}" fill="none" stroke="#6d6157" stroke-width="1"/>`;
+  for(const s of A.word.strokes){
+    let pts=[];s.chain.forEach((seg,i)=>{for(let k=(i?1:0);k<=40;k++)pts.push(bz(...seg,k/40))});
+    g+=`<polyline points="${pts.map(p=>p.map(v=>v.toFixed(1)).join(",")).join(" ")}" fill="none" stroke="${C.shmagh}" stroke-width="1.6"/>`;
+    for(const seg of s.chain){
+      g+=`<line x1="${seg[0][0]}" y1="${seg[0][1]}" x2="${seg[1][0]}" y2="${seg[1][1]}" stroke="${C.shmagh}" stroke-width=".9"/><line x1="${seg[3][0]}" y1="${seg[3][1]}" x2="${seg[2][0]}" y2="${seg[2][1]}" stroke="${C.shmagh}" stroke-width=".9"/>`;
+      for(const p of [seg[1],seg[2]]) g+=`<circle cx="${p[0]}" cy="${p[1]}" r="3" fill="${C.shmagh}"/>`;
+      for(const p of [seg[0],seg[3]]) g+=`<rect x="${p[0]-4.5}" y="${p[1]-4.5}" width="9" height="9" fill="#fff" stroke="${C.yusr}" stroke-width="1"/>`;
+    }
+  }
+  for(const d of A.word.dots){const [cx,cy,dw,dh]=d;g+=`<line x1="${cx-dw}" x2="${cx+dw}" y1="${cy}" y2="${cy}" stroke="${C.shmagh}" stroke-width=".8"/><line x1="${cx}" x2="${cx}" y1="${cy-dh}" y2="${cy+dh}" stroke="${C.shmagh}" stroke-width=".8"/>`}
+  // nib angle marker
+  g+=`<g transform="translate(110 120)"><line x1="0" y1="0" x2="${(Math.cos(70*Math.PI/180)*44).toFixed(1)}" y2="${(-Math.sin(70*Math.PI/180)*44).toFixed(1)}" stroke="${C.shmagh}" stroke-width="5" stroke-linecap="butt"/><path d="M0 0 H40" stroke="${C.yusr}" stroke-opacity=".4"/><text x="46" y="-10" font-size="15" fill="#6d6157" font-family="IBM Plex Sans Arabic">٧٠°</text></g>`;
+  $("#wordCons").innerHTML=`<svg viewBox="${x} ${y-10} ${w} ${h+20}" role="img" aria-label="بناء الشعار الكتابي">${g}</svg>`;
+}
+function symConstruction(){
+  const b=A.symbol.box, cx=200, cy=170, R=104;let g="";
+  for(let i=-3;i<=3;i++) g+=`<line x1="${cx+i*R/2}" x2="${cx+i*R/2}" y1="${b[1]-20}" y2="${b[3]+20}" stroke="${C.yusr}" stroke-opacity=".08"/>`;
+  for(let j=-2;j<=6;j++) g+=`<line x1="${b[0]-40}" x2="${b[2]+40}" y1="${cy+j*R/2}" y2="${cy+j*R/2}" stroke="${C.yusr}" stroke-opacity=".08"/>`;
+  g+=`<circle cx="${cx}" cy="${cy}" r="${R}" fill="none" stroke="${C.shmagh}" stroke-dasharray="5 5"/><circle cx="${cx}" cy="${cy}" r="${R/2}" fill="none" stroke="${C.shmagh}" stroke-opacity=".5" stroke-dasharray="3 5"/>`;
+  g+=`<line x1="${cx}" x2="${cx}" y1="${b[1]-20}" y2="${b[3]+20}" stroke="${C.shmagh}" stroke-width=".8"/>`;
+  g+=P(A.symbol.d,C.yusr,'fill-opacity=".88"');
+  g+=`<text x="${cx+R+10}" y="${cy-4}" font-size="15" fill="#6d6157" font-family="IBM Plex Sans Arabic">R</text><path d="M${cx} ${cy} L${cx+R} ${cy}" stroke="${C.shmagh}" stroke-width="1"/>`;
+  $("#symCons").innerHTML=`<svg viewBox="${vb(b,46)}" style="min-width:0;max-height:440px" role="img" aria-label="بناء الرمز">${g}</svg>`;
+}
+wordConstruction();symConstruction();
+
+/* pattern: beads on a diagonal lattice joined by threads with diamond separators */
+function patternSVG(bg,fg,thread,id){
+  const s=.22, bb=A.bead.box, bw=(bb[2]-bb[0])*s, T=110;
+  const bead=(x,y)=>`<g transform="translate(${x-((bb[0]+bb[2])/2)*s} ${y-((bb[1]+bb[3])/2)*s}) scale(${s})">${P(A.bead.d,fg)}</g>`;
+  const dia=(x,y)=>`<polygon points="${x},${y-7} ${x+6},${y} ${x},${y+7} ${x-6},${y}" fill="${fg}"/>`;
+  const cell=`<line x1="0" y1="0" x2="${T}" y2="${T}" stroke="${thread}" stroke-width="2"/><line x1="${T}" y1="0" x2="0" y2="${T}" stroke="${thread}" stroke-width="2"/>`+
+    bead(T/2,T/2)+bead(0,0)+bead(T,0)+bead(0,T)+bead(T,T)+dia(T/4,T/4)+dia(3*T/4,T/4)+dia(T/4,3*T/4)+dia(3*T/4,3*T/4);
+  return `<svg width="100%" height="100%" preserveAspectRatio="xMidYMid slice" viewBox="0 0 440 300"><defs><pattern id="${id}" width="${T}" height="${T}" patternUnits="userSpaceOnUse">${cell}</pattern></defs><rect width="440" height="300" fill="${bg}"/><rect width="440" height="300" fill="url(#${id})"/></svg>`;
+}
+$("#boardPattern").innerHTML=patternSVG(C.shmagh,"#86161f","#86161f","pb");
+const pats={red:[C.shmagh,"#86161f","#86161f"],black:[C.yusr,"#2a2725","#2a2725"],cream:[C.ghutra,"#ddd2bf","#ddd2bf"]};
+$$("[data-pattern]").forEach((el,i)=>{const p=pats[el.dataset.pattern];el.innerHTML=patternSVG(p[0],p[1],p[2],"pp"+i)});
+
+/* gem misbaha illustration */
+function misbaha(id,{beads=33,gem=["#FFE2A6","#C77A2A","#4a2109"]}={}){
+  let g=`<defs><radialGradient id="${id}" cx=".34" cy=".3" r=".78"><stop offset="0" stop-color="${gem[0]}"/><stop offset=".5" stop-color="${gem[1]}"/><stop offset="1" stop-color="${gem[2]}"/></radialGradient>
+  <radialGradient id="${id}s" cx=".34" cy=".3" r=".8"><stop offset="0" stop-color="#f1dfb2"/><stop offset=".5" stop-color="${C.gold}"/><stop offset="1" stop-color="#4f3c1c"/></radialGradient></defs>`;
+  const n=beads+2, pts=[];
+  for(let i=0;i<n;i++){const t=(i/(n-1))*Math.PI*1.82+Math.PI*.59;pts.push([200+118*Math.cos(t),150+128*Math.sin(t)*(1+.18*Math.sin(t))]);}
+  g+=`<polyline points="${pts.map(p=>p.join(",")).join(" ")}" fill="none" stroke="#3a2a18" stroke-width="2"/>`;
+  pts.forEach((p,i)=>{if(i===11||i===23)g+=`<ellipse cx="${p[0].toFixed(1)}" cy="${p[1].toFixed(1)}" rx="7" ry="11" fill="url(#${id}s)"/>`;else g+=`<circle cx="${p[0].toFixed(1)}" cy="${p[1].toFixed(1)}" r="11.5" fill="url(#${id})"/>`});
+  const sb=A.symbol.box,k=.45;
+  g+=`<g transform="translate(${200-200*k} ${283-(sb[1]+40)*k}) scale(${k})">${P(A.symbol.d,`url(#${id}s)`)}</g>`;
+  return `<svg viewBox="60 0 280 480" role="img" aria-label="سبحة كهرمان">${g}</svg>`;
+}
+$("#gemTile").innerHTML=`<div style="height:240px;padding:12px">${misbaha("g1").replace("<svg ","<svg style=\"height:100%;width:auto\" ")}</div>`;
+$("#postIll").innerHTML=misbaha("g2");
+
+/* velvet tile with embroidered wordmark */
+$("#velvet").innerHTML=`<svg viewBox="0 0 800 300" preserveAspectRatio="xMidYMid slice" style="width:100%;height:100%;position:absolute;inset:0" role="img" aria-label="الشعار مطرّزاً على المخمل">
+ <defs><filter id="velv" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="4"/><feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .22 0"/><feComposite in2="SourceGraphic" operator="in"/></filter>
+ <radialGradient id="vsh" cx=".3" cy=".25" r="1"><stop offset="0" stop-color="#b3262f"/><stop offset=".6" stop-color="${C.shmagh}"/><stop offset="1" stop-color="#5c0f17"/></radialGradient>
+ <pattern id="stitch" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(-35)"><rect width="5" height="5" fill="#efe6d6"/><rect width="5" height="1.3" fill="#c9bda6"/></pattern>
+ <filter id="emb"><feDropShadow dx="0" dy="2" stdDeviation="1.5" flood-color="#3a0a10" flood-opacity=".7"/></filter></defs>
+ <rect width="800" height="300" fill="url(#vsh)"/><rect width="800" height="300" fill="#000" filter="url(#velv)"/>
+ <g transform="translate(155 8) scale(.5)" filter="url(#emb)">${P(A.word.d,"url(#stitch)")}</g>
+ <text x="400" y="246" text-anchor="middle" font-family="Cinzel, serif" font-weight="600" font-size="34" letter-spacing="14" fill="url(#stitch)" filter="url(#emb)">DAZRA</text></svg>`;
+
+/* diamond trio */
+$("#dots").innerHTML=`<svg viewBox="0 0 300 100" style="width:70%;height:auto">${[[90,C.shmagh],[150,C.yusr],[210,C.gold]].map(([x,f])=>`<polygon points="${x},14 ${x+30},50 ${x},86 ${x-30},50" fill="${f}"/>`).join("")}</svg>`;
+
+/* velvet pouch */
+$("#pouch").innerHTML=`<svg viewBox="0 0 240 300" class="pouch" role="img" aria-label="كيس مخمل"><defs><radialGradient id="pv" cx=".35" cy=".35" r=".9"><stop offset="0" stop-color="#b3262f"/><stop offset=".65" stop-color="${C.shmagh}"/><stop offset="1" stop-color="#4e0c13"/></radialGradient>
+ <filter id="pvn"><feTurbulence type="fractalNoise" baseFrequency="1.1" numOctaves="2" seed="9"/><feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .25 0"/><feComposite in2="SourceGraphic" operator="in"/></filter></defs>
+ <path id="pbody" d="M70 70 C40 80 22 150 26 210 C30 270 70 292 120 292 C170 292 210 270 214 210 C218 150 200 80 170 70 Z" fill="url(#pv)"/>
+ <path d="M70 70 C40 80 22 150 26 210 C30 270 70 292 120 292 C170 292 210 270 214 210 C218 150 200 80 170 70 Z" fill="#000" filter="url(#pvn)"/>
+ <path d="M64 40 C80 60 160 60 176 40 L170 74 C150 86 90 86 70 74 Z" fill="#7a1520"/>
+ <path d="M66 74 C95 88 145 88 174 74" fill="none" stroke="${C.gold}" stroke-width="4"/>
+ <path d="M150 82 C170 110 190 120 196 150 M150 82 C160 118 172 140 168 168" fill="none" stroke="${C.gold}" stroke-width="3"/>
+ <circle cx="196" cy="152" r="5" fill="${C.gold}"/><circle cx="168" cy="170" r="5" fill="${C.gold}"/>
+ <g transform="translate(${120-200*.38} ${118-A.symbol.box[1]*.38}) scale(.38)">${P(A.symbol.d,C.ghutra)}</g></svg>`;
+
+/* colours */
+const cols=[
+ {n:"يُسر",en:"YUSR",hex:C.yusr,fg:C.ghutra,use:"الأساس: العلب والبطاقات والحسابات الرقمية.",pct:38},
+ {n:"عاجي الغترة",en:"GHUTRA",hex:C.ghutra,fg:C.yusr,use:"الخلفيات الفاتحة والنصوص على الداكن.",pct:34},
+ {n:"أحمر الشماغ",en:"SHEMAGH",hex:C.shmagh,fg:C.ghutra,use:"الرمز والنقش والأكياس. لون العلامة.",pct:18},
+ {n:"خمري",en:"DEEP SHEMAGH",hex:C.deep,fg:C.ghutra,use:"ظلال الأحمر والنقش لوناً على لون.",pct:5},
+ {n:"ذهب البشت",en:"BISHT GOLD",hex:C.gold,fg:C.yusr,use:"الختم الحراري والخيوط فقط.",pct:5},
+];
+$("#colors").innerHTML=cols.map((c,i)=>`<div class="col"><div class="chip" style="background:${c.hex};color:${c.fg}">${c.en}</div><div class="meta"><b>${c.n}</b><code>${c.hex}</code><p>${c.use}</p><button type="button" id="cp${i}" data-hex="${c.hex}">نسخ الرمز</button></div></div>`).join("");
+$("#bar").innerHTML=cols.map(c=>`<span style="flex:${c.pct};background:${c.hex}"></span>`).join("");
+$("#colors").addEventListener("click",e=>{const b=e.target.closest("button[data-hex]");if(!b)return;const ok=()=>{b.textContent="نُسخ "+b.dataset.hex;setTimeout(()=>b.textContent="نسخ الرمز",1500)};try{navigator.clipboard.writeText(b.dataset.hex).then(ok,()=>b.textContent=b.dataset.hex)}catch(_){b.textContent=b.dataset.hex}});
+</script>
