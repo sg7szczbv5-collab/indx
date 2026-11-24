@@ -445,72 +445,53 @@ export function DriverApp({
           </motion.div>
         )}
 
-        {/* 7/8 — REQUEST */}
+        {/* 7/8 — REQUEST: ride-offer card */}
         {screen === 'request' && (
-          <motion.div key="request" {...anim} className="absolute inset-0">
-            <MapCanvas mode="preview" showPickup showDropoff showNearby={false} routeColor="#1fa36a" />
-            <div className="absolute inset-0 bg-ink/30" />
-            <motion.div
-              initial={{ y: 80, opacity: 0 }}
+          <motion.div key="request" {...anim} className="absolute inset-0 bg-ink">
+            <div className="absolute inset-x-2 top-11 bottom-[46%] overflow-hidden rounded-[26px]">
+              <MapCanvas view={{ y: 110, h: 400, w: 380 }} mode="preview" showPickup showDropoff showNearby={false} routeColor="#1fa36a" routeEta={`${REQ.pickupMin + 4} د`} />
+              <button
+                type="button"
+                onClick={() => onScreen('home')}
+                className="absolute top-3 right-3 flex items-center gap-1.5 rounded-full bg-ink/90 px-3.5 py-2 text-[12.5px] font-bold text-white shadow-lg hover:bg-ink"
+              >
+                <X size={15} strokeWidth={2.6} /> رفض
+              </button>
+            </div>
+            <motion.button
+              type="button"
+              onClick={() => onScreen('pickup')}
+              initial={{ y: 60, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ type: 'spring', damping: 22, stiffness: 220 }}
-              className="absolute inset-x-3 bottom-6 z-20 rounded-[26px] bg-ink-2 p-4 shadow-2xl ring-1 ring-white/10"
+              className="absolute inset-x-0 bottom-0 z-20 rounded-t-[22px] bg-ink-3 px-5 pt-4 pb-7 text-center shadow-2xl ring-1 ring-white/10"
+              aria-label="قبول الرحلة"
             >
-              <div className="flex items-center justify-between">
-                <span className="rounded-full bg-green-3/15 px-2.5 py-1 text-[11px] font-bold text-green-3">طلب رحلة جديد · اقتصادي</span>
-                <div className="relative grid h-11 w-11 place-items-center">
-                  <svg viewBox="0 0 44 44" className="absolute inset-0 -rotate-90">
-                    <circle cx="22" cy="22" r="19" stroke="rgba(255,255,255,0.1)" strokeWidth="3.5" fill="none" />
-                    <circle
-                      cx="22"
-                      cy="22"
-                      r="19"
-                      stroke="#1fa36a"
-                      strokeWidth="3.5"
-                      fill="none"
-                      strokeDasharray={119.4}
-                      strokeDashoffset={119.4 * (1 - countdown / 15)}
-                      style={{ transition: 'stroke-dashoffset 1s linear' }}
-                      strokeLinecap="round"
-                    />
+              <div className="grid grid-cols-[1fr_auto_1fr] items-center">
+                <span className="text-start text-[14px] font-bold">اقتصادي</span>
+                <span className="relative grid h-14 w-14 place-items-center">
+                  <svg viewBox="0 0 56 56" className="absolute inset-0 -rotate-90">
+                    <circle cx="28" cy="28" r="25" stroke="rgba(255,255,255,0.12)" strokeWidth="4" fill="none" />
+                    <circle cx="28" cy="28" r="25" stroke="#ffffff" strokeWidth="4" fill="none" strokeDasharray={157} strokeDashoffset={157 * (1 - countdown / 15)} style={{ transition: 'stroke-dashoffset 1s linear' }} strokeLinecap="round" />
                   </svg>
-                  <span className="num text-[14px] font-bold">{countdown}</span>
-                </div>
+                  <span className="grid h-10 w-10 place-items-center rounded-full bg-green-2">
+                    <User size={20} className="fill-white text-white" />
+                  </span>
+                </span>
+                <span className="num flex items-center justify-end gap-1 text-[14px] font-bold">
+                  {REQ.riderRating} <Star size={13} className="fill-white text-white" />
+                </span>
               </div>
-              <div className="num mt-2 text-[30px] font-bold">
-                {REQ.fare} <span className="text-[14px]">ر.س</span>
+              <div className="num mt-3 text-[30px] leading-none font-bold">29 – 31 ر.س</div>
+              <div className="num mt-2 text-[13px] text-white/80">معامل طلب 1.2× مطبّق</div>
+              <div className="num mx-auto mt-2 w-fit rounded-full bg-black px-4 py-1.5 text-[12.5px] font-semibold">بعد عمولة المنصة 18%</div>
+              <div className="num mt-3 text-[17px] font-bold">{REQ.min} د <span className="text-white/40">•</span> {REQ.km} كم</div>
+              <div className="mt-2 space-y-0.5 text-[13px] text-white/85">
+                <div className="flex items-center justify-center gap-1.5"><ArrowUpRight size={14} className="-rotate-45" /> حي الشاطئ، الدمام</div>
+                <div className="flex items-center justify-center gap-1.5"><ArrowDownLeft size={14} className="-rotate-45" /> {REQ.dest}، الخبر</div>
               </div>
-              <div className="text-[11px] text-white/50">
-                صافي متوقع <span className="num">{fareNet}</span> ر.س بعد عمولة المنصة <span className="num">18%</span>
-              </div>
-              <div className="mt-3 space-y-2 text-[12px]">
-                <div className="flex items-center gap-2">
-                  <span className="h-2.5 w-2.5 rounded-full bg-white" />
-                  <span className="flex-1">الالتقاء: حي الشاطئ</span>
-                  <span className="num text-white/50">{REQ.pickupMin} د · {REQ.pickupKm} كم</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="h-2.5 w-2.5 bg-green-3" />
-                  <span className="flex-1">الوجهة: {REQ.dest}</span>
-                  <span className="num text-white/50">{REQ.min} د · {REQ.km} كم</span>
-                </div>
-              </div>
-              <div className="mt-2 flex items-center gap-1 text-[11px] text-white/50">
-                <Star size={12} className="fill-gold text-gold" />
-                <span className="num">{REQ.riderRating}</span> تقييم الراكب · دفع إلكتروني
-              </div>
-              <div className="mt-4 grid grid-cols-[auto_1fr] gap-2">
-                <button
-                  type="button"
-                  onClick={() => onScreen('home')}
-                  className="grid h-12 w-14 place-items-center rounded-2xl bg-white/8 text-white/80 hover:bg-white/12"
-                  aria-label="رفض"
-                >
-                  <X size={20} />
-                </button>
-                <DBtn onClick={() => onScreen('pickup')}>قبول الرحلة</DBtn>
-              </div>
-            </motion.div>
+              <div className="mt-3 text-[11px] text-green-3">اضغط على البطاقة لقبول الرحلة · <span className="num">{countdown}</span> ث</div>
+            </motion.button>
           </motion.div>
         )}
 
