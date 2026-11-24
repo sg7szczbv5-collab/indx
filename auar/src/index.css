@@ -1,0 +1,126 @@
+@import 'tailwindcss';
+@import '@fontsource/ibm-plex-sans-arabic/400.css';
+@import '@fontsource/ibm-plex-sans-arabic/500.css';
+@import '@fontsource/ibm-plex-sans-arabic/600.css';
+@import '@fontsource/ibm-plex-sans-arabic/700.css';
+
+@theme {
+  --font-sans: 'IBM Plex Sans Arabic', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --color-ink: #0a0a0a;
+  --color-ink-2: #1a1a1a;
+  --color-ink-3: #2a2a2a;
+  --color-paper: #ffffff;
+  --color-mist: #f3f3f1;
+  --color-mist-2: #e8e8e5;
+  --color-line: #e4e4e0;
+  --color-mute: #6b6b66;
+  --color-lime: #c8f31d;
+  --color-lime-2: #b3dc0c;
+  --color-sky: #2f5bff;
+  --color-ok: #16a34a;
+  --color-warn: #f59e0b;
+  --color-bad: #e11d48;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+body {
+  margin: 0;
+  background: #f3f3f1;
+  color: #0a0a0a;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+button {
+  cursor: pointer;
+}
+button:disabled {
+  cursor: not-allowed;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+@keyframes auar-pulse {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.55;
+  }
+  100% {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
+.pulse-ring {
+  animation: auar-pulse 1.8s ease-out infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+@keyframes auar-slide-up {
+  from {
+    transform: translateY(24px);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+.slide-up {
+  animation: auar-slide-up 0.32s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+@keyframes auar-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.fade-in {
+  animation: auar-fade 0.25s ease both;
+}
+@keyframes auar-bar {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+.search-bar {
+  animation: auar-bar 1.3s ease-in-out infinite;
+}
+@keyframes auar-dash {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+.route-dash {
+  stroke-dasharray: 8 8;
+  animation: auar-dash 0.9s linear infinite;
+}
+.car-move {
+  transition: transform 0.3s linear;
+}
+@media (prefers-reduced-motion: reduce) {
+  .pulse-ring,
+  .search-bar,
+  .route-dash,
+  .slide-up,
+  .fade-in {
+    animation: none;
+  }
+  .car-move {
+    transition: none;
+  }
+}
