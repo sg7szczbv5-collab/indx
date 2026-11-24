@@ -810,6 +810,10 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .close{background:var(--black);color:#fff;text-align:center}
 .close .lg{width:min(320px,60%);height:auto;margin:0 auto}
 .close p{color:#9EA29F;margin-top:24px;font-family:var(--f-display)}
+.owner{display:flex;flex-direction:column;align-items:center;gap:4px;margin-top:36px;padding-top:28px;border-top:1px solid var(--line-d)}
+.owner small{color:var(--green);font-family:var(--f-display);font-size:12px;letter-spacing:.08em}
+.owner b{font-family:var(--f-display);font-size:22px;font-weight:600}
+.owner span{color:#9EA29F;font-size:14px;font-family:var(--f-display)}
 .files{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:28px}
 .files code{font-size:12px;background:#1a1c1e;border:1px solid var(--line-d);border-radius:8px;padding:5px 10px;color:#C9CCC8;direction:ltr}
 </style>
@@ -825,7 +829,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
 <!-- COVER -->
 <section class="cover"><div class="wrap">
-  <div class="cover-meta"><span>${T("هوية العلامة التجارية · الإصدار ١٫٠", "Brand Identity · Version 1.0")}</span><span>${T("مقدَّم إلى مجلس الإدارة · نوفمبر ٢٠٢٦", "Prepared for the Board · November 2026")}</span><span>${T("الرياض، المملكة العربية السعودية", "Riyadh, Saudi Arabia")}</span></div>
+  <div class="cover-meta"><span>${T("هوية العلامة التجارية · الإصدار ١٫٠", "Brand Identity · Version 1.0")}</span><span>${T("مقدَّم إلى مجلس الإدارة · نوفمبر ٢٠٢٦", "Prepared for the Board · November 2026")}</span><span>${T("صاحب الفكرة: صالح محمد الهمامي", "Concept owner: Saleh Mohammed Alhamami")}</span></div>
   <div class="cover-logo">
     <svg class="cover-route" viewBox="0 0 800 300" aria-hidden="true"><path d="M-20 290 C 120 290, 150 210, 230 210 S 330 240, 400 160" fill="none" stroke="${C.green}" stroke-width="3" stroke-linecap="round"/></svg>
     ${logo(C.white, "lg")}
@@ -1040,8 +1044,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
   <p class="eyebrow" style="margin-bottom:14px">${T("بطاقة العمل · ٨٥ × ٥٥ ملم", "Business card · 85 × 55 mm")}</p>
   <div class="cards-stage">
     <div class="bcard bc-f">${logo(C.white, "lg")}${sym(C.green, "gl")}</div>
-    <div class="bcard bc-b">${sym(C.black, "sy")}<div><b>${T("نورة الشهري", "Noura Alshehri")}</b><span class="rl">${T("مديرة العمليات", "Head of Operations")}</span></div>
-      <div class="ct"><span>+966 11 000 0000</span><span>noura@aura.sa</span><span>aura.sa</span></div><i class="ln"></i></div>
+    <div class="bcard bc-b">${sym(C.black, "sy")}<div><b>${T("صالح محمد الهمامي", "Saleh Mohammed Alhamami")}</b><span class="rl">${T("صاحب الفكرة والمؤسس", "Founder & Concept Owner")}</span></div>
+      <div class="ct"><span>+966 56 782 5999</span><span>boss.alhamami@gmail.com</span><span>aura.sa</span></div><i class="ln"></i></div>
   </div>
 
   <p class="eyebrow" style="margin:56px 0 14px">${T("منشورات التواصل الاجتماعي · ١:١", "Social posts · 1:1")}</p>
@@ -1095,6 +1099,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 <section class="ch close"><div class="wrap">
   ${logo(C.white, "lg")}
   <p>${T("تنقّل بثقة · الإصدار ١٫٠ · نوفمبر ٢٠٢٦", "Move with confidence · Version 1.0 · November 2026")}</p>
+  <div class="owner"><small>${T("صاحب الفكرة", "Concept owner")}</small><b>${T("صالح محمد الهمامي", "Saleh Mohammed Alhamami")}</b><span class="ltr">0567825999 · boss.alhamami@gmail.com</span></div>
   <div class="files"><code>aura-logo-black.svg</code><code>aura-logo-white.svg</code><code>aura-logo-on-black.svg</code><code>aura-logo-on-white.svg</code><code>aura-symbol-black.svg</code><code>aura-symbol-white.svg</code><code>aura-app-icon.svg</code><code>aura-app-icon-light.svg</code></div>
   <p style="font-size:13px;margin-top:14px">${T("ملفات الشعار المتجهة في مجلد brand/aura في المستودع.", "Vector logo files are in the repository under brand/aura.")}</p>
 </div></section>
