@@ -351,7 +351,7 @@ function AdminLogin() {
         <Btn full size="lg" className="mt-5" disabled={busy || !email || !password}>
           دخول
         </Btn>
-        {getServerInfo().demo && (
+        {getServerInfo().demoAdmin && (
           <button type="button" onClick={() => demoLogin('admin').catch((x: Error) => setErr(x.message))} className="mt-3 w-full text-sm font-semibold text-mute hover:text-ink">
             دخول تجريبي
           </button>

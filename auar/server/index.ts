@@ -23,6 +23,8 @@ const ROOT = resolve(fileURLToPath(new URL('..', import.meta.url)))
 const PROD = env.NODE_ENV === 'production'
 const DEMO = (env.AUAR_DEMO ?? (PROD ? '0' : '1')) === '1'
 const PORT = Number(env.PORT ?? 8080)
+/** In demo mode, lets visitors open the admin dashboard with one click. Set DEMO_ADMIN_LOGIN=0 to require the password. */
+const DEMO_ADMIN = DEMO && (env.DEMO_ADMIN_LOGIN ?? '1') === '1'
 const DIST = resolve(ROOT, env.STATIC_DIR ?? 'dist')
 
 const store = new Store(env.DB_FILE ?? join(ROOT, 'data', 'auar.db'))
@@ -66,6 +68,17 @@ function commit() {
 setInterval(() => {
   if (tick(state, Date.now())) commit()
 }, 700)
+
+// public demo: restore the sample data every DEMO_RESET_HOURS hours (0 = never)
+const RESET_H = Number(env.DEMO_RESET_HOURS ?? 0)
+if (DEMO && RESET_H > 0) {
+  setInterval(() => {
+    state = seed()
+    state.me = { riderId: '', driverId: '', riderSignedIn: false, driverSignedIn: false }
+    commit()
+    console.log('demo data reset')
+  }, RESET_H * 3600_000)
+}
 
 /* ───────────── http helpers ───────────── */
 
@@ -127,7 +140,7 @@ const OTP_TTL = 5 * 60_000
 const OTP_GAP = 30_000
 
 async function api(req: IncomingMessage, res: ServerResponse, path: string, url: URL) {
-  if (req.method === 'GET' && path === '/api/health') return send(res, 200, { app: 'auar', now: Date.now(), demo: DEMO, payments: gateway.name, sms: sms.name })
+  if (req.method === 'GET' && path === '/api/health') return send(res, 200, { app: 'auar', now: Date.now(), demo: DEMO, demoAdmin: DEMO_ADMIN, payments: gateway.name, sms: sms.name })
 
   if (req.method === 'GET' && path === '/api/payments/moyasar/return') {
     const id = url.searchParams.get('invoice_id') ?? url.searchParams.get('id') ?? ''
@@ -188,7 +201,8 @@ async function api(req: IncomingMessage, res: ServerResponse, path: string, url:
       const role = String(body.role)
       if (role === 'rider') return send(res, 200, { token: auth.sign({ role: 'rider', riderId: 'R100' }) })
       if (role === 'driver') return send(res, 200, { token: auth.sign({ role: 'driver', driverId: 'D100' }) })
-      if (role === 'admin') return send(res, 200, { token: auth.sign({ role: 'admin' }, 1) })
+      if (role === 'admin' && DEMO_ADMIN) return send(res, 200, { token: auth.sign({ role: 'admin' }, 1) })
+      if (role === 'admin') throw new HttpError(403, 'الدخول التجريبي للإدارة غير مفعل')
       throw new HttpError(400, 'نوع حساب غير معروف')
     }
 

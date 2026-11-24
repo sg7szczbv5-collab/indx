@@ -13,7 +13,7 @@ export * from './engine'
 
 export type Mode = 'local' | 'remote'
 let mode: Mode = 'local'
-let serverInfo: { demo: boolean; payments: string; sms: string } = { demo: true, payments: 'mock', sms: 'console' }
+let serverInfo: { demo: boolean; demoAdmin?: boolean; payments: string; sms: string } = { demo: true, demoAdmin: true, payments: 'mock', sms: 'console' }
 export const getMode = () => mode
 export const getServerInfo = () => serverInfo
 

@@ -1,0 +1,5 @@
+# DOMAIN comes from .env: a domain name gets HTTPS automatically; ":80" serves plain HTTP on the server IP.
+{$DOMAIN} {
+	encode gzip
+	reverse_proxy app:8080
+}
