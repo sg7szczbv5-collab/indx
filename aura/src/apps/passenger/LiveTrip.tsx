@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { MessageSquare, Phone, Send, Share2, ShieldCheck, Siren, Flag, X, MapPin, Receipt, ChevronDown } from 'lucide-react'
 import { CityMap } from '../../map/CityMap'
-import { Avatar, Badge, Button, cx, Divider, ICON, Input, Modal, Money, Sheet, Stars, SuccessMark, Surface, useToast } from '../../ds/ui'
+import { Avatar, Badge, Button, cx, ICON, Input, Modal, Money, Sheet, Stars, SuccessMark, Surface, useToast } from '../../ds/ui'
 import { CarArt, Plate } from '../../ds/vehicle'
 import { useI18n } from '../../i18n/I18n'
 import { actions, fleetSnapshot, getDriver, getVehicle, legEtaMinutes, legProgress, tripDriverPose, useNow } from '../../core/store'
@@ -11,7 +11,6 @@ import { classById } from '../../core/pricing'
 import { clock, sar } from '../../core/format'
 import { haversineKm, pathKm, remainingRoute } from '../../core/geo'
 import type { Trip } from '../../core/types'
-import { LogoMark } from '../../ds/Logo'
 import { PAYMENT_LABEL } from './Booking'
 
 /* ============================== SEARCHING ============================== */
@@ -551,4 +550,3 @@ export function CancelledNotice({ trip, onClose }: { trip: Trip; onClose: () => 
   )
 }
 
-export { LogoMark, Divider }

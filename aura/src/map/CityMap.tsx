@@ -291,7 +291,7 @@ export function CityMap({
           <g filter={`url(#heat-${theme})`}>
             {heat.map((p, i) => {
               const c = project(p)
-              return <circle key={i} cx={c.x} cy={c.y} r={0.9} fill="#78B83F" opacity={dark ? 0.16 : 0.2} />
+              return <circle key={i} cx={c.x} cy={c.y} r={0.9} fill="#78B83F" opacity={dark ? 0.1 : 0.14} />
             })}
           </g>
         )}

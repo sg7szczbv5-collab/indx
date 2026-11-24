@@ -34,6 +34,9 @@ export function DriverApp({ embedded }: { embedded?: boolean }) {
   const inboxCount = useEco((s) => s.inbox.filter((i) => (i.to === 'all' || i.to === 'captains') && i.at > seen).length)
   useEco((s) => s.rev)
   const driver = getDriver(did)
+  // Show the approval welcome once if this captain was under review during this session.
+  const [wasPending, setWasPending] = useState(false)
+  if (driver && driver.status !== 'approved' && !wasPending) setWasPending(true)
 
   const active = useMemo(
     () => trips.find((x) => x.driverId === did && (isActive(x.status) || (x.status === 'completed' && !x.driverRating && !dismissed.includes(x.id)))),
@@ -70,7 +73,7 @@ export function DriverApp({ embedded }: { embedded?: boolean }) {
         }}
       />
     )
-  else if (driver.status !== 'approved') content = <ApplicationStatus driverId={driver.id} onApproved={() => setTab('home')} onLogout={logout} />
+  else if (driver.status !== 'approved' || wasPending) content = <ApplicationStatus driverId={driver.id} onApproved={() => { setWasPending(false); setTab('home') }} onLogout={logout} />
   else if (active) content = active.status === 'completed' ? <DriverTripSummary trip={active} onDone={() => dismiss(active.id)} /> : <DriverActiveTrip trip={active} driver={driver} />
   else
     content = (

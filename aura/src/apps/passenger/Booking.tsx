@@ -306,7 +306,7 @@ export function VehiclesScreen({ draft, onBack, onSelect, onNext }: { draft: Boo
     <div className="absolute inset-0">
       <CityMap
         fit={route}
-        padding={[110, 50, 420, 50]}
+        padding={[110, 50, 480, 50]}
         routes={[{ id: 'r', pts: route }]}
         markers={[
           { id: 'p', pos: draft.pickup.pos, kind: 'pickup' },

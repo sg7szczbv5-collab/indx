@@ -15,3 +15,9 @@ export function useHashRoute(): string[] {
 export const go = (path: string) => {
   window.location.hash = path.startsWith('/') ? path : `/${path}`
 }
+
+/** Query string inside the hash: #/admin/trips?id=AUR-1 → { id: 'AUR-1' } */
+export function hashQuery(): Record<string, string> {
+  const q = window.location.hash.split('?')[1] ?? ''
+  return Object.fromEntries(new URLSearchParams(q))
+}

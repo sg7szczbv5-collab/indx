@@ -598,6 +598,8 @@ export const actions = {
   },
 
   markArrived(tripId: string, actor: Actor = 'driver') {
+    // Keep the unified timeline complete if the captain arrives before the system marked them en route.
+    if (store.state.trips.find((x) => x.id === tripId)?.status === 'driver_assigned') transition(tripId, 'driver_arriving', 'system')
     return transition(tripId, 'driver_arrived', actor, (t) => {
       t.leg = undefined
     })
