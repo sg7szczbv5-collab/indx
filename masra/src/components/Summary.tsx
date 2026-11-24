@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { AlertTriangle, Printer, X } from 'lucide-react'
+import { AlertTriangle, X } from 'lucide-react'
 import { Logo } from './Logo'
 import { BUDGET, BUDGET_CAP } from '../data/content'
 import { sar } from './ui'
@@ -29,9 +29,6 @@ export function Summary({ onClose, go }: { onClose: () => void; go: (i: number) 
         <div className="sticky top-0 z-10 flex items-center justify-between border-b border-ink/5 bg-white/95 px-6 py-4 backdrop-blur">
           <Logo size={30} dark />
           <div className="flex items-center gap-2">
-            <button type="button" onClick={() => window.print()} className="hidden items-center gap-1.5 rounded-full border border-ink/10 px-3 py-1.5 text-xs font-semibold hover:bg-mist-2 sm:flex">
-              <Printer size={14} /> طباعة / PDF
-            </button>
             <button type="button" onClick={onClose} aria-label="إغلاق" className="grid h-9 w-9 place-items-center rounded-full bg-mist-2 hover:bg-mist">
               <X size={18} />
             </button>

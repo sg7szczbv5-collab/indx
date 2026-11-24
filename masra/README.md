@@ -37,7 +37,7 @@ src/
 ## Keyboard shortcuts
 `←` next · `→` previous · `Space`/`PageDown` · `Home`/`End` · `F` fullscreen · `M` menu · `S` summary · `Esc` close
 
-Direct link to any slide: `#/rider`, `#/driver`, `#/admin`, `#/revenue` …
+Direct link to any slide: `#rider`, `#driver`, `#admin`, `#revenue` …
 
 ## Market data sources
 - TGA annual report 2024 (via Argaam): 80.5 million trips, SAR 2.3 billion, 63.9 million trips in 2023.

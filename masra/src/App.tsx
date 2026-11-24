@@ -32,7 +32,7 @@ const SLIDES: SlideDef[] = [
 ]
 
 function indexFromHash() {
-  const h = window.location.hash.replace('#/', '').replace('#', '')
+  const h = window.location.hash.replace(/^#\/?/, '')
   const i = SLIDES.findIndex((s) => s.id === h)
   return i === -1 ? 0 : i
 }
@@ -55,7 +55,13 @@ export default function App() {
 
   useEffect(() => {
     const id = SLIDES[index].id
-    if (window.location.hash !== `#/${id}`) history.replaceState(null, '', `#/${id}`)
+    if (window.location.hash.replace(/^#\/?/, '') !== id) {
+      try {
+        history.replaceState(null, '', `#${id}`)
+      } catch {
+        /* sandboxed frames may refuse history updates */
+      }
+    }
   }, [index])
 
   useEffect(() => {
@@ -107,7 +113,7 @@ export default function App() {
   const progress = ((index + 1) / SLIDES.length) * 100
 
   return (
-    <div className="relative flex h-dvh w-full flex-col bg-ink" dir="rtl">
+    <div className="relative flex h-full w-full flex-col bg-ink" dir="rtl">
       {/* top bar */}
       <header className="relative z-40 flex h-14 shrink-0 items-center gap-3 px-3 sm:px-5">
         <button type="button" onClick={() => setMenu(true)} aria-label="قائمة الأقسام" className="grid h-9 w-9 place-items-center rounded-full text-white/70 hover:bg-white/5 hover:text-white">
