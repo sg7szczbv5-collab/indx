@@ -1,0 +1,17 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node-terminal",
+      "request": "launch",
+      "name": "تشغيل مَسْرى (Expo)",
+      "command": "npx expo start"
+    },
+    {
+      "type": "node-terminal",
+      "request": "launch",
+      "name": "تشغيل مَسْرى على المتصفح",
+      "command": "npx expo start --web"
+    }
+  ]
+}
