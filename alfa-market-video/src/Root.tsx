@@ -1,17 +1,30 @@
 import "./index.css";
 import { Composition } from "remotion";
-import { AlfaMarketPromo } from "./Video";
+import { AlfaMarketCartoon } from "./Video";
+import { AlfaMarketMotion } from "./motion/MotionVideo";
 import { DURATION_IN_FRAMES, VIDEO } from "./constants";
 
 export const RemotionRoot: React.FC = () => {
   return (
-    <Composition
-      id="AlfaMarketPromo"
-      component={AlfaMarketPromo}
-      durationInFrames={DURATION_IN_FRAMES}
-      fps={VIDEO.fps}
-      width={VIDEO.width}
-      height={VIDEO.height}
-    />
+    <>
+      {/* Main edit – smooth UI motion-graphics style */}
+      <Composition
+        id="AlfaMarketPromo"
+        component={AlfaMarketMotion}
+        durationInFrames={DURATION_IN_FRAMES}
+        fps={VIDEO.fps}
+        width={VIDEO.width}
+        height={VIDEO.height}
+      />
+      {/* First version – 2D cartoon style */}
+      <Composition
+        id="AlfaMarketCartoon"
+        component={AlfaMarketCartoon}
+        durationInFrames={DURATION_IN_FRAMES}
+        fps={VIDEO.fps}
+        width={VIDEO.width}
+        height={VIDEO.height}
+      />
+    </>
   );
 };

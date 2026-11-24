@@ -90,3 +90,23 @@ export const STORE_INFO = {
   hours: "", // e.g. "يومياً من 7 صباحاً حتى 1 بعد منتصف الليل"
   phone: "", // e.g. "05xxxxxxxx"
 } as const;
+
+/** Copy used by the motion-graphics (UI style) version. */
+export const MOTION_TEXTS = {
+  q1: "ناقصك شيء",
+  q2: "في البيت؟",
+  missing: [
+    { title: "قهوة", sub: "خلصت" },
+    { title: "خبز", sub: "ما فيه" },
+    { title: "حليب", sub: "ناقص" },
+  ],
+  oneStopTitle: "كل اللي تحتاجه",
+  oneStopSub: "في مكان واحد",
+  fresh: { title: "طازج يومياً", sub: "خضار وفواكه" },
+  variety: { title: "تنوع يرضي كل الأذواق", sub: "كل الأقسام" },
+  prices: { title: "أسعار تنافسية", sub: "على كل المنتجات" },
+  offers: { title: "عروض مستمرة", sub: "كل أسبوع" },
+  steps: ["بيتك", "الطريق", "ألفا ماركت"],
+  near: "قريب منك.. وسهل توصل له",
+  welcome: "حياكم الله، زورونا اليوم!",
+} as const;
