@@ -1,9 +1,26 @@
 import { useEffect, useState, type ReactNode } from 'react'
 import { ArrowLeft, Car, LayoutDashboard, Smartphone, MonitorSmartphone } from 'lucide-react'
 import { Logo, PhoneFrame } from './components/ui'
-import { RiderApp } from './apps/rider/RiderApp'
-import { DriverApp } from './apps/driver/DriverApp'
-import { AdminApp } from './apps/admin/AdminApp'
+import { AdminApp as AdminAppInner } from './apps/admin/AdminApp'
+import { RiderApp as RiderAppInner } from './apps/rider/RiderApp'
+import { DriverApp as DriverAppInner } from './apps/driver/DriverApp'
+import { RoleCtx, getMode } from './store/store'
+
+const RiderApp = () => (
+  <RoleCtx.Provider value="rider">
+    <RiderAppInner />
+  </RoleCtx.Provider>
+)
+const DriverApp = () => (
+  <RoleCtx.Provider value="driver">
+    <DriverAppInner />
+  </RoleCtx.Provider>
+)
+const AdminApp = () => (
+  <RoleCtx.Provider value="admin">
+    <AdminAppInner />
+  </RoleCtx.Provider>
+)
 
 type Route = 'home' | 'rider' | 'driver' | 'admin' | 'demo'
 const parse = (): Route => {
@@ -114,7 +131,10 @@ function Launcher() {
       <div className="mx-auto max-w-6xl px-5 py-8 md:py-12">
         <header className="flex items-center justify-between">
           <Logo size={40} light />
-          <a href="#demo" className="hidden rounded-full border border-white/20 px-4 py-2 text-sm font-semibold hover:bg-white/10 sm:inline-flex">العرض المباشر</a>
+          <span className="flex items-center gap-3">
+            <span className={`rounded-full px-3 py-1 text-xs font-semibold ${getMode() === 'remote' ? 'bg-lime text-ink' : 'bg-white/10 text-white/70'}`}>{getMode() === 'remote' ? '● متصل بالخادم' : 'وضع العرض المحلي'}</span>
+            <a href="#demo" className="hidden rounded-full border border-white/20 px-4 py-2 text-sm font-semibold hover:bg-white/10 sm:inline-flex">العرض المباشر</a>
+          </span>
         </header>
         <section className="mt-14 md:mt-20">
           <p className="text-sm font-semibold tracking-wide text-lime">منصة نقل ذكي متكاملة</p>

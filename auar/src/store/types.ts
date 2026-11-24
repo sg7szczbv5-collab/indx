@@ -168,6 +168,21 @@ export interface AdminLog {
   text: string
 }
 
+export interface Payment {
+  id: string
+  kind: 'trip' | 'tip' | 'topup' | 'refund' | 'payout' | 'cancel_fee'
+  tripId?: string
+  riderId?: string
+  driverId?: string
+  method: PaymentMethod
+  amount: number
+  status: 'paid' | 'pending' | 'failed'
+  /** cash = collected by the driver; internal = AUAR ledger; moyasar = card gateway */
+  provider: 'cash' | 'internal' | 'moyasar' | 'mock'
+  ref?: string
+  at: number
+}
+
 export interface State {
   v: number
   riders: Rider[]
@@ -179,5 +194,6 @@ export interface State {
   categories: Category[]
   settings: Settings
   log: AdminLog[]
+  payments: Payment[]
   me: { riderId: string; driverId: string; riderSignedIn: boolean; driverSignedIn: boolean }
 }

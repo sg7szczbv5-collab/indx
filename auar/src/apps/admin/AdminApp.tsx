@@ -1,16 +1,18 @@
 import { useMemo, useState, type ReactNode } from 'react'
 import {
-  LayoutDashboard, Map as MapIcon, Route, Car, Users, BadgeDollarSign, Tag, LifeBuoy, Megaphone, Settings, ScrollText, Siren, TrendingUp, Activity, Wallet, Star, XCircle, Search, ExternalLink,
+  LayoutDashboard, Map as MapIcon, Route, Car, Users, BadgeDollarSign, Tag, LifeBuoy, Megaphone, Settings, ScrollText, Siren, TrendingUp, Activity, Wallet, Star, XCircle, Search, ExternalLink, LogOut,
 } from 'lucide-react'
 import { Logo, Badge } from '../../components/ui'
 import { money, num, ago } from '../../lib/format'
-import { isLive, resolveSOS, useNow, useStore } from '../../store/store'
+import { adminLogin, demoLogin, getMode, getServerInfo, isLive, resolveSOS, signOutAdmin, useNow, useSession, useStore } from '../../store/store'
+import { Loading } from '../../components/PhoneOtp'
+import { Btn } from '../../components/ui'
 import type { State } from '../../store/types'
 import { LiveMap, TripsPage } from './AdminTrips'
 import { DriversPage, RidersPage } from './AdminPeople'
-import { PricingPage, PromosPage, SupportPage, NoticesPage, SettingsPage, LogPage } from './AdminConfig'
+import { PricingPage, PromosPage, SupportPage, NoticesPage, SettingsPage, LogPage, PaymentsPage } from './AdminConfig'
 
-export type AdminPage = 'overview' | 'live' | 'trips' | 'drivers' | 'riders' | 'pricing' | 'promos' | 'support' | 'notices' | 'settings' | 'log'
+export type AdminPage = 'overview' | 'live' | 'trips' | 'drivers' | 'riders' | 'payments' | 'pricing' | 'promos' | 'support' | 'notices' | 'settings' | 'log'
 
 export function AdminApp() {
   const s = useStore()
@@ -27,6 +29,7 @@ export function AdminApp() {
     ['trips', 'الرحلات', Route],
     ['drivers', 'الكباتن', Car, pending],
     ['riders', 'الركاب', Users],
+    ['payments', 'المدفوعات', Wallet],
     ['pricing', 'التسعير والخدمات', BadgeDollarSign],
     ['promos', 'العروض والأكواد', Tag],
     ['support', 'الدعم والشكاوى', LifeBuoy, openT],
@@ -38,6 +41,9 @@ export function AdminApp() {
     setPage(p)
     setFocusTrip(trip ?? null)
   }
+  const session = useSession('admin')
+  if (getMode() === 'remote' && !session.signedIn) return <AdminLogin />
+  if (session.loading) return <Loading />
 
   return (
     <div className="flex h-full min-h-0 flex-col bg-mist lg:flex-row">
@@ -61,7 +67,12 @@ export function AdminApp() {
         </nav>
         <div className="hidden border-t border-white/10 p-4 text-xs text-white/50 lg:block">
           <p className="font-semibold text-white">مدير النظام</p>
-          <p>admin@auar.app</p>
+          <p>{getMode() === 'remote' ? 'متصل بالخادم' : 'وضع العرض المحلي'}</p>
+          {getMode() === 'remote' && (
+            <button onClick={signOutAdmin} className="mt-2 flex items-center gap-1 text-white/70 hover:text-white">
+              <LogOut size={12} /> تسجيل الخروج
+            </button>
+          )}
           <a href="#home" className="mt-2 inline-flex items-center gap-1 text-lime">
             <ExternalLink size={12} /> بوابة التطبيقات
           </a>
@@ -91,6 +102,7 @@ export function AdminApp() {
           {page === 'trips' && <TripsPage focus={focusTrip} setFocus={setFocusTrip} />}
           {page === 'drivers' && <DriversPage />}
           {page === 'riders' && <RidersPage />}
+          {page === 'payments' && <PaymentsPage />}
           {page === 'pricing' && <PricingPage />}
           {page === 'promos' && <PromosPage />}
           {page === 'support' && <SupportPage />}
@@ -306,3 +318,45 @@ const ST: Record<string, [string, 'ok' | 'bad' | 'warn' | 'info' | 'neutral' | '
   scheduled: ['مجدولة', 'info'],
 }
 export const TripStatus = ({ st }: { st: string }) => <Badge tone={ST[st]?.[1] ?? 'neutral'}>{ST[st]?.[0] ?? st}</Badge>
+
+function AdminLogin() {
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [err, setErr] = useState('')
+  const [busy, setBusy] = useState(false)
+  return (
+    <div className="grid h-full place-items-center bg-ink p-4">
+      <form
+        className="w-full max-w-sm rounded-3xl bg-white p-7"
+        onSubmit={(e) => {
+          e.preventDefault()
+          setBusy(true)
+          setErr('')
+          adminLogin(email, password)
+            .catch((x: Error) => setErr(x.message))
+            .finally(() => setBusy(false))
+        }}
+      >
+        <Logo size={34} tag="ADMIN" />
+        <h1 className="mt-6 text-xl font-bold">تسجيل دخول الإدارة</h1>
+        <label className="mt-5 block text-sm font-medium text-mute" htmlFor="admin-email">
+          البريد الإلكتروني
+        </label>
+        <input id="admin-email" type="email" dir="ltr" value={email} onChange={(e) => setEmail(e.target.value)} className="mt-1.5 h-12 w-full rounded-xl bg-mist px-4 outline-none focus:ring-2 focus:ring-ink" autoComplete="username" />
+        <label className="mt-3 block text-sm font-medium text-mute" htmlFor="admin-pass">
+          كلمة المرور
+        </label>
+        <input id="admin-pass" type="password" dir="ltr" value={password} onChange={(e) => setPassword(e.target.value)} className="mt-1.5 h-12 w-full rounded-xl bg-mist px-4 outline-none focus:ring-2 focus:ring-ink" autoComplete="current-password" />
+        {err && <p className="mt-3 text-sm text-bad">{err}</p>}
+        <Btn full size="lg" className="mt-5" disabled={busy || !email || !password}>
+          دخول
+        </Btn>
+        {getServerInfo().demo && (
+          <button type="button" onClick={() => demoLogin('admin').catch((x: Error) => setErr(x.message))} className="mt-3 w-full text-sm font-semibold text-mute hover:text-ink">
+            دخول تجريبي
+          </button>
+        )}
+      </form>
+    </div>
+  )
+}

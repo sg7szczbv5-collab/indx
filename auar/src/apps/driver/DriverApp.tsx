@@ -6,9 +6,10 @@ import { MAJOR_H, MAJOR_V, slice, pathLength, KM_PER_UNIT, routeKm, kmToMin, rou
 import { money, km, mins, clock } from '../../lib/format'
 import { commissionOf } from '../../lib/pricing'
 import {
-  acceptOffer, cancelTrip, completeTrip, declineOffer, driverPose, etaMin, markArrived, rateRider, sendChat, setOnline, startTrip, tripProgress, useNow, useStore,
+  acceptOffer, cancelTrip, completeTrip, declineOffer, driverPose, etaMin, markArrived, rateRider, sendChat, setOnline, startTrip, tripProgress, useNow, useStore, useSession, getMode,
 } from '../../store/store'
 import type { Trip } from '../../store/types'
+import { Loading } from '../../components/PhoneOtp'
 import { DriverAuth, DriverPending, Earnings, DriverInbox, DriverAccount } from './DriverPages'
 
 type Tab = 'home' | 'earnings' | 'inbox' | 'account'
@@ -19,6 +20,7 @@ export function DriverApp() {
   const [tab, setTab] = useState<Tab>('home')
   const [doneId, setDoneId] = useState<string | null>(null)
   const me = s.drivers.find((d) => d.id === s.me.driverId)
+  const session = useSession('driver')
 
   const active = me ? s.trips.find((t) => t.driverId === me.id && ['accepted', 'arrived', 'in_progress'].includes(t.status)) : undefined
   const offer = me ? s.trips.find((t) => t.status === 'searching' && t.offeredTo === me.id) : undefined
@@ -34,6 +36,8 @@ export function DriverApp() {
     }
   }, [active?.id, s.trips])
 
+  if (session.loading) return <Loading dark />
+  if (getMode() === 'remote' && session.signedIn && !s.me.driverId) return <DriverAuth key="register" registering />
   if (!s.me.driverSignedIn || !me) return <DriverAuth />
   if (me.status !== 'active') return <DriverPending />
 
@@ -392,11 +396,18 @@ function DriverOverlay({ trip, panel, onClose, riderName }: { trip: Trip; panel:
                       const next = (pin + k).slice(0, 4)
                       setPin(next)
                       if (next.length === 4) {
-                        if (startTrip(trip.id, next)) onClose()
-                        else {
-                          setErr(true)
-                          setPin('')
-                        }
+                        startTrip(trip.id, next)
+                          .then((ok) => {
+                            if (ok) onClose()
+                            else {
+                              setErr(true)
+                              setPin('')
+                            }
+                          })
+                          .catch(() => {
+                            setErr(true)
+                            setPin('')
+                          })
                       }
                     }}
                     className="h-14 rounded-xl bg-white/5 text-xl font-semibold hover:bg-white/10"

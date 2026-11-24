@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { Zap, Trash2, Send, CheckCircle2, RotateCcw, Plus } from 'lucide-react'
 import { Badge, Btn, Toggle, VehicleArt, Avatar } from '../../components/ui'
-import { ago, money } from '../../lib/format'
+import { ago, dayTime, money } from '../../lib/format'
 import { baseFare } from '../../lib/pricing'
-import { deletePromo, replyTicket, resetDemo, savePromo, sendNotice, updateCategory, updateSettings, useStore } from '../../store/store'
+import { deletePromo, getMode, getServerInfo, markPayout, replyTicket, resetDemo, savePromo, sendNotice, updateCategory, updateSettings, useStore } from '../../store/store'
 import type { Promo } from '../../store/types'
 import { Card, PageTitle } from './AdminApp'
 
@@ -345,7 +345,7 @@ export function SettingsPage() {
           {row('كباتن المحاكاة', 'كباتن افتراضيون يقبلون الطلبات ويكملون الرحلات تلقائياً', <Toggle on={st.autoBots} onChange={(v) => updateSettings({ autoBots: v })} label="كباتن المحاكاة" />)}
           {row('سرعة المحاكاة', 'تسريع الزمن للعرض التجريبي (×١ = واقعي)', <Num value={st.speed} onChange={(v) => updateSettings({ speed: Math.max(1, v) })} step={1} suffix="×" />)}
         </Card>
-        <Card title="البيانات التجريبية" className="lg:col-span-2">
+        {getMode() === 'local' && <Card title="البيانات التجريبية" className="lg:col-span-2">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <p className="text-sm text-mute">إعادة المنصة لحالتها الأولى (الرحلات، الكباتن، الأسعار، التذاكر…). تُحفظ البيانات في هذا المتصفح وتتزامن بين النوافذ المفتوحة.</p>
             {confirm ? (
@@ -363,7 +363,7 @@ export function SettingsPage() {
               </Btn>
             )}
           </div>
-        </Card>
+        </Card>}
       </div>
     </>
   )
@@ -384,6 +384,91 @@ export function LogPage() {
           ))}
         </div>
       </Card>
+    </>
+  )
+}
+
+const KIND: Record<string, [string, 'ok' | 'info' | 'warn' | 'bad' | 'neutral' | 'lime']> = {
+  trip: ['أجرة رحلة', 'neutral'],
+  tip: ['إكرامية', 'lime'],
+  topup: ['شحن محفظة', 'info'],
+  refund: ['استرداد', 'warn'],
+  payout: ['سحب أرباح كابتن', 'neutral'],
+  cancel_fee: ['رسوم إلغاء', 'bad'],
+}
+
+export function PaymentsPage() {
+  const s = useStore()
+  const [kind, setKind] = useState<string>('all')
+  const list = s.payments.filter((p) => kind === 'all' || p.kind === kind)
+  const sum = (k: string, f?: (p: (typeof s.payments)[number]) => boolean) => s.payments.filter((p) => p.kind === k && p.status === 'paid' && (!f || f(p))).reduce((a, p) => a + p.amount, 0)
+  const cards = [
+    ['أجور الرحلات المدفوعة إلكترونياً', money(sum('trip', (p) => p.method !== 'cash'))],
+    ['أجور الرحلات النقدية', money(sum('trip', (p) => p.method === 'cash'))],
+    ['شحن المحافظ', money(sum('topup'))],
+    ['سحوبات بانتظار التحويل', money(s.payments.filter((p) => p.kind === 'payout' && p.status === 'pending').reduce((a, p) => a + p.amount, 0))],
+  ]
+  const who = (p: (typeof s.payments)[number]) => (p.riderId ? s.riders.find((r) => r.id === p.riderId)?.name : s.drivers.find((d) => d.id === p.driverId)?.name) ?? '—'
+  return (
+    <>
+      <PageTitle title="المدفوعات" sub={`بوابة الدفع: ${getMode() === 'remote' ? getServerInfo().payments : 'محاكاة'} • ${s.payments.length} عملية`} />
+      <div className="mb-4 grid grid-cols-2 gap-3 md:grid-cols-4">
+        {cards.map(([l, v]) => (
+          <div key={l} className="rounded-2xl border border-line bg-white p-4">
+            <p className="text-[13px] text-mute">{l}</p>
+            <p className="mt-1 text-xl font-bold tnum">{v}</p>
+          </div>
+        ))}
+      </div>
+      <div className="mb-3 flex flex-wrap gap-2">
+        {[['all', 'الكل'], ...Object.entries(KIND).map(([k, v]) => [k, v[0]])].map(([k, l]) => (
+          <button key={k} onClick={() => setKind(k)} className={`rounded-full px-3.5 py-1.5 text-sm font-semibold ${kind === k ? 'bg-ink text-white' : 'border border-line bg-white'}`}>
+            {l}
+          </button>
+        ))}
+      </div>
+      <div className="overflow-x-auto rounded-2xl border border-line bg-white">
+        <table className="w-full min-w-[760px] text-sm">
+          <thead className="bg-mist/60 text-xs text-mute">
+            <tr>
+              {['العملية', 'الوقت', 'النوع', 'الطرف', 'الطريقة', 'المبلغ', 'الحالة', ''].map((h, i) => (
+                <th key={i} className="px-4 py-3 text-start font-medium">
+                  {h}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-line">
+            {list.slice(0, 200).map((p) => (
+              <tr key={p.id}>
+                <td className="px-4 py-2.5 font-mono text-xs">
+                  {p.id}
+                  {p.tripId && <span className="block text-mute">{p.tripId}</span>}
+                </td>
+                <td className="px-4 py-2.5 text-mute tnum">{dayTime(p.at)}</td>
+                <td className="px-4 py-2.5">
+                  <Badge tone={KIND[p.kind]?.[1] ?? 'neutral'}>{KIND[p.kind]?.[0] ?? p.kind}</Badge>
+                </td>
+                <td className="px-4 py-2.5">{who(p)}</td>
+                <td className="px-4 py-2.5">
+                  {{ cash: 'نقداً', card: 'بطاقة', wallet: 'محفظة', apple: 'Apple Pay' }[p.method]}
+                  <span className="block text-xs text-mute">{p.provider}</span>
+                </td>
+                <td className="px-4 py-2.5 font-semibold tnum">{money(p.amount, true)}</td>
+                <td className="px-4 py-2.5">{p.status === 'paid' ? <Badge tone="ok">مكتملة</Badge> : p.status === 'pending' ? <Badge tone="warn">معلّقة</Badge> : <Badge tone="bad">فشلت</Badge>}</td>
+                <td className="px-4 py-2.5">
+                  {p.kind === 'payout' && p.status === 'pending' && (
+                    <button onClick={() => markPayout(p.id)} className="text-xs font-semibold text-sky hover:underline">
+                      تأكيد التحويل
+                    </button>
+                  )}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        {list.length === 0 && <p className="py-10 text-center text-sm text-mute">لا توجد عمليات</p>}
+      </div>
     </>
   )
 }

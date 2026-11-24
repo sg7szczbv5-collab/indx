@@ -2,13 +2,17 @@ import { useState } from 'react'
 import { Check, Clock, FileCheck2, FileWarning, LogOut, Star, Upload, Car, Gauge, ThumbsUp, ChevronLeft, LifeBuoy, Send } from 'lucide-react'
 import { Avatar, Btn, Logo, RatingPill, StatusBar, VehicleArt, Badge } from '../../components/ui'
 import { ago, clock, day, money } from '../../lib/format'
-import { cashOut, openTicket, registerDriver, signInDriver, signOutDriver, useNow, useStore } from '../../store/store'
+import { cashOut, demoLogin, getMode, getServerInfo, openTicket, registerDriver, registerDriverAccount, signInDriver, signOutDriver, useNow, useStore } from '../../store/store'
+import { PhoneOtp } from '../../components/PhoneOtp'
 import type { CategoryId } from '../../store/types'
 
 /* ───────────── auth + onboarding ───────────── */
 
-export function DriverAuth() {
-  const [step, setStep] = useState<'splash' | 'personal' | 'vehicle' | 'docs'>('splash')
+export function DriverAuth({ registering = false }: { registering?: boolean }) {
+  const remote = getMode() === 'remote'
+  const [step, setStep] = useState<'splash' | 'otp' | 'personal' | 'vehicle' | 'docs'>(registering ? 'personal' : 'splash')
+  const [err, setErr] = useState('')
+  const [busy, setBusy] = useState(false)
   const [f, setF] = useState({ name: '', phone: '', gender: 'm' as 'm' | 'f', make: '', model: '', plate: '', year: 2023, color: 'أبيض', categories: ['go'] as CategoryId[] })
   const [docs, setDocs] = useState<Record<string, boolean>>({})
   const set = (k: keyof typeof f, v: unknown) => setF((x) => ({ ...x, [k]: v }))
@@ -38,15 +42,25 @@ export function DriverAuth() {
           </ul>
         </div>
         <div className="space-y-2 px-6 pb-8">
-          <Btn variant="lime" full size="lg" onClick={() => setStep('personal')}>
+          <Btn variant="lime" full size="lg" onClick={() => setStep(remote ? 'otp' : 'personal')}>
             سجّل ككابتن
           </Btn>
-          <Btn variant="light" full size="lg" onClick={signInDriver}>
-            دخول بحساب كابتن تجريبي
-          </Btn>
+          {remote && (
+            <Btn variant="light" full size="lg" onClick={() => setStep('otp')}>
+              لدي حساب — تسجيل الدخول
+            </Btn>
+          )}
+          {(!remote || getServerInfo().demo) && (
+            <Btn variant="light" full size="lg" onClick={() => (remote ? demoLogin('driver').catch((e: Error) => setErr(e.message)) : signInDriver())}>
+              دخول بحساب كابتن تجريبي
+            </Btn>
+          )}
+          {err && <p className="text-center text-sm text-[#ff7a93]">{err}</p>}
         </div>
       </div>
     )
+
+  if (step === 'otp') return <PhoneOtp role="driver" dark title="رقم جوالك ككابتن" onBack={() => setStep('splash')} onVerified={() => undefined} />
 
   const idx = ['personal', 'vehicle', 'docs'].indexOf(step)
   const inp = 'h-12 w-full rounded-xl bg-white/10 px-4 text-white outline-none placeholder:text-white/35 focus:ring-2 focus:ring-lime'
@@ -54,7 +68,7 @@ export function DriverAuth() {
     <div className="relative flex h-full flex-col bg-ink text-white">
       <StatusBar dark />
       <div className="px-6 pt-14">
-        <button onClick={() => setStep(idx === 0 ? 'splash' : (['personal', 'vehicle'][idx - 1] as 'personal'))} className="text-sm font-semibold text-white/55">
+        <button onClick={() => (idx === 0 ? (registering ? signOutDriver() : setStep('splash')) : setStep(['personal', 'vehicle'][idx - 1] as 'personal'))} className="text-sm font-semibold text-white/55">
           → رجوع
         </button>
         <div className="mt-4 flex gap-1.5">
@@ -68,7 +82,8 @@ export function DriverAuth() {
           <div className="space-y-3">
             <h2 className="text-2xl font-bold">معلوماتك الشخصية</h2>
             <input className={inp} placeholder="الاسم الكامل" value={f.name} onChange={(e) => set('name', e.target.value)} />
-            <input className={inp} placeholder="رقم الجوال 05XXXXXXXX" dir="ltr" inputMode="numeric" value={f.phone} onChange={(e) => set('phone', e.target.value.replace(/\D/g, '').slice(0, 10))} />
+            {!remote && <input className={inp} placeholder="رقم الجوال 05XXXXXXXX" dir="ltr" inputMode="numeric" value={f.phone} onChange={(e) => set('phone', e.target.value.replace(/\D/g, '').slice(0, 10))} />}
+            {remote && <p className="text-sm text-lime">✓ تم التحقق من رقم جوالك</p>}
             <div className="flex gap-2">
               {(
                 [
@@ -126,19 +141,28 @@ export function DriverAuth() {
         )}
       </div>
       <div className="p-6">
+        {err && <p className="mb-2 text-center text-sm text-[#ff7a93]">{err}</p>}
         <Btn
           variant="lime"
           full
           size="lg"
           disabled={
-            (step === 'personal' && (f.name.trim().length < 3 || f.phone.length < 10)) ||
+            busy ||
+            (step === 'personal' && (f.name.trim().length < 3 || (!remote && f.phone.length < 10))) ||
             (step === 'vehicle' && (!f.make || !f.model || !f.plate || f.year < 2018 || f.categories.length === 0)) ||
             (step === 'docs' && docList.some(([k]) => !docs[k]))
           }
           onClick={() => {
             if (step === 'personal') setStep('vehicle')
             else if (step === 'vehicle') setStep('docs')
-            else registerDriver({ ...f })
+            else if (!remote) registerDriver({ ...f })
+            else {
+              setBusy(true)
+              setErr('')
+              registerDriverAccount({ ...f })
+                .catch((e: Error) => setErr(e.message))
+                .finally(() => setBusy(false))
+            }
           }}
         >
           {step === 'docs' ? 'إرسال الطلب' : 'التالي'}

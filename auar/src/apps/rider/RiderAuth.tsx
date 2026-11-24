@@ -1,14 +1,17 @@
 import { useState } from 'react'
 import { Btn, Logo, StatusBar } from '../../components/ui'
-import { signInRider, useStore } from '../../store/store'
+import { PhoneOtp } from '../../components/PhoneOtp'
+import { demoLogin, getMode, getServerInfo, signInRider, updateRider, useStore } from '../../store/store'
 
 export function RiderAuth() {
   const s = useStore()
-  const r = s.riders.find((x) => x.id === s.me.riderId)!
+  const r = s.riders.find((x) => x.id === s.me.riderId)
+  const remote = getMode() === 'remote'
   const [step, setStep] = useState<'splash' | 'phone' | 'otp' | 'name'>('splash')
   const [phone, setPhone] = useState('')
   const [otp, setOtp] = useState('')
-  const [name, setName] = useState(r.name)
+  const [name, setName] = useState(r?.name ?? '')
+  const [err, setErr] = useState('')
 
   if (step === 'splash')
     return (
@@ -31,12 +34,18 @@ export function RiderAuth() {
           <Btn variant="lime" full size="lg" onClick={() => setStep('phone')}>
             ابدأ الآن
           </Btn>
-          <Btn variant="light" full size="lg" onClick={() => signInRider('', '')}>
-            الدخول بحساب تجريبي
-          </Btn>
+          {(!remote || getServerInfo().demo) && (
+            <Btn variant="light" full size="lg" onClick={() => (remote ? demoLogin('rider').catch((e) => setErr(e.message)) : signInRider('', ''))}>
+              الدخول بحساب تجريبي
+            </Btn>
+          )}
+          {err && <p className="text-center text-sm text-[#ff7a93]">{err}</p>}
         </div>
       </div>
     )
+
+  // real sign-in against the server; a new account then completes its name in RiderProfileStep
+  if (remote) return <PhoneOtp role="rider" onBack={() => setStep('splash')} onVerified={() => undefined} />
 
   return (
     <div className="relative flex h-full flex-col bg-white">
@@ -60,7 +69,7 @@ export function RiderAuth() {
           <>
             <h2 className="text-2xl font-bold">أدخل رمز التحقق</h2>
             <p className="mt-1 text-sm text-mute">
-              أُرسل الرمز إلى <span dir="ltr">+966 {phone}</span> — (تجريبي: أي ٤ أرقام)
+              أُرسل الرمز إلى <span dir="ltr">+966 {phone}</span> — (وضع العرض: أي ٤ أرقام)
             </p>
             <input autoFocus inputMode="numeric" value={otp} onChange={(e) => setOtp(e.target.value.replace(/\D/g, '').slice(0, 4))} dir="ltr" className="mt-6 h-16 w-full rounded-xl bg-mist text-center text-3xl font-bold tracking-[0.6em] outline-none focus:ring-2 focus:ring-ink" placeholder="••••" />
           </>
@@ -84,6 +93,41 @@ export function RiderAuth() {
             else signInRider(name, `0${phone}`)
           }}
         >
+          متابعة
+        </Btn>
+      </div>
+    </div>
+  )
+}
+
+/** Shown once after a new rider verifies their phone (remote mode). */
+export function RiderProfileStep() {
+  const [name, setName] = useState('')
+  const [gender, setGender] = useState<'m' | 'f'>('m')
+  const [busy, setBusy] = useState(false)
+  return (
+    <div className="relative flex h-full flex-col bg-white">
+      <StatusBar />
+      <div className="flex-1 px-6 pt-16">
+        <h2 className="text-2xl font-bold">أهلاً بك في AUAR</h2>
+        <p className="mt-1 text-sm text-mute">أكمل ملفك — يظهر اسمك للكابتن عند الطلب.</p>
+        <input autoFocus value={name} onChange={(e) => setName(e.target.value)} placeholder="الاسم" className="mt-6 h-14 w-full rounded-xl bg-mist px-4 text-lg outline-none focus:ring-2 focus:ring-ink" />
+        <div className="mt-3 flex gap-2">
+          {(
+            [
+              ['m', 'ذكر'],
+              ['f', 'أنثى'],
+            ] as const
+          ).map(([g, l]) => (
+            <button key={g} onClick={() => setGender(g)} className={`h-12 flex-1 rounded-xl font-semibold ${gender === g ? 'bg-ink text-white' : 'bg-mist'}`}>
+              {l}
+            </button>
+          ))}
+        </div>
+        <p className="mt-2 text-xs text-mute">نستخدم الجنس لإتاحة خدمة AUAR Her للراكبات فقط.</p>
+      </div>
+      <div className="p-6">
+        <Btn full size="lg" disabled={busy || name.trim().length < 2} onClick={() => { setBusy(true); updateRider({ name: name.trim(), gender }).finally(() => setBusy(false)) }}>
           متابعة
         </Btn>
       </div>

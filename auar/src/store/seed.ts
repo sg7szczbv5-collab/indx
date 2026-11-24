@@ -142,6 +142,24 @@ function pastTrip(s: State, i: number, now: number): Trip {
   }
 }
 
+/** Production start: services and settings only, no people or trips. */
+export function seedProduction(): State {
+  return {
+    v: 4,
+    riders: [],
+    drivers: [],
+    trips: [],
+    promos: [{ code: 'WELCOME', kind: 'flat', value: 10, maxDiscount: 10, active: true, uses: 0, limit: 5000, desc: '١٠ ر.س على رحلتك الأولى' }],
+    tickets: [],
+    notices: [],
+    categories: structuredClone(CATEGORIES),
+    settings: { commission: 0.2, cancelFee: 10, freeCancelSec: 120, vat: 0.15, surgeOn: false, surge: 1.4, autoBots: false, speed: 1, offerSec: 20, riderOnlyWomenDrivers: true },
+    log: [{ at: Date.now(), text: 'تم تشغيل المنصة' }],
+    payments: [],
+    me: { riderId: '', driverId: '', riderSignedIn: false, driverSignedIn: false },
+  }
+}
+
 export function seed(): State {
   const now = Date.now()
   const drivers: Driver[] = []
@@ -179,7 +197,7 @@ export function seed(): State {
   ]
 
   const s: State = {
-    v: 3,
+    v: 4,
     riders,
     drivers,
     trips: [],
@@ -193,7 +211,7 @@ export function seed(): State {
       { id: 'N1', audience: 'drivers', title: 'ساعات الذروة الليلة', body: 'الطلب مرتفع قرب بوليفارد رياض سيتي من ٩ مساءً — أرباح إضافية ×١.٣', at: now - 3600000 * 3 },
       { id: 'N2', audience: 'riders', title: 'خصم ٢٠٪', body: 'استخدم الرمز AUAR20 على رحلاتك هذا الأسبوع', at: now - 3600000 * 20 },
     ],
-    categories: CATEGORIES,
+    categories: structuredClone(CATEGORIES),
     settings: {
       commission: 0.2,
       cancelFee: 10,
@@ -207,6 +225,7 @@ export function seed(): State {
       riderOnlyWomenDrivers: true,
     },
     log: [{ at: now - 600000, text: 'تم تشغيل المنصة' }],
+    payments: [],
     me: { riderId: 'R100', driverId: 'D100', riderSignedIn: false, driverSignedIn: false },
   }
   s.trips = Array.from({ length: 46 }, (_, i) => pastTrip(s, i + 1, now))
@@ -215,6 +234,9 @@ export function seed(): State {
     if (i % 2 === 0) t.riderId = 'R100'
     if (i % 3 === 0 && t.status === 'completed') t.driverId = 'D100'
   })
+  s.payments = s.trips
+    .filter((t) => t.status === 'completed')
+    .map((t, i) => ({ id: `P${9000 + i}`, kind: 'trip' as const, tripId: t.id, riderId: t.riderId, driverId: t.driverId, method: t.payment, amount: t.fare, status: 'paid' as const, provider: (t.payment === 'cash' ? 'cash' : 'internal') as 'cash' | 'internal', at: t.completedAt! }))
   s.tickets = [
     {
       id: 'TK101',

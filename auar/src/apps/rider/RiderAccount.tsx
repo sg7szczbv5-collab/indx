@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Clock, Wallet, Tag, ShieldCheck, LifeBuoy, Settings, Bell, LogOut, ChevronLeft, Plus, Car, Star, Check, Send } from 'lucide-react'
 import { Avatar, Badge, Btn, Field, Header, PaymentIcon, PAY_LABEL, RatingPill, Row, Toggle, VehicleArt } from '../../components/ui'
 import { ago, dayTime, money } from '../../lib/format'
-import { findPromo, openTicket, signOutRider, topUp, updateRider, useStore } from '../../store/store'
+import { findPromo, getMode, getServerInfo, openTicket, signOutRider, topUp, updateRider, useStore } from '../../store/store'
 import type { PaymentMethod } from '../../store/types'
 
 export type PageId = 'trips' | 'wallet' | 'promos' | 'safety' | 'support' | 'settings' | 'notifications'
@@ -140,6 +140,8 @@ function WalletPage({ onBack }: { onBack: () => void }) {
   const r = s.riders.find((x) => x.id === s.me.riderId)!
   const [amt, setAmt] = useState(50)
   const [done, setDone] = useState(false)
+  const [busy, setBusy] = useState(false)
+  const [err, setErr] = useState('')
   return (
     <>
       <Header title="المحفظة" onBack={onBack} />
@@ -160,9 +162,27 @@ function WalletPage({ onBack }: { onBack: () => void }) {
             </button>
           ))}
         </div>
-        <Btn full size="lg" className="mt-3" onClick={() => { topUp(amt); setDone(true) }}>
-          {done ? <><Check size={18} /> تم الشحن</> : `شحن ${money(amt)} عبر Apple Pay`}
+        <Btn
+          full
+          size="lg"
+          className="mt-3"
+          disabled={busy}
+          onClick={() => {
+            setBusy(true)
+            setErr('')
+            topUp(amt)
+              .then((r) => {
+                if (r.url) location.href = r.url
+                else setDone(true)
+              })
+              .catch((e: Error) => setErr(e.message))
+              .finally(() => setBusy(false))
+          }}
+        >
+          {done ? <><Check size={18} /> تم الشحن</> : `شحن ${money(amt)} بالبطاقة`}
         </Btn>
+        {err && <p className="mt-2 text-sm text-bad">{err}</p>}
+        {getMode() === 'remote' && getServerInfo().payments === 'moyasar' && <p className="mt-2 text-xs text-mute">ستنتقل إلى صفحة دفع آمنة (مدى، فيزا، ماستركارد، Apple Pay) ثم تعود للتطبيق.</p>}
         <h3 className="mt-7 font-bold">طرق الدفع</h3>
         <div className="mt-1">
           {(['card', 'apple', 'wallet', 'cash'] as PaymentMethod[]).map((m) => (

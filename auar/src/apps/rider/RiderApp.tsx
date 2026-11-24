@@ -6,9 +6,10 @@ import { Map } from '../../components/Map'
 import { Btn, IconBtn, Sheet, StatusBar, VehicleArt, PaymentIcon, PAY_LABEL, Row, Badge } from '../../components/ui'
 import { PLACES, kmToMin, route, routeKm, snapToRoad, type Place, type PlaceKind, type Point } from '../../lib/geo'
 import { money, mins, km, clock } from '../../lib/format'
-import { driverPose, fareFor, findPromo, isLive, nearbyFor, requestTrip, useNow, useStore } from '../../store/store'
+import { driverPose, fareFor, findPromo, isLive, nearbyFor, requestTrip, useNow, useSession, useStore } from '../../store/store'
 import type { CategoryId, Loc, PaymentMethod, Trip } from '../../store/types'
-import { RiderAuth } from './RiderAuth'
+import { RiderAuth, RiderProfileStep } from './RiderAuth'
+import { Loading } from '../../components/PhoneOtp'
 import { RiderTrip } from './RiderTrip'
 import { RiderMenu, RiderPage, type PageId } from './RiderAccount'
 
@@ -25,12 +26,14 @@ type Screen = 'home' | 'search' | 'choose'
 export function RiderApp() {
   const s = useStore()
   const now = useNow(300)
-  const rider = s.riders.find((r) => r.id === s.me.riderId)!
+  const session = useSession('rider')
+  const riderOrNone = s.riders.find((r) => r.id === s.me.riderId)
+  const rider = riderOrNone!
   const [screen, setScreen] = useState<Screen>('home')
   const [pickup, setPickup] = useState<Loc>(CURRENT)
   const [dropoff, setDropoff] = useState<Loc | null>(null)
   const [cat, setCat] = useState<CategoryId>('go')
-  const [pay, setPay] = useState<PaymentMethod>(rider.defaultPayment)
+  const [pay, setPay] = useState<PaymentMethod>(riderOrNone?.defaultPayment ?? 'card')
   const [promo, setPromo] = useState<string>('')
   const [menu, setMenu] = useState(false)
   const [page, setPage] = useState<PageId | null>(null)
@@ -39,10 +42,12 @@ export function RiderApp() {
 
   const myTrip: Trip | undefined = useMemo(() => {
     if (watchId) return s.trips.find((t) => t.id === watchId)
-    return s.trips.find((t) => t.riderId === rider.id && isLive(t))
-  }, [s.trips, watchId, rider.id])
+    return s.trips.find((t) => t.riderId === riderOrNone?.id && isLive(t))
+  }, [s.trips, watchId, riderOrNone?.id])
 
-  if (!s.me.riderSignedIn) return <RiderAuth />
+  if (session.loading) return <Loading />
+  if (!s.me.riderSignedIn || !riderOrNone) return <RiderAuth />
+  if (!rider.name) return <RiderProfileStep />
 
   if (rider.blocked)
     return (
@@ -190,10 +195,7 @@ export function RiderApp() {
           setPromo={setPromo}
           courier={mode === 'courier'}
           onBack={() => setScreen('search')}
-          onRequested={(id) => {
-            setWatchId(null)
-            void id
-          }}
+          onRequested={() => undefined}
           onScheduled={() => {
             setScreen('home')
             setPage('trips')
@@ -353,10 +355,19 @@ function ChooseRide(props: {
   const herBlocked = selected.id === 'her' && rider.gender !== 'f'
   const walletShort = pay === 'wallet' && rider.wallet < q.fare
 
+  const [busy, setBusy] = useState(false)
+  const [reqErr, setReqErr] = useState('')
   const go = () => {
-    const id = requestTrip({ pickup, dropoff, category: selected.id, payment: pay, promo: promo || undefined, scheduledFor: schedule ?? undefined, note: note || undefined })
-    if (schedule) props.onScheduled()
-    else props.onRequested(id)
+    setBusy(true)
+    setReqErr('')
+    requestTrip({ pickup, dropoff, category: selected.id, payment: pay, promo: promo || undefined, scheduledFor: schedule ?? undefined, note: note || undefined })
+      .then((id) => {
+        if (!id) return setReqErr('تعذر إنشاء الطلب. تحقق من طريقة الدفع أو أن لديك رحلة جارية.')
+        if (schedule) props.onScheduled()
+        else props.onRequested(id)
+      })
+      .catch((e: Error) => setReqErr(e.message || 'تعذر الاتصال بالخادم. حاول مرة أخرى.'))
+      .finally(() => setBusy(false))
   }
 
   return (
@@ -431,7 +442,8 @@ function ChooseRide(props: {
           </div>
           {herBlocked && <p className="mb-2 text-[13px] text-bad">خدمة AUAR Her متاحة لحسابات الراكبات فقط.</p>}
           {walletShort && <p className="mb-2 text-[13px] text-bad">رصيد المحفظة غير كافٍ — اشحن المحفظة أو اختر طريقة أخرى.</p>}
-          <Btn full size="lg" disabled={herBlocked || walletShort || (!etaOf(selected.id) && !schedule)} onClick={go}>
+          {reqErr && <p className="mb-2 text-[13px] text-bad">{reqErr}</p>}
+          <Btn full size="lg" disabled={busy || herBlocked || walletShort || (!etaOf(selected.id) && !schedule)} onClick={go}>
             {schedule ? `جدولة ${selected.name} — ${clock(schedule)}` : `اطلب ${selected.name}`}
           </Btn>
         </div>
