@@ -1,0 +1,186 @@
+@import "tailwindcss";
+
+/*
+ * AURA design tokens.
+ * Source: AURA Brand Book v1.0, sections 04 (colour) and 05 (type).
+ * Four official colours only; every other value is a tint/shade of them,
+ * plus two functional colours (danger, warning) reserved for errors and safety.
+ */
+@theme {
+  --font-sans: "IBM Plex Sans Arabic", system-ui, -apple-system, "Segoe UI", Tahoma, sans-serif;
+  --font-display: "Readex Pro", "IBM Plex Sans Arabic", system-ui, sans-serif;
+
+  /* Official palette */
+  --color-ink: #101112; /* Aura Black */
+  --color-paper: #ffffff; /* Pure White */
+  --color-go: #78b83f; /* Motion Green: movement, location, live state, interaction only */
+  --color-road: #f3f4f2; /* Road Gray */
+
+  /* Derived neutrals (from Aura Black / Road Gray) */
+  --color-ink-2: #18191b;
+  --color-ink-3: #212325;
+  --color-ink-4: #2b2d30;
+  --color-ink-5: #3a3d40;
+  --color-line: #e5e6e3;
+  --color-line-2: #d6d8d4;
+  --color-mute: #6b6e71;
+  --color-mute-2: #9b9ea1;
+  --color-road-2: #e9eae7;
+
+  /* Derived from Motion Green */
+  --color-go-soft: #eef6e7;
+  --color-go-2: #8fc75c;
+  --color-go-deep: #4f7f24; /* green text on white (AA large) */
+
+  /* Functional (not brand colours: errors, SOS, pending) */
+  --color-danger: #d64541;
+  --color-danger-soft: #fbeceb;
+  --color-warn: #c98a00;
+  --color-warn-soft: #fbf3e0;
+
+  --radius-xl: 14px;
+  --radius-2xl: 20px;
+  --radius-3xl: 28px;
+
+  --ease-aura: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-road);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* Numbers: Readex Pro, tabular, always LTR so prices and plates read correctly in Arabic. */
+.num {
+  font-family: var(--font-display);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.thin-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #d6d8d4 transparent;
+}
+.thin-scroll-dark {
+  scrollbar-width: thin;
+  scrollbar-color: #3a3d40 transparent;
+}
+
+/* Λ field pattern (brand book 06): background for marketing surfaces. */
+.aura-field {
+  background-color: var(--color-ink);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='44' height='40' viewBox='0 0 44 40'%3E%3Cpath d='M12 28 L22 11 L32 28' fill='none' stroke='%23ffffff' stroke-opacity='0.045' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+/* 58° hatch (brand book 06): illustrative maps and empty states. */
+.aura-hatch {
+  background-image: repeating-linear-gradient(
+    -58deg,
+    transparent 0 11px,
+    rgba(16, 17, 18, 0.07) 11px 12px
+  );
+}
+
+/* Search pulse (brand book 06): the green halo that breathes around the rider. */
+@keyframes aura-pulse {
+  0% {
+    transform: scale(0.55);
+    opacity: 0.55;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+.aura-pulse {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: aura-pulse 2.4s var(--ease-aura) infinite;
+}
+.aura-pulse-2 {
+  animation-delay: 1.2s;
+}
+
+@keyframes aura-dash {
+  to {
+    stroke-dashoffset: -120;
+  }
+}
+.aura-dash {
+  stroke-dasharray: 2 10;
+  animation: aura-dash 5s linear infinite;
+}
+
+@keyframes aura-shimmer {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+.aura-skeleton {
+  background: linear-gradient(90deg, #eceeeb 25%, #f6f7f5 50%, #eceeeb 75%);
+  background-size: 200% 100%;
+  animation: aura-shimmer 1.4s linear infinite;
+}
+.aura-skeleton-dark {
+  background: linear-gradient(90deg, #212325 25%, #2b2d30 50%, #212325 75%);
+  background-size: 200% 100%;
+  animation: aura-shimmer 1.4s linear infinite;
+}
+
+input[type="range"].aura-range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  border-radius: 99px;
+  background: var(--color-line-2);
+  outline: none;
+}
+input[type="range"].aura-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--color-ink);
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 1px var(--color-ink);
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-go);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
