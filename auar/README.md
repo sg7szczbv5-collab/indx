@@ -4,10 +4,10 @@ A complete ride-hailing system in three apps that share one live state:
 
 | App | Route | Purpose |
 |---|---|---|
-| Rider app | `#/rider` | Book rides and deliveries, track live, pay, rate |
-| Driver app | `#/driver` | Receive requests, navigate, earnings, sign-up |
-| Admin dashboard | `#/admin` | Live operations, approvals, pricing, offers, support |
-| Live demo | `#/demo` | All three together on one screen |
+| Rider app | `#rider` | Book rides and deliveries, track live, pay, rate |
+| Driver app | `#driver` | Receive requests, navigate, earnings, sign-up |
+| Admin dashboard | `#admin` | Live operations, approvals, pricing, offers, support |
+| Live demo | `#demo` | All three together on one screen |
 
 The interface is Arabic (RTL), with currency in SAR and a simulated map of Riyadh. The map is offline SVG and needs no API keys.
 

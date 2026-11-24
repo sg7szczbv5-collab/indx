@@ -46,7 +46,7 @@ export function RiderMenu({ onClose, onOpen }: { onClose: () => void; onOpen: (p
             <Row key={id} icon={<I size={18} />} title={l} onClick={() => onOpen(id)} right={<ChevronLeft size={18} className="text-mute" />} />
           ))}
           <div className="my-2 h-px bg-line" />
-          <a href="#/driver" className="flex items-center gap-3.5 rounded-xl px-2 py-3 hover:bg-mist">
+          <a href="#driver" className="flex items-center gap-3.5 rounded-xl px-2 py-3 hover:bg-mist">
             <span className="grid h-10 w-10 place-items-center rounded-full bg-lime">
               <Car size={18} />
             </span>

@@ -45,7 +45,7 @@ export function AdminApp() {
         <div className="flex items-center justify-between px-5 py-4 lg:py-6">
           <Logo size={30} light tag="ADMIN" />
           <div className="flex gap-2 lg:hidden">
-            <a href="#/" className="text-xs text-white/60">
+            <a href="#home" className="text-xs text-white/60">
               الرئيسية
             </a>
           </div>
@@ -62,7 +62,7 @@ export function AdminApp() {
         <div className="hidden border-t border-white/10 p-4 text-xs text-white/50 lg:block">
           <p className="font-semibold text-white">مدير النظام</p>
           <p>admin@auar.app</p>
-          <a href="#/" className="mt-2 inline-flex items-center gap-1 text-lime">
+          <a href="#home" className="mt-2 inline-flex items-center gap-1 text-lime">
             <ExternalLink size={12} /> بوابة التطبيقات
           </a>
         </div>

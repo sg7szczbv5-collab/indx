@@ -44,8 +44,8 @@ function PhoneShell({ children, dark, title, other }: { children: ReactNode; dar
         <p className={`mt-2 text-sm ${dark ? 'text-white/55' : 'text-mute'}`}>افتح التطبيق الآخر في نافذة ثانية — كل شيء يتزامن مباشرة بين الراكب والكابتن ولوحة الإدارة.</p>
         <div className="mt-6 flex flex-col gap-2 text-sm font-semibold">
           <a href={other[0]} target="_blank" rel="noreferrer" className="text-sky">{other[1]} ↗</a>
-          <a href="#/admin" target="_blank" rel="noreferrer" className="text-sky">لوحة الإدارة ↗</a>
-          <a href="#/" className={dark ? 'text-white/60' : 'text-mute'}>← بوابة AUAR</a>
+          <a href="#admin" target="_blank" rel="noreferrer" className="text-sky">لوحة الإدارة ↗</a>
+          <a href="#home" className={dark ? 'text-white/60' : 'text-mute'}>← بوابة AUAR</a>
         </div>
       </div>
       <PhoneFrame dark={dark}>{children}</PhoneFrame>
@@ -60,13 +60,13 @@ export function App() {
   }, [r])
   if (r === 'rider')
     return (
-      <PhoneShell title="تطبيق الراكب" other={['#/driver', 'تطبيق الكابتن']}>
+      <PhoneShell title="تطبيق الراكب" other={['#driver', 'تطبيق الكابتن']}>
         <RiderApp />
       </PhoneShell>
     )
   if (r === 'driver')
     return (
-      <PhoneShell dark title="تطبيق الكابتن" other={['#/rider', 'تطبيق الراكب']}>
+      <PhoneShell dark title="تطبيق الكابتن" other={['#rider', 'تطبيق الراكب']}>
         <DriverApp />
       </PhoneShell>
     )
@@ -81,7 +81,7 @@ function Demo() {
       <header className="flex flex-wrap items-center justify-between gap-3 bg-ink px-6 py-4 text-white">
         <Logo size={30} light />
         <p className="text-sm text-white/60">العرض المباشر: الراكب والكابتن والإدارة في شاشة واحدة — اطلب رحلة وتابعها في كل مكان</p>
-        <a href="#/" className="text-sm font-semibold text-lime">← البوابة</a>
+        <a href="#home" className="text-sm font-semibold text-lime">← البوابة</a>
       </header>
       <div className="flex flex-wrap items-start justify-center gap-8 p-6">
         <div>
@@ -105,26 +105,26 @@ function Demo() {
 
 function Launcher() {
   const apps: { href: string; title: string; sub: string; icon: typeof Car; dark?: boolean; lime?: boolean; points: string[] }[] = [
-    { href: '#/rider', title: 'تطبيق الراكب', sub: 'اطلب رحلتك في ثوانٍ', icon: Smartphone, points: ['٧ خدمات: Go، Comfort، XL، Black، Her، Moto، توصيل', 'تتبع مباشر، رمز PIN، محادثة واتصال مخفي', 'جدولة، أكواد خصم، محفظة، تقييم وإكرامية'] },
-    { href: '#/driver', title: 'تطبيق الكابتن', sub: 'قُد واكسب بوقتك', icon: Car, dark: true, points: ['استقبال الطلبات مع عداد قبول', 'ملاحة خطوة بخطوة وبدء الرحلة برمز التحقق', 'الأرباح الأسبوعية والسحب الفوري والتسجيل'] },
-    { href: '#/admin', title: 'لوحة تحكم الإدارة', sub: 'تحكم كامل في المنصة', icon: LayoutDashboard, lime: true, points: ['خريطة العمليات المباشرة والإحصاءات', 'قبول الكباتن، حظر الركاب، استرداد المبالغ', 'التسعير والذروة والعروض والدعم والإشعارات'] },
+    { href: '#rider', title: 'تطبيق الراكب', sub: 'اطلب رحلتك في ثوانٍ', icon: Smartphone, points: ['٧ خدمات: Go، Comfort، XL، Black، Her، Moto، توصيل', 'تتبع مباشر، رمز PIN، محادثة واتصال مخفي', 'جدولة، أكواد خصم، محفظة، تقييم وإكرامية'] },
+    { href: '#driver', title: 'تطبيق الكابتن', sub: 'قُد واكسب بوقتك', icon: Car, dark: true, points: ['استقبال الطلبات مع عداد قبول', 'ملاحة خطوة بخطوة وبدء الرحلة برمز التحقق', 'الأرباح الأسبوعية والسحب الفوري والتسجيل'] },
+    { href: '#admin', title: 'لوحة تحكم الإدارة', sub: 'تحكم كامل في المنصة', icon: LayoutDashboard, lime: true, points: ['خريطة العمليات المباشرة والإحصاءات', 'قبول الكباتن، حظر الركاب، استرداد المبالغ', 'التسعير والذروة والعروض والدعم والإشعارات'] },
   ]
   return (
     <div className="min-h-[100dvh] bg-ink text-white">
       <div className="mx-auto max-w-6xl px-5 py-8 md:py-12">
         <header className="flex items-center justify-between">
           <Logo size={40} light />
-          <a href="#/demo" className="hidden rounded-full border border-white/20 px-4 py-2 text-sm font-semibold hover:bg-white/10 sm:inline-flex">العرض المباشر</a>
+          <a href="#demo" className="hidden rounded-full border border-white/20 px-4 py-2 text-sm font-semibold hover:bg-white/10 sm:inline-flex">العرض المباشر</a>
         </header>
         <section className="mt-14 md:mt-20">
           <p className="text-sm font-semibold tracking-wide text-lime">منصة نقل ذكي متكاملة</p>
           <h1 className="mt-3 max-w-3xl text-[40px] font-bold leading-[1.12] md:text-6xl">تنقّل بلا توتر، <br className="hidden md:block" />في أي وقت.</h1>
           <p className="mt-5 max-w-xl text-lg text-white/60">ثلاثة تطبيقات تعمل معاً لحظة بلحظة: الراكب يطلب، الكابتن يقبل ويوصل، والإدارة تراقب وتتحكم في كل شيء.</p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <a href="#/demo" className="inline-flex h-14 items-center gap-2 rounded-2xl bg-lime px-6 text-base font-bold text-ink hover:bg-lime-2">
+            <a href="#demo" className="inline-flex h-14 items-center gap-2 rounded-2xl bg-lime px-6 text-base font-bold text-ink hover:bg-lime-2">
               <MonitorSmartphone size={20} /> جرّب الثلاثة معاً
             </a>
-            <a href="#/rider" className="inline-flex h-14 items-center gap-2 rounded-2xl bg-white/10 px-6 text-base font-bold hover:bg-white/15">
+            <a href="#rider" className="inline-flex h-14 items-center gap-2 rounded-2xl bg-white/10 px-6 text-base font-bold hover:bg-white/15">
               اطلب رحلة <ArrowLeft size={18} />
             </a>
           </div>
