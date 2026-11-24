@@ -115,7 +115,7 @@ export default function App() {
   const Current = registry[slidesNav[index].id];
 
   return (
-    <div className="relative flex h-[100dvh] flex-col overflow-hidden" dir="rtl">
+    <div className="relative flex h-full flex-col overflow-hidden" dir="rtl">
       <Background />
       <main
         className="relative z-10 flex-1 overflow-hidden"
