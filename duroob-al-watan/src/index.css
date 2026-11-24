@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+html, body, #root { height: 100%; }
+body {
+  @apply bg-navy text-snow font-sans antialiased;
+  margin: 0;
+  overflow: hidden;
+}
+* { -webkit-tap-highlight-color: transparent; }
+
+@layer components {
+  .glass {
+    @apply bg-white/[0.04] border border-white/10 backdrop-blur-md;
+  }
+  .glass-strong {
+    @apply bg-navy-800/80 border border-white/10 backdrop-blur-xl;
+  }
+  .focus-ring {
+    @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-sand focus-visible:ring-offset-2 focus-visible:ring-offset-navy;
+  }
+  .text-gradient-gold {
+    @apply bg-gradient-to-l from-sand-pale via-sand-light to-sand bg-clip-text text-transparent;
+  }
+}
+
+.slide-scroll::-webkit-scrollbar { width: 6px; }
+.slide-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,.15); border-radius: 9999px; }
+
+@keyframes dash { to { stroke-dashoffset: -40; } }
+.road-dash { animation: dash 1.6s linear infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .road-dash { animation: none; }
+}
