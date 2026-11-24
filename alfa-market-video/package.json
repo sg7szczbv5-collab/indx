@@ -1,0 +1,26 @@
+{
+  "name": "alfa-market-video",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Alfa Market 2D cartoon promo (Remotion)",
+  "scripts": {
+    "dev": "remotion studio",
+    "build": "remotion render AlfaMarketPromo out/alfa-market.mp4",
+    "still": "remotion still AlfaMarketPromo out/still.png --frame=300",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@fontsource/cairo": "5.3.0",
+    "@fontsource/lalezar": "5.3.0",
+    "@remotion/cli": "4.0.546",
+    "@remotion/tailwind-v4": "4.0.546",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "remotion": "4.0.546",
+    "tailwindcss": "4.1.11"
+  },
+  "devDependencies": {
+    "@types/react": "19.1.8",
+    "typescript": "5.8.3"
+  }
+}

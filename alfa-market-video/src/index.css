@@ -1,0 +1,13 @@
+@import "tailwindcss";
+@import "@fontsource/lalezar/400.css";
+@import "@fontsource/cairo/700.css";
+@import "@fontsource/cairo/900.css";
+
+@theme {
+  --font-display: "Lalezar", "Cairo", sans-serif;
+  --font-body: "Cairo", sans-serif;
+  --color-alfa-green: #16a34a;
+  --color-alfa-green-light: #22c55e;
+  --color-alfa-red: #dc2626;
+  --color-cream: #fffbeb;
+}
